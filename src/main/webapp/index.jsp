@@ -15,6 +15,7 @@
 <LI><a href="article">article</a>
 <LI><a href="product">product management(CRUD)</a>
 <LI><a href="test">test</a>
+<LI><a href="test">test</a>
 <LI><a href="sa_register">sa_register</a>
 </UL>
 </body>
