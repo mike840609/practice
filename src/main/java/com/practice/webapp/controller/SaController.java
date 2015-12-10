@@ -27,9 +27,9 @@ public class SaController
 {
 	ApplicationContext context = new ClassPathXmlApplicationContext("spring-module.xml");
    
-	@RequestMapping(value = "/test", method = RequestMethod.GET)      
+	@RequestMapping(value = "/sa_login", method = RequestMethod.GET)      
 	public ModelAndView test()  {
-		ModelAndView model = new ModelAndView("test");
+		ModelAndView model = new ModelAndView("sa_login");
 	return model;
 	}
 	
