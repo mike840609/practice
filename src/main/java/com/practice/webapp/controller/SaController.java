@@ -124,6 +124,7 @@ public class SaController
 		}
 		else{
 			System.out.println("failed!");
+			model = new ModelAndView("sa_login");
 		}
 		
 		//=================================

@@ -25,7 +25,6 @@ public class sa_AccountDAOImpl implements sa_AccountDAO
 
 //		String sql = "SELECT * FROM student WHERE account = ? AND pwd =?";
 		String sql = "SELECT * FROM student WHERE account = ? ";
-//		String sql = "SELECT * FROM student " + "WHERE account = '" + account.getAccount() + "'";
 		
 		try {
 			conn = dataSource.getConnection();
@@ -58,6 +57,9 @@ public class sa_AccountDAOImpl implements sa_AccountDAO
 			if (conn != null) {
 				try {
 					conn.close();
+					rs.close();
+					smt.close();
+					
 				} catch (SQLException e) {}
 			}
 		
