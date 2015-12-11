@@ -1,8 +1,10 @@
 package com.practice.webapp.controller;
 
+import java.lang.Thread.State;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.codehaus.jackson.annotate.JsonTypeInfo.Id;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import com.practice.webapp.dao.StudentDAO;
+import com.practice.webapp.dao.sa_AccountDAO;
 import com.practice.webapp.dao.sa_TestPlaceDAO;
 import com.practice.webapp.entity.Student;
 import com.practice.webapp.entity.sa_Account;
@@ -100,8 +103,8 @@ public class SaController
 		ModelAndView model = new ModelAndView("test");
 	return model;
 	}
-	//account ==================================================
 
+	//account ==================================================
 
 	@RequestMapping(value = "/sa_login", method = RequestMethod.GET)      
 	public ModelAndView login()  {
@@ -112,25 +115,37 @@ public class SaController
 	@RequestMapping(value = "/sa_login", method = RequestMethod.POST)
 	public ModelAndView checkLogin(@ModelAttribute sa_Account account) {
 		ModelAndView model = new ModelAndView("redirect:/sa_register");
+		//connect to database==============
 		
-		//you can modify this part to check username and password with DB, AD, LDAP, or open id
-		
-		if ("sa".equals(account.getAccount()) && "ilovesa".equals(account.getPwd())){
-			//save username and password in the session bean
-			sa_Account account_session = (sa_Account)context.getBean("account");
-			account_session.setAccount(account.getAccount());
-			account_session.setPwd(account.getPwd());
+        sa_AccountDAO accountCheck = (sa_AccountDAO)context.getBean("accountCheck");
+		boolean State = accountCheck.loginCheck(account);
+		if(State==true){
 			System.out.println("Successful!");
 		}
 		else{
-			model = new ModelAndView("test");
-			model.addObject("message", "登入失敗");
 			System.out.println("failed!");
-			//reset username and password in the session bean
-			sa_Account account_session = (sa_Account)context.getBean("account");
-			account_session.setAccount("");
-			account_session.setPwd("");
-		}	
+		}
+		
+		//=================================
+		//you can modify this part to check username and password with DB, AD, LDAP, or open id
+		
+//		if ("sa".equals(account.getAccount()) && "ilovesa".equals(account.getPwd())){
+//			//save username and password in the session bean
+//			sa_Account account_session = (sa_Account)context.getBean("account");
+//			account_session.setAccount(account.getAccount());
+//			account_session.setPwd(account.getPwd());
+//			System.out.println("Successful!");
+//		}
+//		else{
+//			model = new ModelAndView("test");
+//			model.addObject("message", "登入失敗");
+//			System.out.println("failed!");
+//			
+//			//reset username and password in the session bean
+//			sa_Account account_session = (sa_Account)context.getBean("account");
+//			account_session.setAccount("");
+//			account_session.setPwd("");
+//		}	
 		return model;
 	}
 	
