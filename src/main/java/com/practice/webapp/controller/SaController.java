@@ -11,13 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.practice.webapp.dao.ArticleCategoryDAO;
-import com.practice.webapp.dao.ArticleDAO;
+
+
 import com.practice.webapp.dao.StudentDAO;
 import com.practice.webapp.dao.sa_TestPlaceDAO;
-import com.practice.webapp.entity.Article;
-import com.practice.webapp.entity.ArticleCategory;
 import com.practice.webapp.entity.Student;
+import com.practice.webapp.entity.sa_Account;
 import com.practice.webapp.entity.sa_TestPlace;
 
 
@@ -27,12 +26,7 @@ public class SaController
 {
 	ApplicationContext context = new ClassPathXmlApplicationContext("spring-module.xml");
    
-	@RequestMapping(value = "/sa_login", method = RequestMethod.GET)      
-	public ModelAndView test()  {
-		ModelAndView model = new ModelAndView("sa_login");
-	return model;
-	}
-	
+
 
 	@RequestMapping(value = "/sa_personInsert", method = RequestMethod.GET)
 	public ModelAndView personInsertPage()   //ModelAndView當中包括了 view 以及 model 資料
@@ -100,5 +94,45 @@ public class SaController
 		studentDAO.update(student);
 		return model;
 	}
+	// 登入失敗==================================================
+	@RequestMapping(value = "/test", method = RequestMethod.GET)      
+	public ModelAndView loginfail()  {
+		ModelAndView model = new ModelAndView("test");
+	return model;
+	}
+	//account ==================================================
+
+	
+	@RequestMapping(value = "/sa_login", method = RequestMethod.GET)      
+	public ModelAndView login()  {
+		ModelAndView model = new ModelAndView("sa_login");
+	return model;
+	}
+	
+	@RequestMapping(value = "/sa_login", method = RequestMethod.POST)
+	public ModelAndView checkLogin(@ModelAttribute sa_Account account) {
+		ModelAndView model = new ModelAndView("redirect:/sa_register");
+		
+		//you can modify this part to check username and password with DB, AD, LDAP, or open id
+		
+		if ("sa".equals(account.getAccount()) && "ilovesa".equals(account.getPwd())){
+			//save username and password in the session bean
+			sa_Account account_session = (sa_Account)context.getBean("account");
+			account_session.setAccount(account.getAccount());
+			account_session.setPwd(account.getPwd());
+			System.out.println("Successful!");
+		}
+		else{
+			model = new ModelAndView("test");
+			model.addObject("message", "登入失敗");
+			System.out.println("failed!");
+			//reset username and password in the session bean
+			sa_Account account_session = (sa_Account)context.getBean("account");
+			account_session.setAccount("");
+			account_session.setPwd("");
+		}	
+		return model;
+	}
+	
 	
 }

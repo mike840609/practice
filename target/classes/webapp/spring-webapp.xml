@@ -1,48 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
-	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
- <!--以上為版本 編碼 一些命名文件的位置  -->
- 
- 	<bean id="articleCategoryDAO" class="com.practice.webapp.dao.impl.ArticleCategoryDAOImpl">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans	
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<!-- 舊版配置 -->
+	<!-- <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xmlns:aop="http://www.springframework.org/schema/aop" xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd 
+		http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"> -->
+	<!--以上為版本 編碼 一些命名文件的位置 -->
+
+	<bean id="articleCategoryDAO" class="com.practice.webapp.dao.impl.ArticleCategoryDAOImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	<!-- 將此實作 -->
-	
- 	<bean id="articleDAO" class="com.practice.webapp.dao.impl.ArticleDAOImpl">
+
+	<bean id="articleDAO" class="com.practice.webapp.dao.impl.ArticleDAOImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
- 	<bean id="productDAO" class="com.practice.webapp.dao.impl.ProductDAOImpl">
+
+	<bean id="productDAO" class="com.practice.webapp.dao.impl.ProductDAOImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
-	
+
+
 	<!-- ===============================以下為自定義================================== -->
 	<!-- ============================================================================ -->
-	
+
 	<bean id="studentDAO" class="com.practice.webapp.dao.impl.StudentDAOImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
+
 	<bean id="sa_TestPlaceDAO" class="com.practice.webapp.dao.impl.sa_TestPlaceDAOImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
-	<!-- 
-	<bean id ="studentDAO" class="com.register.webapp.dao.impl.StudentDAO">
-	<property name = "dataSource" ref="dataSource
-	"><>	
-	</bean> 
-	-->
-	<!-- id唯一標示 class具體要實體或的類  property屬性   -->
-	<!--聲明三個 bean 再ioc容器初始化加載當前xml文件時候 去創建這三個對象 
-	articleCategoryDAO   articleDAO  productDAO-->
-	
-	<!-- 在 ArticleCategoryDAOImpl 類當中 會有一個名稱為dataSource的成員變量 
-	類型為 dataSource 這種類型 -->
-	
-	<!--  自動調用設值注入方法 articleCategoryDAO 當中應該要有 setDataSource 然後自動調用 -->
-	
+
+	<bean id="account" class="com.practice.webapp.entity.sa_Account"
+		scope="session">
+		<aop:scoped-proxy />
+	</bean>
+
+	<bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+		<property name="scopes">
+			<map>
+				<entry key="session">
+					<!-- org.springframework.context.support.SimpleThreadScope -->
+					<bean class="org.springframework.web.context.request.SessionScope" />
+				</entry>
+			</map>
+		</property>
+	</bean>
 </beans>

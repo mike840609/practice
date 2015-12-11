@@ -69,13 +69,15 @@
         </div>
     </nav>
     <div class="wrapper">
-        <div class="container">
+        <div class="container" >
             <h1>Welcome</h1>
-            <form class="form">
-                <input type="text" placeholder="Username" class="input1"> 
-                <input type="password" placeholder="Password" class="input1">
+             <form action = "sa_login" class="form"  method="post">
+                
+                <input type="text" placeholder="Username" class="input1" name="account"> 
+                <input type="password" placeholder="Password" class="input1" name="pwd">
                 <button type="submit" id="login-button" class="button1">Login</button>
-            </form>
+                <%-- <label class="label label-warning">${message}</label> --%>
+            </form> 
         </div>
         <ul class="bg-bubbles">
             <li></li>
