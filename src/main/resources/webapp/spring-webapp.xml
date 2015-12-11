@@ -50,7 +50,6 @@
 		<property name="scopes">
 			<map>
 				<entry key="session">
-					<!-- org.springframework.context.support.SimpleThreadScope -->
 					<bean class="org.springframework.web.context.request.SessionScope" />
 				</entry>
 			</map>
