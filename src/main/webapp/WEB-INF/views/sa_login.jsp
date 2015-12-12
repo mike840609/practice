@@ -75,8 +75,8 @@
                 
                 <input type="text" placeholder="Username" class="input1" name="account"> 
                 <input type="password" placeholder="Password" class="input1" name="pwd">
-                <button type="submit" id="login-button" class="button1">Login</button>
-                <%-- <label class="label label-warning">${message}</label> --%>
+                <button type="submit" id="login-button" class="button1" >Login</button>
+                  <label class="label label-warning">${message}</label> 
             </form> 
         </div>
         <ul class="bg-bubbles">

@@ -21,7 +21,7 @@ public class sa_AccountDAOImpl implements sa_AccountDAO
 		this.dataSource = dataSource;
 	}
 	
-	public boolean loginCheck(sa_Account account){
+	public int loginCheck(sa_Account account){
 
 //		String sql = "SELECT * FROM student WHERE account = ? AND pwd =?";
 		String sql = "SELECT * FROM student WHERE account = ? ";
@@ -35,17 +35,17 @@ public class sa_AccountDAOImpl implements sa_AccountDAO
 			 if(!rs.next()) 
 			    { 
 			      System.out.println("無此帳號");
-				 return false;
+				 return 1;
 			    }    
 			    else if(!rs.getString("pwd").equals(account.getPwd()))
 			    { 
 			        System.out.println("密碼錯誤");
-			        return false;
+			        return 2;
 			    }
 			    else 
 			    {
 			    	System.out.println("登入成功");
-			    	return true;
+			    	return 3;
 			    }  
 			 
 			
