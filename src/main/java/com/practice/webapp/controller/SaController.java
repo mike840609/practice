@@ -1,10 +1,10 @@
 package com.practice.webapp.controller;
 
-import java.lang.Thread.State;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import org.codehaus.jackson.annotate.JsonTypeInfo.Id;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -103,6 +103,13 @@ public class SaController
 		ModelAndView model = new ModelAndView("test");
 	return model;
 	}
+	//首頁======================================================
+	@RequestMapping(value = "/index", method = RequestMethod.GET)      
+	public ModelAndView index()  {
+		ModelAndView model = new ModelAndView("index");
+	return model;
+	}
+	
 
 	//account ==================================================
 

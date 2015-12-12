@@ -35,7 +35,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand " href="index.html">大考中心報名系統</a>
+                <a class="navbar-brand " href="index">大考中心報名系統</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse ">
                 <div>
