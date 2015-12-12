@@ -127,12 +127,11 @@ public class SaController
 			sa_Account account_session = (sa_Account)context.getBean("account");
 			account_session.setAccount("");
 			account_session.setPwd("");
-			
 		}
 		else if (State==2){
 			System.out.println("failed!");
 			model = new ModelAndView("sa_login");
-			model.addObject("message", "密碼錯誤");
+			model.addObject("message", "帳號存在  密碼錯誤");
 			sa_Account account_session = (sa_Account)context.getBean("account");
 			account_session.setAccount("");
 			account_session.setPwd("");
@@ -142,7 +141,6 @@ public class SaController
 			sa_Account account_session = (sa_Account)context.getBean("account");
 			account_session.setAccount(account.getAccount());
 			account_session.setPwd(account.getPwd());
-			
 		}
 		return model;
 	}
