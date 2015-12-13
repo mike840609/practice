@@ -17,7 +17,6 @@
 <LI><a href="sa_login">sa_login</a>
 <!-- <LI><a href="test">test</a> -->
 <LI><a href="sa_register">sa_register</a>
-<LI><a href="index">index</a>
 </UL>
 </body>
 </html>
