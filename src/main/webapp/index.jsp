@@ -15,8 +15,15 @@
 <LI><a href="article">article</a>
 <LI><a href="product">product management(CRUD)</a>
 <LI><a href="sa_login">sa_login</a>
-<!-- <LI><a href="test">test</a> -->
+<LI><a href="test">test</a> 
 <LI><a href="sa_register">sa_register</a>
+<LI><a href="sa_homepage">sa_homepage</a>
+<LI><a href="sa_groupinfo">sa_groupinfo</a>
+<LI><a href="sa_grouplogin">sa_grouplogin</a>
+<LI><a href="sa_groupregister">sa_groupregister</a>
+<LI><a href="sa_groupsearchA">sa_groupsearchA</a>
+<LI><a href="sa_groupsearchB">sa_groupsearchB</a>
+<LI><a href="sa_groupsearchC">sa_groupsearchC</a>
 </UL>
 </body>
 </html>

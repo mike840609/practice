@@ -1,0 +1,14 @@
+.table thead tr {
+display:block;
+}
+.table tbody {
+display: block;
+height: 200px;
+overflow: auto;
+}
+.table th {
+width:20%;
+}
+.table td {
+width:20%;
+}
