@@ -17,7 +17,6 @@
     <style>
     body {
         background: url("css/wei/img/123.jpg");
-        
     }
     </style>
 </head>
