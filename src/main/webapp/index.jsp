@@ -25,12 +25,25 @@
 <LI><a href="sa_groupsearchB">sa_groupsearchB</a>
 <LI><a href="sa_groupsearchC">sa_groupsearchC</a>
 <hr>
+個人修改 查詢
 <LI><a href="sa_perAsGrade">sa_perAsGrade</a>
 <LI><a href="sa_perBsGrade">sa_perBsGrade</a>
 <LI><a href="sa_perEngGrade">sa_perEngGrade</a>
 <LI><a href="sa_perModify">sa_perModify</a>
 <LI><a href="sa_perSearch">sa_perSearch</a>
 <hr>
+個報 管理員
+<LI><a href="sa_accountcheck">sa_accountcheck</a>
+<LI><a href="sa_accountregister">sa_accountregister</a>
+<LI><a href="sa_astest">sa_astest</a>
+<LI><a href="sa_astestcheck">sa_astestcheck</a>
+<LI><a href="sa_bstest">sa_bstest</a>
+<LI><a href="sa_bstestcheck">sa_bstestcheck</a>
+<LI><a href="sa_engtest">sa_engtest</a>
+<LI><a href="sa_engtestcheck">sa_engtestcheck</a>
+<LI><a href="sa_mangermodify">sa_mangermodify</a>
+<LI><a href="sa_mangersearch">sa_mangersearch</a>
+
 
 </UL>
 </body>
