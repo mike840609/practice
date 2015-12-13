@@ -25,7 +25,8 @@
 
 					<div class="form-group">
 						<label>帳號:</label> <input type="text" name="account"
-							class="form-control" placeholder="帳號" ><!--修改  -->
+							class="form-control" placeholder="帳號">
+
 					</div>
 
 					<div class="form-group">
