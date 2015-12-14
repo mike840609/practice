@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@include file="sa_navbar.jspf" %>
 登入失敗
 </body>
 </html>
