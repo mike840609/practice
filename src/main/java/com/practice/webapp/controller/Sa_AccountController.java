@@ -84,13 +84,19 @@ public class Sa_AccountController
 	}
 	
 	//logout & clean session===============================================
-//	@RequestMapping(value = "/sa_logout", method = RequestMethod.GET)
-//	public ModelAndView Logout(@ModelAttribute Student student,HttpSession session){
-//		ModelAndView model = new ModelAndView("redirect:/sa_homepage");
-////		Student account_session = (Student) context.getBean("studentinfo");
-//		
-//		return model;
-//	}
+	@RequestMapping(value = "/sa_logout", method = RequestMethod.GET)
+	public ModelAndView Logout(){
+		
+		Student account_session = (Student) context.getBean("studentinfo");
+        //account_session.setAccount("");  "" != null
+		account_session.setAccount(null);
+		System.out.println(account_session.getAccount());
+		System.out.println("清空session 成功登出 ");
+		ModelAndView model = new ModelAndView("redirect:/sa_homepage");
+		
+		
+		return model;
+	}
 
 	
 }
