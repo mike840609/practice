@@ -12,6 +12,7 @@ public interface StudentDAO {
 	public void update(Student student);
 	public List<Student> getList();
 	public Student get(Student student);
+//	public int loginCheck(Student student);
 	
 //在此介面中聲明方法 但不去實作
 //等到實作時在實現方法

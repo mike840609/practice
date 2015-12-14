@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 import com.practice.webapp.dao.sa_AccountDAO;
+import com.practice.webapp.entity.Student;
 import com.practice.webapp.entity.sa_Account;
 
 public class sa_AccountDAOImpl implements sa_AccountDAO
@@ -61,15 +62,52 @@ public class sa_AccountDAOImpl implements sa_AccountDAO
 					smt.close();
 					
 				} catch (SQLException e) {}
-			}
-		
+			}	
 		}
+	}
+	
+	public int loginCheck(Student student){
+
+//		String sql = "SELECT * FROM student WHERE account = ? AND pwd =?";
+		String sql = "SELECT * FROM student WHERE account = ? ";
 		
-//		System.out.println(account.getAccount());
-//		System.out.println(account.getPwd());
-		
-//		if(rs != null){return true;}
-//	    else {return false;}
+		try {
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setString(1, student.getAccount());
+//			smt.setString(2, account.getPwd());
+			rs = smt.executeQuery();		
+			 if(!rs.next()) 
+			    { 
+			      System.out.println("無此帳號");
+				 return 1;
+			    }    
+			    else if(!rs.getString("pwd").equals(student.getPwd()))
+			    { 
+			        System.out.println("密碼錯誤");
+			        return 2;
+			    }
+			    else 
+			    {
+			    	System.out.println("登入成功");
+			    	return 3;
+			    }  
+			 
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+ 
+		} finally {
+			
+			if (conn != null) {
+				try {
+					conn.close();
+					rs.close();
+					smt.close();
+					
+				} catch (SQLException e) {}
+			}	
+		}
 	}
 
 }

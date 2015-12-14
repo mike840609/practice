@@ -28,14 +28,13 @@ public class StudentDAOImpl implements StudentDAO
 
 	public void insert(Student aStudent)
 	{
-		
-		String sql =  "INSERT student(name,account,sex,id,code,birth,tel,address,email) "
-				+ "VALUES(?,?,?,?,?,?,?,?,?)";
+
+		String sql = "INSERT student(name,account,sex,id,code,birth,tel,address,email) " + "VALUES(?,?,?,?,?,?,?,?,?)";
 		try
 		{
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);
-			
+
 			smt.setString(1, aStudent.getName());
 			smt.setString(2, aStudent.getAccount());
 			smt.setString(3, aStudent.getSex());
@@ -73,21 +72,31 @@ public class StudentDAOImpl implements StudentDAO
 	public void delete(Student student)
 	{
 		String sql = "DELETE FROM student WHERE account = ?";
-		try {
+		try
+		{
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);
 			smt.setString(1, student.getAccount());
-			smt.executeUpdate();			
+			smt.executeUpdate();
 			smt.close();
- 
-		} catch (SQLException e) {
+
+		}
+		catch (SQLException e)
+		{
 			throw new RuntimeException(e);
- 
-		} finally {
-			if (conn != null) {
-				try {
+
+		}
+		finally
+		{
+			if (conn != null)
+			{
+				try
+				{
 					conn.close();
-				} catch (SQLException e) {}
+				}
+				catch (SQLException e)
+				{
+				}
 			}
 		}
 
@@ -97,7 +106,8 @@ public class StudentDAOImpl implements StudentDAO
 	{
 		String sql = "UPDATE student SET code=?, id=?, name=?, sex=?, birth=?, tel=?, address=?, email=? "
 				+ "WHERE account = ?";
-		try {
+		try
+		{
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);
 			smt.setString(1, student.getCode());
@@ -109,30 +119,37 @@ public class StudentDAOImpl implements StudentDAO
 			smt.setString(7, student.getAddress());
 			smt.setString(8, student.getEmail());
 			smt.setString(9, student.getAccount());
-			smt.executeUpdate();			
+			smt.executeUpdate();
 			smt.close();
- 
-		} catch (SQLException e) {
+
+		}
+		catch (SQLException e)
+		{
 			throw new RuntimeException(e);
- 
-		} finally {
-			if (conn != null) {
-				try {
+
+		}
+		finally
+		{
+			if (conn != null)
+			{
+				try
+				{
 					conn.close();
-				} catch (SQLException e) {}
+				}
+				catch (SQLException e)
+				{
+				}
 			}
 		}
 
 	}
-
-	
 
 	public List<Student> getList()
 	{
 
 		List<Student> studentList = new ArrayList<Student>();
 		String sql = "SELECT * FROM student";
-	
+
 		try
 		{
 			conn = dataSource.getConnection();
@@ -150,7 +167,7 @@ public class StudentDAOImpl implements StudentDAO
 				aStudent.setTel(rs.getString("tel"));
 				aStudent.setAddress(rs.getString("address"));
 				aStudent.setEmail(rs.getString("email"));
-				
+
 				studentList.add(aStudent);
 			}
 			rs.close();
@@ -224,5 +241,59 @@ public class StudentDAOImpl implements StudentDAO
 		}
 		return aStudent;
 	}
+
+//	public int loginCheck(Student student)
+//	{
+//
+//		// String sql = "SELECT * FROM student WHERE account = ? AND pwd =?";
+//		String sql = "SELECT * FROM student WHERE account = ? ";
+//
+//		try
+//		{
+//			conn = dataSource.getConnection();
+//			smt = conn.prepareStatement(sql);
+//			smt.setString(1, student.getAccount());
+//			// smt.setString(2, account.getPwd());
+//			rs = smt.executeQuery();
+//			if (!rs.next())
+//			{
+//				System.out.println("無此帳號");
+//				return 1;
+//			}
+//			else if (!rs.getString("pwd").equals(student.getPwd()))
+//			{
+//				System.out.println("密碼錯誤");
+//				return 2;
+//			}
+//			else
+//			{
+//				System.out.println("登入成功");
+//				return 3;
+//			}
+//
+//		}
+//		catch (SQLException e)
+//		{
+//			throw new RuntimeException(e);
+//
+//		}
+//		finally
+//		{
+//
+//			if (conn != null)
+//			{
+//				try
+//				{
+//					conn.close();
+//					rs.close();
+//					smt.close();
+//
+//				}
+//				catch (SQLException e)
+//				{
+//				}
+//			}
+//		}
+//	}
 
 }

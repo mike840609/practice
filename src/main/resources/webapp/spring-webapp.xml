@@ -48,6 +48,11 @@
 		<aop:scoped-proxy />
 	</bean>
 	
+	<bean id="studentinfo" class="com.practice.webapp.entity.Student"
+		scope="session">
+		<aop:scoped-proxy />
+	</bean>
+	
 	<bean id="accountCheck" class="com.practice.webapp.dao.impl.sa_AccountDAOImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
@@ -62,4 +67,5 @@
 			</map>
 		</property>
 	</bean>
+	
 </beans>

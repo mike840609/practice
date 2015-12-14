@@ -2,20 +2,21 @@ package com.practice.webapp.entity;
 
 import java.util.Date;
 
-public class Student
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.stereotype.Component;
+
+
+@Component
+@Scope(value="session", proxyMode=ScopedProxyMode.TARGET_CLASS)
+public class Student implements java.io.Serializable
 {
+	
+	private static final long serialVersionUID = 3476619468809859762L;
+	
 	private Date createDate; // 新建時間
 	private Date updateDate; // 修改時間
 	private sa_TestPlace testPlace = new sa_TestPlace();
-	
-	public sa_TestPlace getTestPlace()
-	{
-		return testPlace;
-	}
-	public void setTestPlace(sa_TestPlace testPlace)
-	{
-		this.testPlace = testPlace;
-	}
 	
 	private String account;
 	private String code;
@@ -25,6 +26,29 @@ public class Student
 	private String birth;
 	private String tel;
 	private String address;
+	private String pwd;
+	private String email;
+	private String photo;
+	
+	
+	public String getPwd()
+	{
+		return pwd;
+	}
+	public void setPwd(String pwd)
+	{
+		this.pwd = pwd;
+	}
+	public sa_TestPlace getTestPlace()
+	{
+		return testPlace;
+	}
+	public void setTestPlace(sa_TestPlace testPlace)
+	{
+		this.testPlace = testPlace;
+	}
+	
+
 	
 	public Date getCreateDate()
 	{
@@ -42,9 +66,6 @@ public class Student
 	{
 		this.updateDate = updateDate;
 	}
-	private String email;
-	private String photo;
-	
 	
 	public String getAccount()
 	{
