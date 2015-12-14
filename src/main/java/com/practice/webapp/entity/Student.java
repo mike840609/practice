@@ -5,19 +5,15 @@ import java.util.Date;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
-
-
 @Component
 @Scope(value="session", proxyMode=ScopedProxyMode.TARGET_CLASS)
 public class Student implements java.io.Serializable
 {
-	
 	private static final long serialVersionUID = 3476619468809859762L;
 	
 	private Date createDate; // 新建時間
 	private Date updateDate; // 修改時間
 	private sa_TestPlace testPlace = new sa_TestPlace();
-	
 	private String account;
 	private String code;
 	private String id;
@@ -27,18 +23,8 @@ public class Student implements java.io.Serializable
 	private String tel;
 	private String address;
 	private String pwd;
-	private String email;
-	private String photo;
 	
 	
-	public String getPwd()
-	{
-		return pwd;
-	}
-	public void setPwd(String pwd)
-	{
-		this.pwd = pwd;
-	}
 	public sa_TestPlace getTestPlace()
 	{
 		return testPlace;
@@ -48,6 +34,16 @@ public class Student implements java.io.Serializable
 		this.testPlace = testPlace;
 	}
 	
+
+	
+	public String getPwd()
+	{
+		return pwd;
+	}
+	public void setPwd(String pwd)
+	{
+		this.pwd = pwd;
+	}
 
 	
 	public Date getCreateDate()
@@ -66,6 +62,9 @@ public class Student implements java.io.Serializable
 	{
 		this.updateDate = updateDate;
 	}
+	private String email;
+	private String photo;
+	
 	
 	public String getAccount()
 	{

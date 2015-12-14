@@ -7,5 +7,6 @@ public interface sa_AccountDAO
 {
 //	public void loginCheck(sa_Account account);
 	public int loginCheck(sa_Account account);
-	public int loginCheck(Student student);
+	public int loginCheck(Student account);
+	
 }

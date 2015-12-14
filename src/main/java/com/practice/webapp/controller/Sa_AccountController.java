@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.practice.webapp.dao.StudentDAO;
 import com.practice.webapp.dao.sa_AccountDAO;
 import com.practice.webapp.entity.Student;
 
@@ -52,22 +53,29 @@ public class Sa_AccountController
 		else
 		{
 			System.out.println("Successful!");
+			//建立student 物件
 			Student account_session = (Student) context.getBean("studentinfo");
-			account_session.setAccount(student.getAccount());
-			account_session.setPwd(student.getPwd());
-			account_session.setAddress(student.getAddress());
-			account_session.setBirth(student.getBirth());
-			account_session.setName(student.getName());
-			account_session.setId(student.getId());
-			account_session.setSex(student.getSex());
-			account_session.setTel(student.getTel());
-			account_session.setEmail(student.getEmail());
 			
-			System.out.println(account_session.getAccount());
-			System.out.println(account_session.getPwd());
-			System.out.println(account_session.getName());
-			System.out.println(account_session.getSex());
-			System.out.println(account_session.getAddress());
+			//student account pass to sql for set student attribute
+			StudentDAO studentDAO = (StudentDAO) context.getBean("studentDAO");
+            
+		   //must be set this attribute for search
+			account_session.setAccount(student.getAccount());
+			
+			//account_session set attribute
+			account_session = studentDAO.setSession(account_session);
+			
+//			account_session.setAccount(student.getAccount());
+//			account_session.setPwd(student.getPwd());
+			
+			System.out.println("帳號："+account_session.getAccount());
+			System.out.println("密碼："+ account_session.getPwd());
+			System.out.println("姓名："+ account_session.getName());
+			System.out.println("性別："+ account_session.getSex());
+			System.out.println("地址："+account_session.getAddress());
+			System.out.println("身分證："+account_session.getId());
+			System.out.println("生日："+account_session.getBirth());
+			System.out.println("電話："+account_session.getTel());
 
 			// 印出session帳號密碼
 

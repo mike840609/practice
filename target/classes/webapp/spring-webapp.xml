@@ -43,11 +43,6 @@
 
 <!-- 登入資料庫檢查部份 -->
 
-	<bean id="account" class="com.practice.webapp.entity.sa_Account"
-		scope="session">
-		<aop:scoped-proxy />
-	</bean>
-	
 	<bean id="studentinfo" class="com.practice.webapp.entity.Student"
 		scope="session">
 		<aop:scoped-proxy />
@@ -67,5 +62,4 @@
 			</map>
 		</property>
 	</bean>
-	
 </beans>

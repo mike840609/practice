@@ -5,7 +5,7 @@ package com.practice.webapp.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
+
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -27,6 +27,8 @@ public class SaController
 {
 	ApplicationContext context = new ClassPathXmlApplicationContext("spring-module.xml");
 
+	public static String accountTemp;
+	public static String pwdTemp;
 
 	@RequestMapping(value = "/sa_personInsert", method = RequestMethod.GET)
 	public ModelAndView personInsertPage() // ModelAndView當中包括了 view 以及 model 資料
@@ -117,67 +119,20 @@ public class SaController
 	public ModelAndView login()
 	{
 		Student account_session = (Student) context.getBean("studentinfo");
-	
-	if(account_session.getAccount()!=null){
-		ModelAndView model = new ModelAndView("redirect:/sa_register");
-		System.out.println(account_session.getAccount());
-		System.out.println(account_session.getName());
-		
+		if(account_session.getAccount()!=null){
+			ModelAndView model = new ModelAndView("redirect:/sa_register");
+			return model;
+		}
+		else{
+		ModelAndView model = new ModelAndView("sa_login");
 		return model;
-	}
-	else{ModelAndView model = new ModelAndView("sa_login");
-	return model;
-	}
-		
+		}
 	}
 
-//	@RequestMapping(value = "/sa_login", method = RequestMethod.POST)
-//	public ModelAndView checkLogin(@ModelAttribute sa_Account account)
-//	{
-//		ModelAndView model = new ModelAndView("redirect:/sa_register");
-//
-//		// connect to database==============
-//
-//		sa_AccountDAO accountCheck = (sa_AccountDAO) context.getBean("accountCheck");
-//
-//		int State = accountCheck.loginCheck(account);
-//
-//		if (State == 1)
-//		{
-//			System.out.println("failed!");
-//			model = new ModelAndView("sa_login");
-//			model.addObject("message", "無此帳號");
-//			sa_Account account_session = (sa_Account) context.getBean("account");
-//			account_session.setAccount("");
-//			account_session.setPwd("");
-//		}
-//		else if (State == 2)
-//		{
-//			System.out.println("failed!");
-//			model = new ModelAndView("sa_login");
-//			model.addObject("message", "帳號存在  密碼錯誤");
-//			sa_Account account_session = (sa_Account) context.getBean("account");
-//			account_session.setAccount("");
-//			account_session.setPwd("");
-//		}
-//		else
-//		{
-//			System.out.println("Successful!");
-//			sa_Account account_session = (sa_Account) context.getBean("account");
-//			account_session.setAccount(account.getAccount());
-//			account_session.setPwd(account.getPwd());
-//
-//			// 印出session帳號密碼
-//
-//			accountTemp = account_session.getAccount();
-//			pwdTemp = account_session.getPwd();
-//			System.out.println(accountTemp);
-//			System.out.println(pwdTemp);
-//			
-//		}
-//		return model;
-//	}
-	//test===============================
+
 	
+	
+	
+
 
 }

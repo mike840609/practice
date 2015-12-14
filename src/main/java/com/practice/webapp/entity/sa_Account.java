@@ -13,7 +13,6 @@ public class sa_Account  implements java.io.Serializable
 	/**
 	 * serialVersionUID is generated automatically
 	 */
-	
 	private static final long serialVersionUID = 3476619468809859762L;
 	
 	private String account;

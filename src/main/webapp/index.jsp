@@ -17,8 +17,6 @@
 <LI><a href="sa_login">sa_login</a>
 <LI><a href="test">test</a> 
 <LI><a href="sa_register">sa_register</a>
-<hr>
-團報部分
 <LI><a href="sa_homepage">sa_homepage</a>
 <LI><a href="sa_groupinfo">sa_groupinfo</a>
 <LI><a href="sa_grouplogin">sa_grouplogin</a>
