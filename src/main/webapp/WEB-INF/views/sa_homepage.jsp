@@ -55,7 +55,7 @@ body {
 					大學學科能力測驗是在中華民國舉行的一種大型考試，用於測驗高中學生是否具備基本的知識以進入台灣各大學就讀。有別於過去的聯考，大學學科能力測驗用於台灣的大學多元入學新方案，只有通過此一標準的考生，才可以參加台灣的｢大學甄選入學｣或｢大學考試分發入學｣。
 					</p>
 					<p>
-						<a class="button small orange" href="login.html" role="button">報名考科
+						<a class="button small orange" href="sa_bstest" role="button">報名考科
 							&raquo;</a>
 					</p>
 					<!-- <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal"> -->

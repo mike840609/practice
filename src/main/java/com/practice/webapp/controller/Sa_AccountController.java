@@ -24,7 +24,7 @@ public class Sa_AccountController
 	@RequestMapping(value = "/sa_login", method = RequestMethod.POST)
 	public ModelAndView checkLogin(@ModelAttribute Student student)
 	{
-		ModelAndView model = new ModelAndView("redirect:/sa_register");
+		ModelAndView model = new ModelAndView("redirect:/sa_homepage");
 
 		// connect to database==============
 

@@ -14,10 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.practice.webapp.entity.Student;
+
 
 @Controller
 public class testController
 {
+	ApplicationContext context = new ClassPathXmlApplicationContext("spring-module.xml");
 //個人部分=================================================================
 	@RequestMapping(value = "/sa_perAsGrade", method = RequestMethod.GET)
 	public ModelAndView sa_perAsGrade()
@@ -120,8 +123,16 @@ public class testController
 	@RequestMapping(value = "/sa_astest", method = RequestMethod.GET)
 	public ModelAndView sa_astest()
 	{
-		ModelAndView model = new ModelAndView("sa_astest");
+		Student account_session = (Student) context.getBean("studentinfo");
+		if(account_session.getAccount()!=null){
+			ModelAndView model = new ModelAndView("sa_atest");
+			return model;
+		}
+		else{
+		ModelAndView model = new ModelAndView("sa_login");
 		return model;
+		}
+	
 	}
 	
 	@RequestMapping(value = "/sa_astestcheck", method = RequestMethod.GET)
@@ -131,11 +142,19 @@ public class testController
 		return model;
 	}
 
+	//basic test access dispatcher
 	@RequestMapping(value = "/sa_bstest", method = RequestMethod.GET)
 	public ModelAndView sa_bstest()
 	{
-		ModelAndView model = new ModelAndView("sa_bstest");
+		Student account_session = (Student) context.getBean("studentinfo");
+		if(account_session.getAccount()!=null){
+			ModelAndView model = new ModelAndView("sa_bstest");
+			return model;
+		}
+		else{
+		ModelAndView model = new ModelAndView("sa_login");
 		return model;
+		}
 	}
 	
 	@RequestMapping(value = "/sa_bstestcheck", method = RequestMethod.GET)
