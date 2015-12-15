@@ -65,8 +65,6 @@ public class Sa_AccountController
 			//account_session set attribute
 			account_session = studentDAO.setSession(account_session);
 			
-//			account_session.setAccount(student.getAccount());
-//			account_session.setPwd(student.getPwd());
 			
 			System.out.println("帳號："+account_session.getAccount());
 			System.out.println("密碼："+ account_session.getPwd());

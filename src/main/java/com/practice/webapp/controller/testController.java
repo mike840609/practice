@@ -2,18 +2,24 @@ package com.practice.webapp.controller;
 
 
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.print.DocFlavor.STRING;
+import javax.xml.soap.SAAJResult;
 
+import org.springframework.cglib.reflect.MethodDelegate;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.practice.webapp.dao.StudentDAO;
 import com.practice.webapp.entity.Student;
 
 
@@ -104,21 +110,56 @@ public class testController
 		return model;
 	}
 	
-	//管理員 各報部分=================================================
+	//管理員 個報部分=================================================
 	
 	@RequestMapping(value = "/sa_accountcheck", method = RequestMethod.GET)
-	public ModelAndView sa_accountcheck()
+	public ModelAndView sa_accountcheck(@ModelAttribute Student student) throws UnsupportedEncodingException
 	{
+		//@ModelAttribute 去接傳近來的值
+		
+		String name = student.getName();
+//		String account = student.getAccount();
+//		String pwd = student.getPwd();
+//		String id = student.getId();
+		String sex = student.getSex();
+//		String birth = student.getBirth();
+//		String tel = student.getTel();
+//		String email = student.getEmail();
+		String address = student.getAddress();
+		
+		// 轉換 中文 編碼 
+		name = new String(name.getBytes("ISO-8859-1"),"utf-8");
+		address = new String(address.getBytes("ISO-8859-1"),"utf-8");
+		sex = new String(sex.getBytes("ISO-8859-1"),"utf-8");
+		
+		student.setAddress(address);
+		student.setName(name);
+		student.setSex(sex);
+		
 		ModelAndView model = new ModelAndView("sa_accountcheck");
+		model.addObject("student",student);
+		
 		return model;
 	}
-	
+	//登入帳號註冊部分==========================
 	@RequestMapping(value = "/sa_accountregister", method = RequestMethod.GET)
-	public ModelAndView sa_accountregister()
+	public ModelAndView sa_accountregisterPage()
 	{
 		ModelAndView model = new ModelAndView("sa_accountregister");
 		return model;
 	}
+	@RequestMapping(value = "/sa_accountregister", method = RequestMethod.POST)
+	public ModelAndView sa_accountregister(/*@ModelAttribute Student student*/)
+	{
+		
+		ModelAndView model = new ModelAndView("redirect:/sa_accountcheck");
+		
+//		StudentDAO studentDAO = (StudentDAO) context.getBean("studentDAO");
+//		model.addObject("student",studentDAO);
+//		studentDAO.insert(student);
+		return model;
+	}
+	//======================================================
 	
 	@RequestMapping(value = "/sa_astest", method = RequestMethod.GET)
 	public ModelAndView sa_astest()

@@ -29,7 +29,8 @@ public class SaController
 
 	public static String accountTemp;
 	public static String pwdTemp;
-
+	
+	//登入帳號註冊部分
 	@RequestMapping(value = "/sa_personInsert", method = RequestMethod.GET)
 	public ModelAndView personInsertPage() // ModelAndView當中包括了 view 以及 model 資料
 	{

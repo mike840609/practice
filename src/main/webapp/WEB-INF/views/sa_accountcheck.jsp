@@ -194,23 +194,28 @@ body {
 			</div>
 			<div class="inner-wrap">
 				<label>帳號 <input type="text" name="field1"
-					placeholder="Enter account" />
+					placeholder="Enter account"
+					value="${student.account}" />
 				</label> <label>密碼 <input type="text" name="field2"
-					placeholder="Enter password" />
+					placeholder="Enter password"
+					value="${student.pwd}" />
 				</label>
 			</div>
 			<div class="section">
 				<span>2</span>基本資料
 			</div>
 			<div class="inner-wrap">
-				<label>姓名 <input type="text" name="field3"
-					placeholder="Enter name" />
+				<label>姓名 <input type="text" name="name"
+					placeholder="Enter name" value="${student.name}" />
 				</label> <label>身分證 <input type="text" name="field4"
-					placeholder="Enter ID" />
-				</label> <label>性別</label> <select class="form-control">
-					<option>男</option>
-					<option>女</option>
-				</select> <br> <label>生日 <input type="date" name="field5" />
+					placeholder="Enter ID" value="${student.id}" />
+				</label> <label>性別</label> <select class="form-control"
+					value="${student.sex}">
+					<option value="男">男</option>
+					<option value="女">女</option>
+				</select> 
+				<br> <label>生日 <input type="date" name="field5"
+					value="${student.birth}" />
 				</label>
 				<div class="section">
 					<span>3</span>聯絡資訊
@@ -218,12 +223,14 @@ body {
 				<br>
 				<div class="inner-wrap2">
 					<label>電話 <input type="text" name="field6"
-						placeholder="Enter tel" />
+						placeholder="Enter tel" value="${student.tel}" />
 					</label> <label>Email <input type="email" name="field7"
-						placeholder="Enter email" />
+						placeholder="Enter email"
+						value="${student.email}" />
 					</label> <label>地址 <input type="text" name="field8"
-						placeholder="Enter address" />
-					</label> <input type="checkbox" name="field7">我同意以上條約並確實遵守
+						placeholder="Enter address"
+						value="${student.address}" />
+					</label> <input type="checkbox" name="field7" value="checked">我同意以上條約並確實遵守
 					<section class="container">
 					<div class="wrapper">
 						<a href="#" class="button blue">

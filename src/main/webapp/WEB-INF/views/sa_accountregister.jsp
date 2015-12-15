@@ -213,14 +213,14 @@ body {
 		<h1>
 			Sign in <span></span>
 		</h1>
-		<form>
+		<form action="sa_accountcheck" method ="get">
 			<div class="section">
 				<span>1</span>帳號資料
 			</div>
 			<div class="inner-wrap">
-				<label>帳號 <input type="text" name="field1"
+				<label>帳號 <input type="text" name="account"
 					placeholder="Enter account" />
-				</label> <label>密碼 <input type="text" name="field2"
+				</label> <label>密碼 <input type="text" name="pwd"
 					placeholder="Enter password" />
 				</label>
 			</div>
@@ -228,32 +228,35 @@ body {
 				<span>2</span>基本資料
 			</div>
 			<div class="inner-wrap">
-				<label>姓名 <input type="text" name="field3"
+				<label>姓名 <input type="text" name="name"
 					placeholder="Enter name" />
-				</label> <label>身分證 <input type="text" name="field4"
+				</label> <label>身分證 <input type="text" name="id"
 					placeholder="Enter ID" />
-				</label> <label>性別</label> <select class="form-control">
-					<option>男</option>
-					<option>女</option>
-				</select> <br> <label>生日 <input type="date" name="field5" />
+				</label> <label>性別</label> 
+				
+				<select class="form-control" name="sex" >
+					<option >男</option>
+					<option >女</option>
+				</select> 
+				
+				<br> <label>生日 <input type="date" name="birth" />
 				</label>
 				<div class="section">
 					<span>3</span>聯絡資訊
 				</div>
 				<br>
 				<div class="inner-wrap2">
-					<label>電話 <input type="text" name="field6"
+					<label>電話 <input type="text" name="tel"
 						placeholder="Enter tel" />
-					</label> <label>Email <input type="email" name="field7"
+					</label> <label>Email <input type="email" name="email"
 						placeholder="Enter email" />
-					</label> <label>地址 <input type="text" name="field8"
+					</label> <label>地址 <input type="text" name="address"
 						placeholder="Enter address" />
 					</label>
 					<div class="button-section"></div>
 
-					<input type="submit" name="Sign Up" />
-					
-					<input type="checkbox" name="field7">我同意以上條約並確實遵守
+					<input type="submit" name="Sign Up" /> <input type="checkbox"
+						name="field7">我同意以上條約並確實遵守
 		</form>
 </body>
 

@@ -14,6 +14,7 @@ public class Student implements java.io.Serializable
 	private Date createDate; // 新建時間
 	private Date updateDate; // 修改時間
 	private sa_TestPlace testPlace = new sa_TestPlace();
+	
 	private String account;
 	private String code;
 	private String id;
@@ -23,6 +24,8 @@ public class Student implements java.io.Serializable
 	private String tel;
 	private String address;
 	private String pwd;
+	private String email;
+	private String photo;
 	
 	
 	public sa_TestPlace getTestPlace()
@@ -62,8 +65,7 @@ public class Student implements java.io.Serializable
 	{
 		this.updateDate = updateDate;
 	}
-	private String email;
-	private String photo;
+
 	
 	
 	public String getAccount()
