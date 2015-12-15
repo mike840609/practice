@@ -65,7 +65,6 @@ public class Sa_AccountController
 			//account_session set attribute
 			account_session = studentDAO.setSession(account_session);
 			
-			
 			System.out.println("帳號："+account_session.getAccount());
 			System.out.println("密碼："+ account_session.getPwd());
 			System.out.println("姓名："+ account_session.getName());
@@ -74,9 +73,7 @@ public class Sa_AccountController
 			System.out.println("身分證："+account_session.getId());
 			System.out.println("生日："+account_session.getBirth());
 			System.out.println("電話："+account_session.getTel());
-
 			// 印出session帳號密碼
-
 		}
 		return model;
 	}
@@ -91,8 +88,6 @@ public class Sa_AccountController
 		System.out.println(account_session.getAccount());
 		System.out.println("清空session 成功登出 ");
 		ModelAndView model = new ModelAndView("redirect:/sa_homepage");
-		
-		
 		return model;
 	}
 

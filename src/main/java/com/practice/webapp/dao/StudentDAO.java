@@ -7,6 +7,7 @@ import com.practice.webapp.entity.Student;;
 
 public interface StudentDAO {	
 	
+	public void insertStu(Student student);
 	public void insert(Student student);
 	public void delete(Student student);
 	public void update(Student student);

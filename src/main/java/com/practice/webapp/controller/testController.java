@@ -113,7 +113,7 @@ public class testController
 	//管理員 個報部分=================================================
 	
 	@RequestMapping(value = "/sa_accountcheck", method = RequestMethod.GET)
-	public ModelAndView sa_accountcheck(@ModelAttribute Student student) throws UnsupportedEncodingException
+	public ModelAndView sa_accountcheckPage(@ModelAttribute Student student) throws UnsupportedEncodingException
 	{
 		//@ModelAttribute 去接傳近來的值
 		
@@ -141,6 +141,15 @@ public class testController
 		
 		return model;
 	}
+	// 確認無誤,此段寫入資料庫  12.15 綠蓋新增  問題500  按鈕form注意 submit 修改 href=================
+	@RequestMapping(value = "/sa_accountcheck", method = RequestMethod.POST)
+	public ModelAndView sa_accountcheck(@ModelAttribute Student student)
+	{
+		ModelAndView model = new ModelAndView("sa_homepage");
+		StudentDAO studentDAO = (StudentDAO) context.getBean("studentDAO");
+		studentDAO.insertStu(student);
+		return model;
+	}
 	//登入帳號註冊部分==========================
 	@RequestMapping(value = "/sa_accountregister", method = RequestMethod.GET)
 	public ModelAndView sa_accountregisterPage()
@@ -151,12 +160,8 @@ public class testController
 	@RequestMapping(value = "/sa_accountregister", method = RequestMethod.POST)
 	public ModelAndView sa_accountregister(/*@ModelAttribute Student student*/)
 	{
-		
-		ModelAndView model = new ModelAndView("redirect:/sa_accountcheck");
-		
-//		StudentDAO studentDAO = (StudentDAO) context.getBean("studentDAO");
-//		model.addObject("student",studentDAO);
-//		studentDAO.insert(student);
+//		ModelAndView model = new ModelAndView("redirect:/sa_accountcheck");
+		ModelAndView model = new ModelAndView("sa_accountcheck");
 		return model;
 	}
 	//======================================================

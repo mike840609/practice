@@ -10,7 +10,6 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import com.practice.webapp.dao.StudentDAO;
-//import com.practice.webapp.entity.Product;
 import com.practice.webapp.entity.Student;
 
 public class StudentDAOImpl implements StudentDAO
@@ -26,6 +25,51 @@ public class StudentDAOImpl implements StudentDAO
 		this.dataSource = dataSource;
 	}
 
+	public void insertStu(Student aStudent)
+	{
+		
+		String sql =  "INSERT student(name,account,pwd,id,sex,birth,tel,email,address) "
+				+ "VALUES(?,?,?,?,?,?,?,?,?)";
+		try
+		{
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			
+			smt.setString(1, aStudent.getName());
+			smt.setString(2, aStudent.getAccount());
+			smt.setString(3, aStudent.getPwd());
+			smt.setString(4, aStudent.getId());
+			smt.setString(5, aStudent.getSex());
+			smt.setString(6, aStudent.getBirth());
+			smt.setString(7, aStudent.getTel());
+			smt.setString(8, aStudent.getEmail());
+			smt.setString(9, aStudent.getAddress());
+			smt.executeUpdate();
+			smt.close();
+
+		}
+		catch (SQLException e)
+		{
+			throw new RuntimeException(e);
+
+		}
+		finally
+		{
+			if (conn != null)
+			{
+				try
+				{
+					conn.close();
+				}
+				catch (SQLException e)
+				{
+				}
+			}
+		}
+
+	}
+	
+	
 	public void insert(Student aStudent)
 	{
 		
