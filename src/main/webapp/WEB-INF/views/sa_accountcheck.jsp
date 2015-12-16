@@ -195,10 +195,10 @@ body {
 			<div class="inner-wrap">
 				<label>帳號 <input type="text" name="account"
 					placeholder="Enter account"
-					value="${student.account}" />
+					value="${student.account}" readonly />
 				</label> <label>密碼 <input type="text" name="pwd"
 					placeholder="Enter password"
-					value="${student.pwd}" />
+					value="${student.pwd}" readonly/>
 				</label>
 			</div>
 			<div class="section">
@@ -208,14 +208,12 @@ body {
 				<label>姓名 <input type="text" name="name"
 					placeholder="Enter name" value="${student.name}" />
 				</label> <label>身分證 <input type="text" name="id"
-					placeholder="Enter ID" value="${student.id}" />
-				</label> <label>性別</label> <select class="form-control"
-					value="${student.sex}" name ="sex">
-					<option >男</option>
-					<option >女</option>
-				</select> 
+					placeholder="Enter ID" value="${student.id}" readonly />
+				</label> <label>性別</label> <input class="form-control"
+					value="${student.sex}" name ="sex" readonly >
+					
 				<br> <label>生日 <input type="date" name="birth"
-					value="${student.birth}" />
+					value="${student.birth}" readonly />
 				</label>
 				<div class="section">
 					<span>3</span>聯絡資訊
@@ -223,13 +221,13 @@ body {
 				<br>
 				<div class="inner-wrap2">
 					<label>電話 <input type="text" name="tel"
-						placeholder="Enter tel" value="${student.tel}" />
+						placeholder="Enter tel" value="${student.tel}" readonly />
 					</label> <label>Email <input type="email" name="email"
 						placeholder="Enter email"
-						value="${student.email}" />
+						value="${student.email}" readonly/>
 					</label> <label>地址 <input type="text" name="address"
 						placeholder="Enter address"
-						value="${student.address}" />
+						value="${student.address}" readonly/>
 					</label> <input type="checkbox"  value="checked">我同意以上條約並確實遵守
 					<section class="container"> 
 					<div class="wrapper">
