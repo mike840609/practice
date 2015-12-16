@@ -289,6 +289,7 @@ public class StudentDAOImpl implements StudentDAO
 				aStudent.setTel(rs.getString("tel"));
 				aStudent.setAddress(rs.getString("address"));
 				aStudent.setEmail(rs.getString("email"));
+				aStudent.setPwd(rs.getString("pwd"));
 
 			}
 			rs.close();

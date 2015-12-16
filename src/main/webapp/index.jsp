@@ -33,8 +33,8 @@
 <LI><a href="sa_perSearch">sa_perSearch</a>
 <hr>
 個報 管理員
-<LI><a href="sa_accountcheck">sa_accountcheck</a>
-<LI><a href="sa_accountregister">sa_accountregister</a>
+<LI><a href="sa_accountcheck">sa_accountcheck  已完成 需傳過來 無法直接開啟</a>
+<LI><a href="sa_accountregister">sa_accountregister 已完成</a>
 <LI><a href="sa_astest">sa_astest</a>
 <LI><a href="sa_astestcheck">sa_astestcheck</a>
 <LI><a href="sa_bstest">sa_bstest</a>

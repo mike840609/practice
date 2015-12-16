@@ -70,39 +70,39 @@
 			<h1>考生個人資料</h1>
             <div class="form-group">
                 <label for="exampleInputEmail1">姓名</label>
-                <input type="text" class="form-control" id="name" value="張峻瑋" readonly="">
+                <input type="text" class="form-control" id="name" value="${account_session.name}" readonly>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">性別</label>
-                <input type="text" class="form-control" id="sex" value="男" readonly="">
+                <input type="text" class="form-control" id="sex" value="${account_session.sex}" readonly>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">電子郵件</label>
-                <input type="email" class="form-control" id="email" value="ethan831118@gmail.com" readonly="">
+                <input type="email" class="form-control" id="email" value="${account_session.email}" readonly>
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">身分證</label>
-                <input type="text" class="form-control" id="identity" value="A12989XXXX" readonly="">
+                <input type="text" class="form-control" id="identity" value="${account_session.id}" readonly>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">密碼</label>
-                <input type="password" class="form-control" id="password" value="********" readonly="">
+                <input type="password" class="form-control" id="identity" value="${account_session.pwd}" readonly>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">生日</label>
-                <input type="text" class="form-control" id="birthday" value="83/11/18" readonly="">
+                <input type="text" class="form-control" id="birthday" value="${account_session.birth}" readonly>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">電話</label>
-                <input type="text" class="form-control" id="phone" value="0954028067" readonly="">
+                <input type="text" class="form-control" id="phone" value="${account_session.tel}" readonly>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">住址</label>
-                <input type="text" class="form-control" id="address" value="中正路514巷" readonly="">
+                <input type="text" class="form-control" id="address" value="${account_session.address}" readonly>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">學校代碼</label>
-                <input type="text" class="form-control" id="school" value="015" readonly="">
+                <input type="text" class="form-control" id="school" value="015" readonly>
             </div>
 		    <div>
 				<input type="submit" value="修改" />
