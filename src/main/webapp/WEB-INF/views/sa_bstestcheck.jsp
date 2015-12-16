@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <link rel="stylesheet" href="css/andy/buttons.css">
+    <link rel="stylesheet" href="css/buttons/buttons.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -30,23 +30,26 @@
             <p>
                 <label class="account">帳號:
                 </label>
-                <input type="text" name="account value=" " readonly />
+                <input type="text" name="account " />
             </p>
+           
             <div class="sex ">
-                <label>性別:
+                <label >性別:
                 </label>
+             
                 <select>
                     <option value="0 ">男生
                     </option>
                     <option value="1 ">女生
                     </option>
                 </select>
+                
             </div>
             <div class="name1 ">
                 <p>
                     <label class="name ">姓名:
                     </label>
-                    <input type="text " name="name " />
+                    <input type="text" name="name" />
                 </p>
             </div>
             <label class="date1 ">生日:
@@ -112,18 +115,16 @@
                 <label class="area ">特殊備註:
                 </label>
                 <br>
-                <textarea class="area1 " rows="2 " cols="20 " ></textarea><textarea style="border:3px black double; ">
+                <textarea class="area1 " rows="2 " cols="20 "  style="border:3px black double; ">
                 </textarea>
             </p>
         </fieldset>
-        <section class="container">
-            <div class="wrapper">
-                <a href="# " class="button blue ">
-                    <div class="light"></div>資料正確,送出</a>
-                <a href="# " class="button black ">
-                    <div class="light"></div>資料錯誤,須修正</a>
-            </div>
-        </section>
+        <div id="buttonContainer" class="a">
+                    <div class="wrapper">
+                        <button type="button" class="button small blue">資料送出</a>
+                        <button type="button" class="button small orange">修改資料</a>
+                    </div>
+                </div>
     </form>
     <nav class="navbar navbar-inverse navbar-fixed-top " role="navigation ">
         <div class="container ">

@@ -171,7 +171,7 @@ public class testController
 	{
 		Student account_session = (Student) context.getBean("studentinfo");
 		if(account_session.getAccount()!=null){
-			ModelAndView model = new ModelAndView("sa_atest");
+			ModelAndView model = new ModelAndView("sa_astest");
 			return model;
 		}
 		else{

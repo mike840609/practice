@@ -106,7 +106,7 @@
                 <label class="area">特殊備註:
                 </label>
                 <br>
-                <textarea class="area1" rows="2" cols="20" ></textarea><textarea style="border:3px black double;">
+                <textarea class="area1" rows="2" cols="20"  style="border:3px black double;">
                 </textarea>
             </p>
         </fieldset>

@@ -23,7 +23,7 @@ table {
 
 .text1 {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
-	margin-left: 30px;
+	margin-left: 28px;
 	font-color: #444;
 }
 
@@ -34,6 +34,7 @@ table {
 .area1 {
 	margin-left: -10px;
 }
+
 </style>
 </head>
 

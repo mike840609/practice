@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <link rel="stylesheet" href="css/andy/buttons.css">
+    <link rel="stylesheet" href="css/buttons/buttons.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -15,8 +15,8 @@
     <link rel="stylesheet" type="text/css" href="css/andy/english1.css" />
     <style>
     .wrapper {
-        margin-left: 550px;
-        margin-top:-25px;
+        margin-left: 590px;
+        margin-top:-5px;
     }
     </style>
 </head>
@@ -107,7 +107,7 @@
                         </option>
                     </select>
                 </div>
-            </p>
+            
             <p>
                 <label class="area">特殊備註:
                 </label>
@@ -116,14 +116,12 @@
                 </textarea>
             </p>
         </fieldset>
-        <section class="container">
-            <div class="wrapper">
-                <a href="#" class="button blue">
-                    <div class="light"></div>資料正確,送出</a>
-                <a href="#" class="button black">
-                    <div class="light"></div>資料錯誤,須修正</a>
-            </div>
-        </section>
+         <div id="buttonContainer" class="a">
+                    <div class="wrapper">
+                        <button type="button" class="button small blue">資料送出
+                        <button type="button" class="button small orange">修改資料
+                    </div>
+                </div>
     </form>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
