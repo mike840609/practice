@@ -64,7 +64,7 @@ public class Sa_AccountController
 			
 			//account_session set attribute
 			account_session = studentDAO.setSession(account_session);
-			
+			System.out.println("登入資訊：");
 			System.out.println("帳號："+account_session.getAccount());
 			System.out.println("密碼："+ account_session.getPwd());
 			System.out.println("姓名："+ account_session.getName());
@@ -85,6 +85,16 @@ public class Sa_AccountController
 		Student account_session = (Student) context.getBean("studentinfo");
         //account_session.setAccount("");  "" != null
 		account_session.setAccount(null);
+		account_session.setAddress(null);
+		account_session.setBirth(null);
+		account_session.setCode(null);
+		account_session.setEmail(null);
+		account_session.setId(null);
+		account_session.setName(null);
+		account_session.setPwd(null);
+		account_session.setSex(null);
+		account_session.setTel(null);
+		
 		System.out.println(account_session.getAccount());
 		System.out.println("清空session 成功登出 ");
 		ModelAndView model = new ModelAndView("redirect:/sa_homepage");

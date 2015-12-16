@@ -14,10 +14,11 @@
 <UL>
 <LI><a href="article">article</a>
 <LI><a href="product">product management(CRUD)</a>
-<LI><a href="sa_login">sa_login</a>
 <LI><a href="test">test</a> 
 <LI><a href="sa_register">sa_register</a>
-<LI><a href="sa_homepage">sa_homepage</a>
+<hr>
+團體報名部分
+<hr>
 <LI><a href="sa_groupinfo">sa_groupinfo</a>
 <LI><a href="sa_grouplogin">sa_grouplogin</a>
 <LI><a href="sa_groupregister">sa_groupregister</a>
@@ -25,25 +26,33 @@
 <LI><a href="sa_groupsearchB">sa_groupsearchB</a>
 <LI><a href="sa_groupsearchC">sa_groupsearchC</a>
 <hr>
-個人修改 查詢
-<LI><a href="sa_perAsGrade">sa_perAsGrade</a>
-<LI><a href="sa_perBsGrade">sa_perBsGrade</a>
-<LI><a href="sa_perEngGrade">sa_perEngGrade</a>
-<LI><a href="sa_perModify">sa_perModify</a>
-<LI><a href="sa_perSearch">sa_perSearch</a>
+個人修改 查詢 報名 蔡鈞
 <hr>
-個報 管理員
-<LI><a href="sa_accountcheck">sa_accountcheck  已完成 需傳過來 無法直接開啟</a>
+<LI><a href="sa_homepage">sa_homepage          已完成</a>
+<LI><a href="sa_login">sa_login                已完成</a>
+<LI><a href="sa_logout">sa_logout                已完成</a>
+<LI><a href="sa_perModify">sa_perModify        已完成</a>
+<LI><a href="sa_perSearch">sa_perSearch        已完成</a>
+
+<LI><a href="sa_accountcheck">sa_accountcheck  已完成      需傳過來 無法直接開啟</a>
 <LI><a href="sa_accountregister">sa_accountregister 已完成</a>
+
 <LI><a href="sa_astest">sa_astest</a>
 <LI><a href="sa_astestcheck">sa_astestcheck</a>
 <LI><a href="sa_bstest">sa_bstest</a>
 <LI><a href="sa_bstestcheck">sa_bstestcheck</a>
 <LI><a href="sa_engtest">sa_engtest</a>
 <LI><a href="sa_engtestcheck">sa_engtestcheck</a>
+
+<LI><a href="sa_perAsGrade">sa_perAsGrade</a>
+<LI><a href="sa_perBsGrade">sa_perBsGrade</a>
+<LI><a href="sa_perEngGrade">sa_perEngGrade</a>
+<hr>
+管理員  政耀
+<hr>
 <LI><a href="sa_mangermodify">sa_mangermodify</a>
 <LI><a href="sa_mangersearch">sa_mangersearch</a>
-
+<hr>
 
 </UL>
 </body>

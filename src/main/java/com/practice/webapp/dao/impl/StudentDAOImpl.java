@@ -25,6 +25,41 @@ public class StudentDAOImpl implements StudentDAO
 		this.dataSource = dataSource;
 	}
 
+	
+	public void updateStu(Student aStudent){
+		String sql =  "UPDATE student SET name=?, sex=?, email=?, id=?, pwd=?, birth=?, tel=?, address=? ,code=?"
+				+ "WHERE account = ?";
+		try {
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setString(1, aStudent.getName());
+			smt.setString(2, aStudent.getSex());
+			smt.setString(3, aStudent.getEmail());
+			smt.setString(4, aStudent.getId());
+			smt.setString(5, aStudent.getPwd());
+			smt.setString(6, aStudent.getBirth());
+			smt.setString(7, aStudent.getTel());
+			smt.setString(8, aStudent.getAddress());
+			smt.setString(9, aStudent.getCode());
+			smt.setString(10, aStudent.getAccount());
+			smt.executeUpdate();			
+			smt.close();
+ 
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+ 
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+		
+	}
+	
+	
+	
 	public void insertStu(Student aStudent)
 	{
 		
@@ -68,7 +103,55 @@ public class StudentDAOImpl implements StudentDAO
 		}
 
 	}
-	
+	public Student setSession(Student aStudent)
+	{
+		String sql = "SELECT * FROM student WHERE account = ?";
+		try
+		{
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setString(1, aStudent.getAccount());
+			rs = smt.executeQuery();
+			if (rs.next())
+			{
+				aStudent.setAccount(rs.getString("account"));
+				aStudent.setCode(rs.getString("code"));
+				aStudent.setId(rs.getString("id"));
+				aStudent.setName(rs.getString("name"));
+				aStudent.setSex(rs.getString("sex"));
+				aStudent.setBirth(rs.getString("birth"));
+				aStudent.setTel(rs.getString("tel"));
+				aStudent.setAddress(rs.getString("address"));
+				aStudent.setEmail(rs.getString("email"));
+				aStudent.setPwd(rs.getString("pwd"));
+
+			}
+			rs.close();
+			smt.close();
+
+		}
+		catch (SQLException e)
+		{
+			throw new RuntimeException(e);
+
+		}
+		finally
+		{
+			if (conn != null)
+			{
+				try
+				{
+					conn.close();
+				}
+				catch (SQLException e)
+				{
+				}
+			}
+		}
+		return aStudent;
+	}
+
+//	以下為測試用=============================================================================
 	
 	public void insert(Student aStudent)
 	{
@@ -269,53 +352,6 @@ public class StudentDAOImpl implements StudentDAO
 		return aStudent;
 	}
 	
-	public Student setSession(Student aStudent)
-	{
-		String sql = "SELECT * FROM student WHERE account = ?";
-		try
-		{
-			conn = dataSource.getConnection();
-			smt = conn.prepareStatement(sql);
-			smt.setString(1, aStudent.getAccount());
-			rs = smt.executeQuery();
-			if (rs.next())
-			{
-				aStudent.setAccount(rs.getString("account"));
-				aStudent.setCode(rs.getString("code"));
-				aStudent.setId(rs.getString("id"));
-				aStudent.setName(rs.getString("name"));
-				aStudent.setSex(rs.getString("sex"));
-				aStudent.setBirth(rs.getString("birth"));
-				aStudent.setTel(rs.getString("tel"));
-				aStudent.setAddress(rs.getString("address"));
-				aStudent.setEmail(rs.getString("email"));
-				aStudent.setPwd(rs.getString("pwd"));
-
-			}
-			rs.close();
-			smt.close();
-
-		}
-		catch (SQLException e)
-		{
-			throw new RuntimeException(e);
-
-		}
-		finally
-		{
-			if (conn != null)
-			{
-				try
-				{
-					conn.close();
-				}
-				catch (SQLException e)
-				{
-				}
-			}
-		}
-		return aStudent;
-	}
-
+	
 
 }

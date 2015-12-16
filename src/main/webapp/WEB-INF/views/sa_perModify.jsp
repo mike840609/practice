@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,103 +10,59 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>大考中心報名系統</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link href="blog.css" rel="stylesheet">
-    
+    <link rel="stylesheet" href="css/bootstrap.min.css"> 
     <link rel="stylesheet" type="text/css" href="css/wei/modify.css" />
     <!-- 自定義CSS -->
     <style>
     body {
         background: url("css/wei/img/123.jpg");
-        
     }
     </style>
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand " href="#">大考中心報名系統</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse ">
-                <div>
-                    <ul class="nav navbar-nav">
-                        <li><a href="login.html">個人報考</a></li>
-                        <li><a href="team.html">團體報考</a></li>
-                        <li class="dropdown ">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-               個人中心 
-               <b class="caret"></b>
-            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">考生資訊</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">成績查詢</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <form class="navbar-form navbar-right" role="form">
-                    <div class="form-group">
-                        <input type="text" placeholder="ID" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" placeholder="Password" class="form-control">
-                    </div>
-                    <button type="submit" class="btn btn-success">Sign in</button>
-                </form>
-            </div>
-            <!--/.navbar-collapse -->
-        </div>
-    </nav>
+<%@include file="sa_navbar.jspf" %>
 <div class="container1">
 	<section id="content">
-		<form role="form" action="">
+		<form role="form" action="sa_perModify" method="post">
 			<h1>考生個人資料</h1>
             <div class="form-group">
                 <label for="exampleInputEmail1">姓名</label>
-                <input type="text" class="form-control" id="name" placeholder="輸入姓名">
+                <input type="text" class="form-control" id="name" name="name" value="${account_session.name}">
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">性別</label>
-                <select class="form-control">
+                <select class="form-control" name="sex">
                     <option>男</option>
                     <option>女</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">電子郵件</label>
-                <input type="email" class="form-control" id="email" placeholder="輸入電子郵件">
+                <input type="email" class="form-control" id="email" name ="email" value="${account_session.email}">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">身分證</label>
-                <input type="text" class="form-control" id="identity" placeholder="身分證">
+                <input type="text" class="form-control" id="identity" name="id" value="${account_session.id }">
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">密碼</label>
-                <input type="password" class="form-control" id="password" placeholder="密碼">
+                <input type="text" class="form-control" id="password" name ="pwd" value="${account_session.pwd}">
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">生日</label>
-                <input type="text" class="form-control" id="birthday" placeholder="生日">
+                <input type="text" class="form-control" id="birthday" name="birth" value="${account_session.birth }">
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">電話</label>
-                <input type="text" class="form-control" id="phone" placeholder="電話">
+                <input type="text" class="form-control" id="phone" name ="tel" value="${account_session.tel}">
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">住址</label>
-                <input type="text" class="form-control" id="address" placeholder="住址">
+                <input type="text" class="form-control" id="address" name="address" value="${account_session.address }">
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">學校代碼</label>
-                <input type="text" class="form-control" id="school" placeholder="學校代碼">
+                <input type="text" class="form-control" id="school" name ="code" value="${account_session.code }">
             </div>
 		    <div>
 				<input type="submit" value="確認修改" />

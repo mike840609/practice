@@ -3,10 +3,12 @@ package com.practice.webapp.controller;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.practice.webapp.dao.StudentDAO;
 import com.practice.webapp.entity.Student;
 
 @Controller
@@ -35,11 +37,28 @@ public class Sa_PersonController
 			ModelAndView model = new ModelAndView("sa_perEngGrade");
 			return model;
 		}
-
+        //導入頁面
 		@RequestMapping(value = "/sa_perModify", method = RequestMethod.GET)
-		public ModelAndView sa_perModify()
+		public ModelAndView sa_perModifyPage()
 		{
+			Student account_session = (Student) context.getBean("studentinfo");
 			ModelAndView model = new ModelAndView("sa_perModify");
+			model.addObject("account_session", account_session);
+			return model;
+		}
+		
+		//寫入資料庫
+		@RequestMapping(value = "/sa_perModify", method = RequestMethod.POST)
+		public ModelAndView sa_perModify(@ModelAttribute Student student)
+		{
+			Student account_session = (Student) context.getBean("studentinfo");
+            
+			//將帳號注入student屬性 前端沒有帳號這值 所以由 注入
+			student.setAccount(account_session.getAccount());
+			StudentDAO studentDAO = (StudentDAO) context.getBean("studentDAO");
+			studentDAO.updateStu(student);
+			System.out.println("修改成功");
+			ModelAndView model = new ModelAndView("sa_homepage");
 			return model;
 		}
 
