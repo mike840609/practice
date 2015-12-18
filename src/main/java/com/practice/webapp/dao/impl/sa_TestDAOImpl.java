@@ -77,6 +77,38 @@ public class sa_TestDAOImpl implements sa_TestDAO
 
 	public void testRegister(sa_EnglishListening sa_EnglishListening)
 	{
+		String sql = "INSERT sa_EnglishListening(account,identity,testPlace,note) " + "VALUES(?,?,?,?)";
+		try
+		{
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setString(1, sa_EnglishListening.getAccount());
+			smt.setString(2, sa_EnglishListening.getIdentity());
+			smt.setString(3, sa_EnglishListening.getTestplace());
+			smt.setString(4, sa_EnglishListening.getNote());
+			smt.executeUpdate();
+			smt.close();
+
+		}
+		catch (SQLException e)
+		{
+			throw new RuntimeException(e);
+
+		}
+		finally
+		{
+			if (conn != null)
+			{
+				try
+				{
+					conn.close();
+				}
+				catch (SQLException e)
+				{
+				}
+			}
+		}
+		
 
 	}
 
@@ -140,6 +172,50 @@ public class sa_TestDAOImpl implements sa_TestDAO
 
 	public sa_EnglishListening EnglishTestGrade(Student student)
 	{
+		String sql = "SELECT * FROM sa_EnglishListening WHERE account = ?";
+		try
+		{
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setString(1, student.getAccount());
+			rs = smt.executeQuery();
+			if (rs.next())
+			{
+				englishListening.setAccount(rs.getString("account"));
+				
+				englishListening.setScore(rs.getInt("score"));
+				
+				englishListening.setTestid(rs.getString("testID"));
+				englishListening.setType(rs.getString("type"));
+				englishListening.setMoney(rs.getInt("money"));
+				englishListening.setState(rs.getString("state"));
+				englishListening.setIdentity(rs.getString("identity"));
+				englishListening.setCode(rs.getString("code"));
+				englishListening.setNote(rs.getString("note"));
+				
+			}
+			rs.close();
+			smt.close();
+
+		}
+		catch (SQLException e)
+		{
+			throw new RuntimeException(e);
+
+		}
+		finally
+		{
+			if (conn != null)
+			{
+				try
+				{
+					conn.close();
+				}
+				catch (SQLException e)
+				{
+				}
+			}
+		}
 		return englishListening;
 	}
 }

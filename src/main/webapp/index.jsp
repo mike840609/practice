@@ -41,12 +41,12 @@
 <LI><a href="sa_astestcheck">sa_astestcheck 無用</a>
 <LI><a href="sa_bstest">sa_bstest 已完成</a>
 <LI><a href="sa_bstestcheck">sa_bstestcheck 無用 </a>
-<LI><a href="sa_engtest">sa_engtest</a>
+<LI><a href="sa_engtest">sa_engtest 已完成</a>
 <LI><a href="sa_engtestcheck">sa_engtestcheck 無用</a>
 
 <LI><a href="sa_perAsGrade">sa_perAsGrade</a>
 <LI><a href="sa_perBsGrade">sa_perBsGrade 已完成</a>
-<LI><a href="sa_perEngGrade">sa_perEngGrade </a>
+<LI><a href="sa_perEngGrade">sa_perEngGrade 已完成</a>
 <hr>
 管理員  政耀
 <hr>

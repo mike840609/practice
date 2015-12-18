@@ -12,14 +12,14 @@ import org.springframework.web.servlet.ModelAndView;
 import com.practice.webapp.dao.sa_TestDAO;
 import com.practice.webapp.entity.Student;
 import com.practice.webapp.entity.sa_BasicTest;
+import com.practice.webapp.entity.sa_EnglishListening;
 
 @Controller
 public class Sa_PersonGradeController
 {
-	
+
 	ApplicationContext context = new ClassPathXmlApplicationContext("spring-module.xml");
 
-	
 	@RequestMapping(value = "/sa_perAsGrade", method = RequestMethod.GET)
 	public ModelAndView sa_perAsGrade()
 	{
@@ -31,23 +31,33 @@ public class Sa_PersonGradeController
 	public ModelAndView sa_perBsGrade()
 	{
 		Student account_session = (Student) context.getBean("studentinfo");
-		
-		sa_TestDAO testDAO = (sa_TestDAO)context.getBean("testDAO");
-		
+
+		sa_TestDAO testDAO = (sa_TestDAO) context.getBean("testDAO");
+
 		sa_BasicTest sa_BasicTest = testDAO.BasicTestGrade(account_session);
-	    
+
 		ModelAndView model = new ModelAndView("sa_perBsGrade");
-		
-		model.addObject("account_session",account_session);
-		model.addObject("sa_BasicTest",sa_BasicTest);
-		
+
+		model.addObject("account_session", account_session);
+		model.addObject("sa_BasicTest", sa_BasicTest);
+
 		return model;
 	}
 
 	@RequestMapping(value = "/sa_perEngGrade", method = RequestMethod.GET)
 	public ModelAndView sa_perEngGrade()
 	{
+		Student account_session = (Student) context.getBean("studentinfo");
+
+		sa_TestDAO testDAO = (sa_TestDAO) context.getBean("testDAO");
+
+		sa_EnglishListening sa_EnglishListening = testDAO.EnglishTestGrade(account_session);
+
 		ModelAndView model = new ModelAndView("sa_perEngGrade");
+
+		model.addObject("account_session", account_session);
+		model.addObject("sa_EnglishListening", sa_EnglishListening);
+		
 		return model;
 	}
 }

@@ -17,7 +17,7 @@
 
 <body>
  <%@include file="sa_navbar.jspf" %>
-    <form action="" class="register">
+    <form action="sa_engtest" class="register" method="post">
         <h1>英聽報名表</h1>
         <fieldset class="row1">
             <legend>基本資料
