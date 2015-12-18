@@ -44,7 +44,7 @@
 	<!-- ===============================考科報名部分================================== -->
 	<!-- ============================================================================ -->
 	
-	<bean id="testRegisterDAO" class="com.practice.webapp.dao.impl.sa_TestRegisterDAOImpl">
+	<bean id="testDAO" class="com.practice.webapp.dao.impl.sa_TestDAOImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	

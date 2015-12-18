@@ -39,8 +39,8 @@
 
 <LI><a href="sa_astest">sa_astest</a>
 <LI><a href="sa_astestcheck">sa_astestcheck</a>
-<LI><a href="sa_bstest">sa_bstest</a>
-<LI><a href="sa_bstestcheck">sa_bstestcheck</a>
+<LI><a href="sa_bstest">sa_bstest 已完成</a>
+<LI><a href="sa_bstestcheck">sa_bstestcheck 無用 </a>
 <LI><a href="sa_engtest">sa_engtest</a>
 <LI><a href="sa_engtestcheck">sa_engtestcheck</a>
 

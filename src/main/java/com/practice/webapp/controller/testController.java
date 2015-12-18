@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.practice.webapp.dao.sa_TestRegisterDAO;
+import com.practice.webapp.dao.sa_TestDAO;
 import com.practice.webapp.entity.Student;
 import com.practice.webapp.entity.sa_BasicTest;
 
@@ -81,10 +81,10 @@ public class testController
 	{
 		Student account_session = (Student) context.getBean("studentinfo");
 		sa_BasicTest.setAccount(account_session.getAccount());
-		sa_TestRegisterDAO testRegisterDAO =  (sa_TestRegisterDAO) context.getBean("testRegisterDAO");
+		sa_TestDAO testRegisterDAO =  (sa_TestDAO) context.getBean("testDAO");
 		testRegisterDAO.testRegister(sa_BasicTest);
 		System.out.println("報名成功");
-		ModelAndView model = new ModelAndView("sa_perBsGrade");
+		ModelAndView model = new ModelAndView("redirect:/sa_perBsGrade");
 		return model;
 	}
 

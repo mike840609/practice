@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.practice.webapp.entity.Student;
+
 @Controller
 public class Sa_PersonGradeController
 {
@@ -24,7 +26,10 @@ public class Sa_PersonGradeController
 	@RequestMapping(value = "/sa_perBsGrade", method = RequestMethod.GET)
 	public ModelAndView sa_perBsGrade()
 	{
+		Student account_session = (Student) context.getBean("studentinfo");
+		
 		ModelAndView model = new ModelAndView("sa_perBsGrade");
+		
 		return model;
 	}
 
