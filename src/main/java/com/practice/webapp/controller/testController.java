@@ -1,7 +1,5 @@
 package com.practice.webapp.controller;
 
-
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -13,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.practice.webapp.dao.sa_TestDAO;
 import com.practice.webapp.entity.Student;
 import com.practice.webapp.entity.sa_BasicTest;
+import com.practice.webapp.entity.sa_EnglishListening;
 
 @Controller
 public class testController
@@ -26,26 +25,24 @@ public class testController
 		return model;
 	}
 
-
 	// 管理員 個報部分=================================================
 
-	
 	// ======================================================
 
 	@RequestMapping(value = "/sa_astest", method = RequestMethod.GET)
 	public ModelAndView sa_astest()
 	{
 		Student account_session = (Student) context.getBean("studentinfo");
-		
+
 		if (account_session.getAccount() != null)
-		{			
+		{
 			ModelAndView model = new ModelAndView("sa_astest");
-			model.addObject("account_session", account_session);			
+			model.addObject("account_session", account_session);
 			return model;
 		}
 		else
 		{
-			ModelAndView model = new ModelAndView("sa_login");
+			ModelAndView model = new ModelAndView("redirect:/sa_login");
 			return model;
 		}
 
@@ -66,12 +63,12 @@ public class testController
 		if (account_session.getAccount() != null)
 		{
 			ModelAndView model = new ModelAndView("sa_bstest");
-			model.addObject("account_session", account_session);	
+			model.addObject("account_session", account_session);
 			return model;
 		}
 		else
 		{
-			ModelAndView model = new ModelAndView("sa_login");
+			ModelAndView model = new ModelAndView("redirect:/sa_login");
 			return model;
 		}
 	}
@@ -81,7 +78,7 @@ public class testController
 	{
 		Student account_session = (Student) context.getBean("studentinfo");
 		sa_BasicTest.setAccount(account_session.getAccount());
-		sa_TestDAO testRegisterDAO =  (sa_TestDAO) context.getBean("testDAO");
+		sa_TestDAO testRegisterDAO = (sa_TestDAO) context.getBean("testDAO");
 		testRegisterDAO.testRegister(sa_BasicTest);
 		System.out.println("報名成功");
 		ModelAndView model = new ModelAndView("redirect:/sa_perBsGrade");
@@ -89,10 +86,36 @@ public class testController
 	}
 
 	@RequestMapping(value = "/sa_engtest", method = RequestMethod.GET)
-	public ModelAndView sa_engtest()
+	public ModelAndView sa_engtestPage()
 	{
-		ModelAndView model = new ModelAndView("sa_engtest");
+
+		Student account_session = (Student) context.getBean("studentinfo");
+
+		if (account_session.getAccount() != null)
+		{
+			ModelAndView model = new ModelAndView("sa_engtest");
+			model.addObject("account_session", account_session);
+			return model;
+		}
+		else
+		{
+			ModelAndView model = new ModelAndView("redirect:/sa_login");
+			return model;
+		}
+
+	}
+
+	@RequestMapping(value = "/sa_engtest", method = RequestMethod.POST)
+	public ModelAndView sa_engtestRegister(@ModelAttribute  sa_EnglishListening sa_EnglishListening)
+	{
+		Student account_session = (Student) context.getBean("studentinfo");
+		sa_EnglishListening.setAccount(account_session.getAccount());
+		sa_TestDAO testRegisterDAO = (sa_TestDAO) context.getBean("testDAO");
+		testRegisterDAO.testRegister(sa_EnglishListening);
+		System.out.println("報名成功");
+		ModelAndView model = new ModelAndView("redirect:/sa_perEngGrade");
 		return model;
+		
 	}
 
 	@RequestMapping(value = "/sa_engtestcheck", method = RequestMethod.GET)

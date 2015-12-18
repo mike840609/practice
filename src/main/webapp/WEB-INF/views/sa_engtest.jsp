@@ -25,32 +25,33 @@
             <p>
                 <label class="account">帳號:
                 </label>
-                <input type="text" name="account" />
+                <input type="text" name="account" value="${account_session.account }" readonly/>
             </p>
             <div class="sex">
                 <label>性別:
                 </label>
-                <select>
+                <!-- <select>
                     <option value="0">男生
                     </option>
                     <option value="1">女生
                     </option>
-                </select>
+                </select> -->
+                <input type="text" name="sex" value="${account_session.sex }" readonly/>
             </div>
             <div class="name1">
                 <p>
                     <label class="name ">姓名:
                     </label>
-                    <input type="text" name="name" />
+                    <input type="text" name="name"  value="${account_session.name }" readonly/>
                 </p>
             </div>
             <label class="date1">生日:
             </label>
-            <input type="date" name="date" />
+            <input type="date" name="birth" value="${account_session.birth }" readonly />
             <p>
                 <label class="id ">身分證:
                 </label>
-                <input type="text" name="id" />
+                <input type="text" name="id" value="${account_session.id }" readonly/>
             </p>
             <!--  -->
         </fieldset>
@@ -60,20 +61,20 @@
             <p>
                 <label>地址:
                 </label>
-                <input type="text" class="long" />
+                <input type="text" class="long" name="address" value="${account_session.address }" readonly/>
             </p>
             <br>
             <br>
             <p>
                 <label>電話:
                 </label>
-                <input type="text" maxlength="10" />
+                <input type="text" maxlength="10" name="tel" value="${account_session.tel }" readonly/>
             </p>
             <p>
                 <br>
                 <label>Email
                 </label>
-                <input type="text" maxlength="10" />
+                <input type="text" maxlength="10" name="email" value="${account_session.email }" readonly/>
             </p>
         </fieldset>
         <fieldset class="row3">
@@ -82,32 +83,38 @@
             <div class="zone">
                 <label>考區:
                 </label>
-                <select>
+               <!--  <select>
                     <option value="0">北區
                     </option>
                     <option value="1">中區
                     </option>
-                </select>
+                </select> -->
+                <input type="text" maxlength="10"
+					value=""name="testplace"  /> 
             </div>
             <p>
                 <div class="zone">
                     <label>補助身分:
                     </label>
-                    <select>
+                   <!--  <select>
                         <option value="0">一般生
                         </option>
                         <option value="1">低收入戶
                         </option>
                         <option value="1">中低收入戶
                         </option>
-                    </select>
+                    </select> -->
+                     
+                     <input type="text" maxlength="10"
+					value=""name="identity"  /> 
+					
                 </div>
             </p>
             <p>
                 <label class="area">特殊備註:
                 </label>
                 <br>
-                <textarea class="area1" rows="2" cols="20"  style="border:3px black double;">
+                <textarea name="note" style="border: 3px black double;">
                 </textarea>
             </p>
         </fieldset>
