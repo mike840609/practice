@@ -3,17 +3,35 @@ package com.practice.webapp.entity;
 public class sa_BasicTest
 {
 	private String account;
-	private String chinese;
-	private String english;
-	private String math;
-	private String society;
-	private String science;
+	private int chinese;
+	private int english;
+	private int math;
+	private int society;
+	private int science;
 	private String type;
-	private String money;
+	private int money;
 	private String state;
 	private String identity;
 	private String testid;
 	private String code;
+	private String note;
+	private String testplace;
+	public String getNote()
+	{
+		return note;
+	}
+	public void setNote(String note)
+	{
+		this.note = note;
+	}
+	public String getTestplace()
+	{
+		return testplace;
+	}
+	public void setTestplace(String testplace)
+	{
+		this.testplace = testplace;
+	}
 	public String getAccount()
 	{
 		return account;
@@ -22,43 +40,43 @@ public class sa_BasicTest
 	{
 		this.account = account;
 	}
-	public String getChinese()
+	public int getChinese()
 	{
 		return chinese;
 	}
-	public void setChinese(String chinese)
+	public void setChinese(int chinese)
 	{
 		this.chinese = chinese;
 	}
-	public String getEnglish()
+	public int getEnglish()
 	{
 		return english;
 	}
-	public void setEnglish(String english)
+	public void setEnglish(int english)
 	{
 		this.english = english;
 	}
-	public String getMath()
+	public int getMath()
 	{
 		return math;
 	}
-	public void setMath(String math)
+	public void setMath(int math)
 	{
 		this.math = math;
 	}
-	public String getSociety()
+	public int getSociety()
 	{
 		return society;
 	}
-	public void setSociety(String society)
+	public void setSociety(int society)
 	{
 		this.society = society;
 	}
-	public String getScience()
+	public int getScience()
 	{
 		return science;
 	}
-	public void setScience(String science)
+	public void setScience(int science)
 	{
 		this.science = science;
 	}
@@ -70,11 +88,11 @@ public class sa_BasicTest
 	{
 		this.type = type;
 	}
-	public String getMoney()
+	public int getMoney()
 	{
 		return money;
 	}
-	public void setMoney(String money)
+	public void setMoney(int money)
 	{
 		this.money = money;
 	}
@@ -111,6 +129,4 @@ public class sa_BasicTest
 		this.code = code;
 	}
 	
-	
-
 }

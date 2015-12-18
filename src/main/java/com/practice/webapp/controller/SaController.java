@@ -114,21 +114,7 @@ public class SaController
 	}
 
 
-	// account ==================================================
-
-	@RequestMapping(value = "/sa_login", method = RequestMethod.GET)
-	public ModelAndView login()
-	{
-		Student account_session = (Student) context.getBean("studentinfo");
-		if(account_session.getAccount()!=null){
-			ModelAndView model = new ModelAndView("redirect:/sa_register");
-			return model;
-		}
-		else{
-		ModelAndView model = new ModelAndView("sa_login");
-		return model;
-		}
-	}
+	
 
 
 	

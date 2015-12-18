@@ -3,22 +3,40 @@ package com.practice.webapp.entity;
 public class sa_AssignTest
 {
 	private String account;
-	private String chinese;
-	private String english;
-	private String mathA;
-	private String mathB;
-	private String history;
-	private String geography;
-	private String civics;
-	private String physical;
-	private String chemical;
-	private String biology;
+	private int chinese;
+	private int english;
+	private int mathA;
+	private int mathB;
+	private int history;
+	private int geography;
+	private int civics;
+	private int physical;
+	private int chemical;
+	private int biology;
 	private String type;
-	private String money;
+	private int money;
 	private String state;
 	private String identity;
 	private String code;
 	private String testid;
+	private String note;
+	private String testplace;
+	public String getNote()
+	{
+		return note;
+	}
+	public void setNote(String note)
+	{
+		this.note = note;
+	}
+	public String getTestplace()
+	{
+		return testplace;
+	}
+	public void setTestplace(String testplace)
+	{
+		this.testplace = testplace;
+	}
 	public String getAccount()
 	{
 		return account;
@@ -27,83 +45,83 @@ public class sa_AssignTest
 	{
 		this.account = account;
 	}
-	public String getChinese()
+	public int getChinese()
 	{
 		return chinese;
 	}
-	public void setChinese(String chinese)
+	public void setChinese(int chinese)
 	{
 		this.chinese = chinese;
 	}
-	public String getEnglish()
+	public int getEnglish()
 	{
 		return english;
 	}
-	public void setEnglish(String english)
+	public void setEnglish(int english)
 	{
 		this.english = english;
 	}
-	public String getMathA()
+	public int getMathA()
 	{
 		return mathA;
 	}
-	public void setMathA(String mathA)
+	public void setMathA(int mathA)
 	{
 		this.mathA = mathA;
 	}
-	public String getMathB()
+	public int getMathB()
 	{
 		return mathB;
 	}
-	public void setMathB(String mathB)
+	public void setMathB(int mathB)
 	{
 		this.mathB = mathB;
 	}
-	public String getHistory()
+	public int getHistory()
 	{
 		return history;
 	}
-	public void setHistory(String history)
+	public void setHistory(int history)
 	{
 		this.history = history;
 	}
-	public String getGeography()
+	public int getGeography()
 	{
 		return geography;
 	}
-	public void setGeography(String geography)
+	public void setGeography(int geography)
 	{
 		this.geography = geography;
 	}
-	public String getCivics()
+	public int getCivics()
 	{
 		return civics;
 	}
-	public void setCivics(String civics)
+	public void setCivics(int civics)
 	{
 		this.civics = civics;
 	}
-	public String getPhysical()
+	public int getPhysical()
 	{
 		return physical;
 	}
-	public void setPhysical(String physical)
+	public void setPhysical(int physical)
 	{
 		this.physical = physical;
 	}
-	public String getChemical()
+	public int getChemical()
 	{
 		return chemical;
 	}
-	public void setChemical(String chemical)
+	public void setChemical(int chemical)
 	{
 		this.chemical = chemical;
 	}
-	public String getBiology()
+	public int getBiology()
 	{
 		return biology;
 	}
-	public void setBiology(String biology)
+	public void setBiology(int biology)
 	{
 		this.biology = biology;
 	}
@@ -115,11 +133,11 @@ public class sa_AssignTest
 	{
 		this.type = type;
 	}
-	public String getMoney()
+	public int getMoney()
 	{
 		return money;
 	}
-	public void setMoney(String money)
+	public void setMoney(int money)
 	{
 		this.money = money;
 	}
@@ -155,5 +173,4 @@ public class sa_AssignTest
 	{
 		this.testid = testid;
 	}
-	
 }

@@ -17,26 +17,7 @@ public class Sa_PersonController
 	ApplicationContext context = new ClassPathXmlApplicationContext("spring-module.xml");
 
 	// 個人部分=================================================================
-		@RequestMapping(value = "/sa_perAsGrade", method = RequestMethod.GET)
-		public ModelAndView sa_perAsGrade()
-		{
-			ModelAndView model = new ModelAndView("sa_perAsGrade");
-			return model;
-		}
-
-		@RequestMapping(value = "/sa_perBsGrade", method = RequestMethod.GET)
-		public ModelAndView sa_perBsGrade()
-		{
-			ModelAndView model = new ModelAndView("sa_perBsGrade");
-			return model;
-		}
-
-		@RequestMapping(value = "/sa_perEngGrade", method = RequestMethod.GET)
-		public ModelAndView sa_perEngGrade()
-		{
-			ModelAndView model = new ModelAndView("sa_perEngGrade");
-			return model;
-		}
+		
         //導入頁面
 		@RequestMapping(value = "/sa_perModify", method = RequestMethod.GET)
 		public ModelAndView sa_perModifyPage()

@@ -68,9 +68,12 @@ body {
 					大學入學指定科目考試（Advanced Subjects
 					Test），簡稱指定科目考試、指考。為臺灣教育中，大學入學方案中三大考試之一（另兩大為大學學科能力測驗、大學入學術科考試），由財團法人大學入學考試中心基金會舉辦。前身為聯考，自2002年廢除聯考後，開始實施此測驗。.
 					</p>
-					<!-- <button type="button" class="btn btn-default" disabled="disabled">點我報名</button> -->
-					<button type="button" class="button small orange"
-						data-toggle="modal" data-target="#myModal">報名考科&raquo;</button>
+					<p>
+						<a class="button small orange" href="sa_astest" role="button">報名考科
+							&raquo;</a>
+					</p>
+					<!-- <button type="button" class="button small orange"
+						data-toggle="modal" data-target="#myModal">報名考科&raquo;</button> -->
 					<!-- Modal -->
 				</div>
 			</div>
@@ -81,9 +84,10 @@ body {
 					大學入學考試中心高中英語聽力測驗係配合普通高級中學課程綱要之內涵，以適切之題型，針對高中學生英語聽力進行的一項綜合評量。同時，為呼應大學校
 					園國際化趨勢，本測驗除著重英語於日常生活中之應用與溝通外，也強調課堂學習相關之英語能力，以期能將所學與世界接軌。
 					</p>
-					<!-- <button type="button" class="btn btn-default" disabled="disabled">點我報名</button> -->
-					<button type="button" class="button small orange"
-						data-toggle="modal" data-target="#myModal">報名考科&raquo;</button>
+					<a class="button small orange" href="sa_engtest" role="button">報名考科
+							&raquo;</a>
+					<!-- <button type="button" class="button small orange"
+						data-toggle="modal" data-target="#myModal">報名考科&raquo;</button> -->
 					<!-- Modal -->
 				</div>
 			</div>
@@ -98,10 +102,7 @@ body {
 	<!-- Bootstrap core JavaScript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script
-		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	
 	<!-- 雲端函式庫 -->
 	<!-- 提示視窗 -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"

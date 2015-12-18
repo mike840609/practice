@@ -37,9 +37,21 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
-	<bean id="sa_TestPlaceDAO" class="com.practice.webapp.dao.impl.sa_TestPlaceDAOImpl">
+	<bean id="TestPlaceDAO" class="com.practice.webapp.dao.impl.sa_TestPlaceDAOImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+	
+	<!-- ===============================考科報名部分================================== -->
+	<!-- ============================================================================ -->
+	
+	<bean id="testRegisterDAO" class="com.practice.webapp.dao.impl.sa_TestRegisterDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<!-- <bean id="bsRegisterTemp" class="com.practice.webapp.entity.Student"
+		scope="session">
+		<aop:scoped-proxy />
+	</bean> -->
 
 <!-- 登入資料庫檢查部份 -->
 

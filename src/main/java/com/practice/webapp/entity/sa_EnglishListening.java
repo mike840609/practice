@@ -3,13 +3,31 @@ package com.practice.webapp.entity;
 public class sa_EnglishListening
 {
 	private String account;
-	private String score;
+	private int score;
 	private String type;
-	private String money;
+	private int money;
 	private String state;
 	private String identity;
 	private String testid;
 	private String code;
+	private String note;
+	private String testplace;
+	public String getNote()
+	{
+		return note;
+	}
+	public void setNote(String note)
+	{
+		this.note = note;
+	}
+	public String getTestplace()
+	{
+		return testplace;
+	}
+	public void setTestplace(String testplace)
+	{
+		this.testplace = testplace;
+	}
 	public String getAccount()
 	{
 		return account;
@@ -18,11 +36,11 @@ public class sa_EnglishListening
 	{
 		this.account = account;
 	}
-	public String getScore()
+	public int getScore()
 	{
 		return score;
 	}
-	public void setScore(String score)
+	public void setScore(int score)
 	{
 		this.score = score;
 	}
@@ -34,11 +52,11 @@ public class sa_EnglishListening
 	{
 		this.type = type;
 	}
-	public String getMoney()
+	public int getMoney()
 	{
 		return money;
 	}
-	public void setMoney(String money)
+	public void setMoney(int money)
 	{
 		this.money = money;
 	}
@@ -75,7 +93,4 @@ public class sa_EnglishListening
 		this.code = code;
 	}
 	
-	
-	
-
 }

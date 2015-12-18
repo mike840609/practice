@@ -16,6 +16,7 @@
 </head>
 
 <body>
+ <%@include file="sa_navbar.jspf" %>
     <form action="" class="register">
         <h1>英聽報名表</h1>
         <fieldset class="row1">
@@ -114,48 +115,7 @@
             <button class="button1">Register &raquo;</button>
         </div>
     </form>
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand " href="index.html">大考中心報名系統</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse ">
-                <div>
-                    <ul class="nav navbar-nav">
-                        <li><a href="login.html">個人報考</a></li>
-                        <li><a href="team.html">團體報考</a></li>
-                        <li class="dropdown ">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-               個人中心 
-               <b class="caret"></b>
-            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">考生資訊</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">成績查詢</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <form class="navbar-form navbar-right" role="form">
-                    <div class="form-group">
-                        <input type="text" placeholder="ID" class="form-control ">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" placeholder="Password" class="form-control ">
-                    </div>
-                    <button type="submit" class="btn btn-success">Sign in</button>
-                </form>
-            </div>
-     
-        </div>
-    </nav>
+    
 </body>
 
 </html>
