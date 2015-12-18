@@ -54,6 +54,10 @@ body {
 				<label for="exampleInputEmail1">自然</label> <input type="text"
 					class="form-control" id="science" value="${sa_BasicTest.science }" readonly>
 			</div>
+		<%-- 	<div class="form-group">
+				<label for="exampleInputEmail1">總級分</label> <input type="text"
+					class="form-control"  value="${sa_BasicTest.science }" readonly>
+			</div> --%>
 			<div class="form-group">
 				<label for="exampleInputEmail1">繳費方式</label> <input type="text"
 					class="form-control" id="type" value="${sa_BasicTest.type }" readonly>

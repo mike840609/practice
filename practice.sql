@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: localhost
--- 產生時間： 2015 年 12 月 10 日 16:16
+-- 產生時間： 2015 年 12 月 18 日 16:57
 -- 伺服器版本: 10.0.17-MariaDB
 -- PHP 版本： 5.6.14
 
@@ -85,8 +85,8 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`ProductID`, `Category`, `Description`, `Inventory`, `ReorderPoint`) VALUES
-(2, 1, '筆記型電腦', 20, 6),
-(3, 1, '個人電腦', 4, 5);
+(2, 1, '筆記型電腦', 9, 6),
+(3, 1, '個人電腦', 2, 5);
 
 -- --------------------------------------------------------
 
@@ -147,7 +147,20 @@ CREATE TABLE `salesorderitem` (
 
 INSERT INTO `salesorderitem` (`id`, `SOID`, `ProductID`, `Quantity`) VALUES
 (1, 3, 3, 1),
-(2, 4, 3, 1);
+(2, 4, 3, 1),
+(3, 5, 2, 1),
+(4, 5, 3, 1),
+(5, 5, 2, 1),
+(6, 5, 2, 1),
+(7, 5, 2, 1),
+(8, 5, 2, 1),
+(9, 5, 2, 1),
+(10, 5, 2, 1),
+(11, 5, 2, 1),
+(12, 5, 2, 1),
+(13, 5, 2, 1),
+(14, 5, 3, 1),
+(15, 5, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -157,23 +170,33 @@ INSERT INTO `salesorderitem` (`id`, `SOID`, `ProductID`, `Quantity`) VALUES
 
 CREATE TABLE `sa_AssignTest` (
   `account` char(20) CHARACTER SET utf8 NOT NULL,
-  `chinese` double NOT NULL,
-  `math` double NOT NULL,
-  `history` double NOT NULL,
-  `geography` double NOT NULL,
-  `civics` double NOT NULL,
-  `physical` double NOT NULL,
-  `chemical` double NOT NULL,
-  `biology` double NOT NULL
+  `testID` char(10) DEFAULT NULL,
+  ` Chinese` int(11) DEFAULT NULL,
+  `English` int(10) DEFAULT NULL,
+  `MathA` int(11) DEFAULT NULL,
+  `MathB` int(10) DEFAULT NULL,
+  `History` int(11) DEFAULT NULL,
+  `Geography` int(11) DEFAULT NULL,
+  `Civics` int(11) DEFAULT NULL,
+  `Physical` int(11) DEFAULT NULL,
+  `Chemical` int(11) DEFAULT NULL,
+  `Biology` int(11) DEFAULT NULL,
+  `type` char(5) DEFAULT NULL,
+  `money` int(7) DEFAULT NULL,
+  `state` char(5) DEFAULT NULL,
+  `identity` char(5) DEFAULT NULL,
+  `code` char(10) DEFAULT NULL,
+  `testPlace` char(10) DEFAULT NULL,
+  `note` char(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=armscii8;
 
 --
 -- 資料表的匯出資料 `sa_AssignTest`
 --
 
-INSERT INTO `sa_AssignTest` (`account`, `chinese`, `math`, `history`, `geography`, `civics`, `physical`, `chemical`, `biology`) VALUES
-('mike840609', 90, 90, 90, 90, 90, 90, 90, 90),
-('root', 98, 23, 24, 53, 45, 53, 66, 54);
+INSERT INTO `sa_AssignTest` (`account`, `testID`, ` Chinese`, `English`, `MathA`, `MathB`, `History`, `Geography`, `Civics`, `Physical`, `Chemical`, `Biology`, `type`, `money`, `state`, `identity`, `code`, `testPlace`, `note`) VALUES
+('mike840609', '0', 90, 0, 90, 0, 90, 90, 90, 90, 90, 90, '0', 0, '0', '0', '0', '', NULL),
+('root', '0', 98, 0, 23, 0, 24, 53, 45, 53, 66, 54, '0', 0, '0', '0', '0', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -182,20 +205,28 @@ INSERT INTO `sa_AssignTest` (`account`, `chinese`, `math`, `history`, `geography
 --
 
 CREATE TABLE `sa_BasicTest` (
-  `account` char(20) NOT NULL,
-  `chinese` double NOT NULL,
-  `english` double NOT NULL,
-  `math` double NOT NULL,
-  `society` double NOT NULL,
-  `science` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=armscii8;
+  `account` char(20) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `testID` char(11) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Chinese` int(11) DEFAULT NULL,
+  `English` int(11) DEFAULT NULL,
+  `Math` int(11) DEFAULT NULL,
+  `Society` int(11) DEFAULT NULL,
+  `Science` int(11) DEFAULT NULL,
+  `type` char(11) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `money` int(11) DEFAULT NULL,
+  `state` char(11) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `identity` varchar(11) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `code` char(11) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `testPlace` char(15) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `note` char(255) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- 資料表的匯出資料 `sa_BasicTest`
 --
 
-INSERT INTO `sa_BasicTest` (`account`, `chinese`, `english`, `math`, `society`, `science`) VALUES
-('mike840609', 80, 32, 84, 24, 98);
+INSERT INTO `sa_BasicTest` (`account`, `testID`, `Chinese`, `English`, `Math`, `Society`, `Science`, `type`, `money`, `state`, `identity`, `code`, `testPlace`, `note`) VALUES
+('root', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'rwrw', NULL, 'taiwan', 'rr');
 
 -- --------------------------------------------------------
 
@@ -205,15 +236,23 @@ INSERT INTO `sa_BasicTest` (`account`, `chinese`, `english`, `math`, `society`, 
 
 CREATE TABLE `sa_EnglishListening` (
   `account` char(20) NOT NULL,
-  `score` double NOT NULL
+  `testID` char(10) DEFAULT NULL,
+  `score` int(11) DEFAULT NULL,
+  `money` int(7) DEFAULT NULL,
+  `state` char(5) DEFAULT NULL,
+  `identity` char(10) DEFAULT NULL,
+  `type` char(5) DEFAULT NULL,
+  `code` char(10) DEFAULT NULL,
+  `testPlace` char(15) DEFAULT NULL,
+  `note` char(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=armscii8;
 
 --
 -- 資料表的匯出資料 `sa_EnglishListening`
 --
 
-INSERT INTO `sa_EnglishListening` (`account`, `score`) VALUES
-('root', 80);
+INSERT INTO `sa_EnglishListening` (`account`, `testID`, `score`, `money`, `state`, `identity`, `type`, `code`, `testPlace`, `note`) VALUES
+('root', NULL, NULL, NULL, NULL, 'general', NULL, NULL, 'taipei', '              general');
 
 -- --------------------------------------------------------
 
@@ -292,6 +331,7 @@ INSERT INTO `sa_TestPlace1` (`code`, `place`, `information`) VALUES
 
 CREATE TABLE `student` (
   `account` char(20) CHARACTER SET armscii8 NOT NULL,
+  `pwd` char(20) COLLATE utf8_unicode_ci NOT NULL,
   `code` char(20) CHARACTER SET utf8 DEFAULT NULL,
   `id` char(20) CHARACTER SET utf8 NOT NULL,
   `name` varchar(20) CHARACTER SET utf8 NOT NULL,
@@ -307,15 +347,12 @@ CREATE TABLE `student` (
 -- 資料表的匯出資料 `student`
 --
 
-INSERT INTO `student` (`account`, `code`, `id`, `name`, `sex`, `birth`, `tel`, `address`, `email`, `picture`) VALUES
-('123', NULL, '000', '456', '男', '123', '123', '123', 'mike@gmail.com', NULL),
-('123321', NULL, '12321', '哈', '女', '12321', '12321', '12321', 'mik@gmail.com', NULL),
-('333', NULL, '4242', '12', '男', '09090909', '4242', '555', 'mike0987@gmail.com', NULL),
-('mieeeee', NULL, '55665', '98', '男', 'eee', 'ee2e2e', 'mime', '8989@gmail.com', NULL),
-('mike', NULL, '君', '拉拉拉', '男', '君', '君', '君', 'mike840609@gmail.com', NULL),
-('root', '4', 'F128394859', '肥宅小鈞', '男', '1995/06/09', '0987109488', '輔仁大學', 'mike840609@gmail.com', '402401606.png'),
-('vick', '1', 'f129893747', '黃政要', '女', '1995/08/23', '0912345678', '淡江大學', 'vick1@yahoo.com.tw', 'vick.png'),
-('your code', NULL, 'f129507191', '姓名', '女', '840609', '0987109488', '新北市新莊區', '9876@gmail.com', NULL);
+INSERT INTO `student` (`account`, `pwd`, `code`, `id`, `name`, `sex`, `birth`, `tel`, `address`, `email`, `picture`) VALUES
+('090249029402942', '123', NULL, '123', '123', '男', '2', '4324', '33323', '2424', NULL),
+('bbs', 'bbs', '000', 'f129507191', '蔡鈞', '男', '1995/0609', '0987109488', '地球', 'mike840609@gmail.com', NULL),
+('root', 'root', '101', 'F128394859', '肥宅小鈞', '男', '1995/06/09', '0987109488', '輔仁大學', 'mike840609@gmail.com', '402401606.png'),
+('vick', '', '1', 'f129893747', '黃政要', '女', '1995/08/23', '0912345678', '淡江大學', 'vick1@yahoo.com.tw', 'vick.png'),
+('your code', '', NULL, 'f129507191', '姓名', '女', '840609', '0987109488', '新北市新莊區', '9876@gmail.com', NULL);
 
 --
 -- 已匯出資料表的索引
@@ -429,12 +466,12 @@ ALTER TABLE `purchaseorder`
 -- 使用資料表 AUTO_INCREMENT `salesorder`
 --
 ALTER TABLE `salesorder`
-  MODIFY `SOID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `SOID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- 使用資料表 AUTO_INCREMENT `salesorderitem`
 --
 ALTER TABLE `salesorderitem`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- 已匯出資料表的限制(Constraint)
 --
