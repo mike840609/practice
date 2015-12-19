@@ -63,25 +63,25 @@
 		<fieldset class="row3">
 			<legend>考試資訊填寫 </legend>
 			<div class="zone" >
-				<label>考區: </label> <!--  <select class="form-control" name="testplace">
+				<label>考區: </label>  <select class="form-control" name="testplace">
 					<option >北區</option>
 					<option >中區</option>
 					<option >南區</option>
 					<option >東區</option>
-				</select>  -->
-				<input type="text" maxlength="10"
-					value=""name="testplace"  /> 
+				</select>  
+				<!-- <input type="text" maxlength="10"
+					value=""name="testplace"  />  -->
 			</div>
 			<p>
 			<div class="zone">
-				<label>補助身分: </label> <!-- <select class="form-control" name="identity">
+				<label>補助身分: </label>  <select class="form-control" name="identity">
 					<option >一般生</option>
 					<option >低收入戶</option>
 					<option>中低收入戶</option>
-				</select>  -->
+				</select> 
 			
-				 <input type="text" maxlength="10"
-					value=""name="identity"  /> 
+			<!-- 	 <input type="text" maxlength="10"
+					value=""name="identity"  />  -->
 			</div>
 			</p>
 			<p>

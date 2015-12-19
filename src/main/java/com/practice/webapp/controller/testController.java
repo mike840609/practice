@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.practice.webapp.dao.sa_TestDAO;
 import com.practice.webapp.entity.Student;
+import com.practice.webapp.entity.sa_AssignTest;
 import com.practice.webapp.entity.sa_BasicTest;
 import com.practice.webapp.entity.sa_EnglishListening;
 
@@ -48,9 +49,29 @@ public class testController
 
 	}
 
-	@RequestMapping(value = "/sa_astestcheck", method = RequestMethod.GET)
-	public ModelAndView sa_astestcheck()
+	@RequestMapping(value = "/sa_astest", method = RequestMethod.POST)
+	public ModelAndView sa_astestRegister(@ModelAttribute sa_AssignTest sa_AssignTest)
 	{
+		Student account_session = (Student) context.getBean("studentinfo");
+		sa_AssignTest.setAccount(account_session.getAccount());
+		sa_TestDAO testRegisterDAO = (sa_TestDAO) context.getBean("testDAO");
+
+		for (String i : sa_AssignTest.getSubject())
+		{
+			System.out.print(i + ",");
+		}
+		
+		testRegisterDAO.testRegister(sa_AssignTest);
+		
+		System.out.println("報名成功");
+		ModelAndView model = new ModelAndView("redirect:/sa_perAsGrade");
+		return model;
+	}
+
+	@RequestMapping(value = "/sa_astestcheck", method = RequestMethod.GET)
+	public ModelAndView sa_astestcheck(@ModelAttribute sa_AssignTest sa_AssignTest)
+	{
+
 		ModelAndView model = new ModelAndView("sa_astestcheck");
 		return model;
 	}
@@ -106,7 +127,7 @@ public class testController
 	}
 
 	@RequestMapping(value = "/sa_engtest", method = RequestMethod.POST)
-	public ModelAndView sa_engtestRegister(@ModelAttribute  sa_EnglishListening sa_EnglishListening)
+	public ModelAndView sa_engtestRegister(@ModelAttribute sa_EnglishListening sa_EnglishListening)
 	{
 		Student account_session = (Student) context.getBean("studentinfo");
 		sa_EnglishListening.setAccount(account_session.getAccount());
@@ -115,7 +136,7 @@ public class testController
 		System.out.println("報名成功");
 		ModelAndView model = new ModelAndView("redirect:/sa_perEngGrade");
 		return model;
-		
+
 	}
 
 	@RequestMapping(value = "/sa_engtestcheck", method = RequestMethod.GET)

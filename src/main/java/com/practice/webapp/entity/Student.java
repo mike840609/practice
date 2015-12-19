@@ -21,13 +21,24 @@ public class Student implements java.io.Serializable
 	private String name;
 	private String sex;
 	private String birth;
+
 	private String tel;
 	private String address;
 	private String pwd;
 	private String email;
 	private String photo;
 	
+	private String[] subject = new String[20];
 	
+	public String[] getSubject()
+	{
+		return subject;
+	}
+	public void setSubject(String[] subject)
+	{
+		this.subject = subject;
+	}
+	 
 	public sa_TestPlace getTestPlace()
 	{
 		return testPlace;

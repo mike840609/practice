@@ -1,7 +1,5 @@
 package com.practice.webapp.controller;
 
-import javax.naming.Context;
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
