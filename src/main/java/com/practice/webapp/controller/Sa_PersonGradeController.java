@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.practice.webapp.dao.sa_TestDAO;
 import com.practice.webapp.entity.Student;
+import com.practice.webapp.entity.sa_AssignTest;
 import com.practice.webapp.entity.sa_BasicTest;
 import com.practice.webapp.entity.sa_EnglishListening;
 
@@ -21,7 +22,12 @@ public class Sa_PersonGradeController
 	@RequestMapping(value = "/sa_perAsGrade", method = RequestMethod.GET)
 	public ModelAndView sa_perAsGrade()
 	{
+		Student account_session = (Student) context.getBean("studentinfo");
+		sa_TestDAO testDAO = (sa_TestDAO) context.getBean("testDAO");
+		sa_AssignTest sa_AssignTest = testDAO.AssignTestGrade(account_session);
 		ModelAndView model = new ModelAndView("sa_perAsGrade");
+		model.addObject("account_session", account_session);
+		model.addObject("sa_AssignTest", sa_AssignTest);
 		return model;
 	}
 

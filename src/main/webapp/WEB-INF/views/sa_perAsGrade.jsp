@@ -28,71 +28,71 @@
             <h1>指考成績資訊表</h1>
             <div class="form-group">
                 <label for="exampleInputEmail1">姓名</label>
-                <input type="text" class="form-control" id="name" value="張峻瑋" readonly="">
+                <input type="text" class="form-control" id="name" value="${account_session.name }" readonly>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">準考證號碼</label>
-                <input type="text" class="form-control" id="testid" value="402401XXX" readonly="">
+                <input type="text" class="form-control" id="testid" value="${sa_AssignTest.testid }" readonly>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">國文</label>
-                <input type="text" class="form-control" id="chinese" value="15" readonly="">
+                <input type="text" class="form-control" id="chinese" value="${sa_AssignTest.chinese }" readonly>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">英文</label>
-                <input type="text" class="form-control" id="english" value="15" readonly="">
+                <input type="text" class="form-control" id="english" value="${sa_AssignTest.english }" readonly>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">數甲</label>
-                <input type="text" class="form-control" id="matha" value="15" readonly="">
+                <input type="text" class="form-control" id="matha" value="${sa_AssignTest.mathA }" readonly>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">數乙</label>
-                <input type="text" class="form-control" id="mathb" value="15" readonly="">
+                <input type="text" class="form-control" id="mathb" value="${sa_AssignTest.mathB }" readonly>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">歷史</label>
-                <input type="text" class="form-control" id="history" value="15" readonly="">
+                <input type="text" class="form-control" id="history" value="${sa_AssignTest.history }" readonly>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">地理</label>
-                <input type="text" class="form-control" id="geography" value="15" readonly="">
+                <input type="text" class="form-control" id="geography" value="${sa_AssignTest.geography }" readonly>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">公民</label>
-                <input type="text" class="form-control" id="civics" value="15" readonly="">
+                <input type="text" class="form-control" id="civics" value="${sa_AssignTest.civics}" readonly>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">物理</label>
-                <input type="text" class="form-control" id="physical" value="15" readonly="">
+                <input type="text" class="form-control" id="physical" value="${sa_AssignTest.physical }" readonly>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">化學</label>
-                <input type="text" class="form-control" id="chemical" value="15" readonly="">
+                <input type="text" class="form-control" id="chemical" value="${sa_AssignTest.chemical }" readonly>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">生物</label>
-                <input type="text" class="form-control" id="biology" value="15" readonly="">
+                <input type="text" class="form-control" id="biology" value="${sa_AssignTest.biology }" readonly>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">繳費方式</label>
-                <input type="text" class="form-control" id="type" value="ATM轉帳" readonly="">
+                <input type="text" class="form-control" id="type" value="${sa_AssignTest.type }" readonly>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">繳費金額</label>
-                <input type="text" class="form-control" id="money" value="1500" readonly="">
+                <input type="text" class="form-control" id="money" value="${sa_AssignTest.money }" readonly>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">狀態</label>
-                <input type="text" class="form-control" id="state" value="完成" readonly="">
+                <input type="text" class="form-control" id="state" value="${sa_AssignTest.state }" readonly>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">補助身分別</label>
-                <input type="text" class="form-control" id="identity" value="一般考生" readonly="">
+                <input type="text" class="form-control" id="identity" value="${sa_AssignTest.identity }" readonly>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">考場代號</label>
-                <input type="text" class="form-control" id="code" value="015" readonly="">
+                <input type="text" class="form-control" id="code" value="${sa_AssignTest.testplace}" readonly>
             </div>
         </form><!-- form -->
     </section><!-- content -->

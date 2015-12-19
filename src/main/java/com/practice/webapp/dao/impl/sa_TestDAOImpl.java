@@ -199,7 +199,62 @@ public class sa_TestDAOImpl implements sa_TestDAO
 
 	public sa_AssignTest AssignTestGrade(Student student)
 	{
+		String sql = "SELECT * FROM sa_AssignTest WHERE account = ?";
+		try
+		{
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setString(1, student.getAccount());
+			rs = smt.executeQuery();
+			if (rs.next())
+			{
+				assignTest.setAccount(rs.getString("account"));
 
+				assignTest.setChinese(rs.getInt("Chinese"));
+				assignTest.setEnglish(rs.getInt("English"));
+				assignTest.setMathA(rs.getInt("MathA"));
+				assignTest.setMathB(rs.getInt("MathB"));
+				assignTest.setBiology(rs.getInt("Biology"));
+				assignTest.setChemical(rs.getInt("Chemical"));
+				assignTest.setCivics(rs.getInt("Civics"));
+	
+				assignTest.setGeography(rs.getInt("MathA"));
+				assignTest.setHistory(rs.getInt("History"));
+				
+				assignTest.setPhysical(rs.getInt("Physical"));
+				
+
+				assignTest.setTestid(rs.getString("testID"));
+				assignTest.setType(rs.getString("type"));
+				assignTest.setMoney(rs.getInt("money"));
+				assignTest.setState(rs.getString("state"));
+				assignTest.setIdentity(rs.getString("identity"));
+				assignTest.setCode(rs.getString("code"));
+				assignTest.setNote(rs.getString("note"));
+
+			}
+			rs.close();
+			smt.close();
+
+		}
+		catch (SQLException e)
+		{
+			throw new RuntimeException(e);
+
+		}
+		finally
+		{
+			if (conn != null)
+			{
+				try
+				{
+					conn.close();
+				}
+				catch (SQLException e)
+				{
+				}
+			}
+		}
 		return assignTest;
 	}
 
