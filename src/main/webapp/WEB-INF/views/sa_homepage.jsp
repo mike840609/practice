@@ -13,18 +13,67 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link href="css/blog.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/buttons/buttons.css" />
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <!-- 自定義CSS -->
 <style>
 body {
 	background: url("css/img/section_bg.png");
-	margin-top: 20px;
 }
 </style>
 </head>
 
 <body>
 	<!-- 導入navbar -->
-	<%@include file="sa_navbar.jspf" %>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand " href="sa_homepage">大考中心報名系統</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse ">
+				<div>
+					<ul class="nav navbar-nav ">
+						<li><a href="sa_login">個人報考</a></li>
+						<li><a href="sa_grouplogin">團體報考</a></li>
+						<li class="dropdown "><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown"> 個人中心 <b class="caret"></b>
+						</a>
+							<ul class="dropdown-menu">
+								<li><a href="sa_accountregister">帳號註冊</a></li>
+								<li class="divider"></li>
+								<li><a href="sa_perSearch"> 帳號資訊</a></li>
+								<li class="divider"></li>
+								<li><a href="#">成績查詢</a></li>
+								<li class="divider"></li>
+								<li><a href="sa_logout">登出</a></li>
+
+							</ul></li>
+					</ul>
+				</div>
+				<form class="navbar-form navbar-right" role="form">
+					<a href="" class="btn btn-info">${name},您好啊</a>
+				</form>
+				<%-- <div class="navbar-form navbar-right">
+					<ul class="nav navbar-nav ">
+						<li>${name} ,你好啊</li>
+					</ul>
+				</div> --%>
+			</div>
+			<!--/.navbar-collapse -->
+		</div>
+	</nav>
+	<%-- <%@include file="sa_navbar.jspf" %> --%>
 	<!-- Main jumbotron for a primary marketing message or call to action -->
 	<div class="jumbotron">
 		<section class="features-video section section-on-bg feature-index">
@@ -40,7 +89,7 @@ body {
 				<p>大考中心將三大考試報名彙整成一個頁面,大考中心報名系統會依據當前在線系統切換，變更可按按鈕，而非在線系統報名按鈕則會出現禁止標誌並且無法點選</p>
 				<!-- <p><a class="btnCircle" href="#" role="button">詳細資訊 &raquo;</a></p> -->
 				<nav>
-					<a href="detail.html" class="button small green rounded">詳細資訊</a>
+					<a href="sa_detail" class="button small green rounded">詳細資訊</a>
 				</nav>
 			</div>
 		</section>
@@ -85,7 +134,7 @@ body {
 					園國際化趨勢，本測驗除著重英語於日常生活中之應用與溝通外，也強調課堂學習相關之英語能力，以期能將所學與世界接軌。
 					</p>
 					<a class="button small orange" href="sa_engtest" role="button">報名考科
-							&raquo;</a>
+						&raquo;</a>
 					<!-- <button type="button" class="button small orange"
 						data-toggle="modal" data-target="#myModal">報名考科&raquo;</button> -->
 					<!-- Modal -->
@@ -102,7 +151,7 @@ body {
 	<!-- Bootstrap core JavaScript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	
+
 	<!-- 雲端函式庫 -->
 	<!-- 提示視窗 -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"

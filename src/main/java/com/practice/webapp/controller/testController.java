@@ -22,7 +22,9 @@ public class testController
 	@RequestMapping(value = "/sa_homepage", method = RequestMethod.GET)
 	public ModelAndView homepage()
 	{
+		Student account_session = (Student) context.getBean("studentinfo");
 		ModelAndView model = new ModelAndView("sa_homepage");
+		model.addObject("name", account_session.getName());
 		return model;
 	}
 

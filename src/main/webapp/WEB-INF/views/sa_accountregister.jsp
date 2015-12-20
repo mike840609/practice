@@ -180,8 +180,8 @@ body {
 			</div>
 			<div class="inner-wrap">
 				<label>帳號 <input type="text" name="account"
-					placeholder="Enter account" />
-				</label> <label>密碼 <input type="text" name="pwd"
+					placeholder="Enter account" value="${message}"/>
+				</label> <label>密碼 <input type="password" name="pwd"
 					placeholder="Enter password" />
 				</label>
 			</div>
@@ -192,7 +192,7 @@ body {
 				<label>姓名 <input type="text" name="name"
 					placeholder="Enter name" />
 				</label> <label>身分證 <input type="text" name="id"
-					placeholder="Enter ID" />
+					placeholder="Enter ID" value="${message1}"/>
 				</label> <label>性別</label> 
 				
 				<select class="form-control" name="sex" >

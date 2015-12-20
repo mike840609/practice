@@ -114,6 +114,12 @@ public class SaController
 	}
 
 
+	@RequestMapping(value = "/sa_detail", method = RequestMethod.GET)
+	public ModelAndView sa_detail()
+	{
+		ModelAndView model = new ModelAndView("sa_detail");
+		return model;
+	}
 	
 
 

@@ -17,6 +17,7 @@
 <style>
 body {
 	background: url("css/wei/img/123.jpg");
+	margin-top:10%;
 }
 </style>
 </head>

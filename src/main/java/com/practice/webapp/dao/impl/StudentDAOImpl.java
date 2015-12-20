@@ -25,11 +25,12 @@ public class StudentDAOImpl implements StudentDAO
 		this.dataSource = dataSource;
 	}
 
-	
-	public void updateStu(Student aStudent){
-		String sql =  "UPDATE student SET name=?, sex=?, email=?, id=?, pwd=?, birth=?, tel=?, address=? ,code=?"
+	public void updateStu(Student aStudent)
+	{
+		String sql = "UPDATE student SET name=?, sex=?, email=?, id=?, pwd=?, birth=?, tel=?, address=? ,code=?"
 				+ "WHERE account = ?";
-		try {
+		try
+		{
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);
 			smt.setString(1, aStudent.getName());
@@ -42,34 +43,40 @@ public class StudentDAOImpl implements StudentDAO
 			smt.setString(8, aStudent.getAddress());
 			smt.setString(9, aStudent.getCode());
 			smt.setString(10, aStudent.getAccount());
-			smt.executeUpdate();			
+			smt.executeUpdate();
 			smt.close();
- 
-		} catch (SQLException e) {
+
+		}
+		catch (SQLException e)
+		{
 			throw new RuntimeException(e);
- 
-		} finally {
-			if (conn != null) {
-				try {
+
+		}
+		finally
+		{
+			if (conn != null)
+			{
+				try
+				{
 					conn.close();
-				} catch (SQLException e) {}
+				}
+				catch (SQLException e)
+				{
+				}
 			}
 		}
-		
+
 	}
-	
-	
-	
+
 	public void insertStu(Student aStudent)
 	{
-		
-		String sql =  "INSERT student(name,account,pwd,id,sex,birth,tel,email,address) "
-				+ "VALUES(?,?,?,?,?,?,?,?,?)";
+
+		String sql = "INSERT student(name,account,pwd,id,sex,birth,tel,email,address) " + "VALUES(?,?,?,?,?,?,?,?,?)";
 		try
 		{
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);
-			
+
 			smt.setString(1, aStudent.getName());
 			smt.setString(2, aStudent.getAccount());
 			smt.setString(3, aStudent.getPwd());
@@ -103,6 +110,7 @@ public class StudentDAOImpl implements StudentDAO
 		}
 
 	}
+
 	public Student setSession(Student aStudent)
 	{
 		String sql = "SELECT * FROM student WHERE account = ?";
@@ -151,18 +159,100 @@ public class StudentDAOImpl implements StudentDAO
 		return aStudent;
 	}
 
-//	以下為測試用=============================================================================
-	
-	public void insert(Student aStudent)
+	@Override
+	public boolean accountCheck(Student student)
 	{
-		
-		String sql =  "INSERT student(name,account,sex,id,code,birth,tel,address,email) "
-				+ "VALUES(?,?,?,?,?,?,?,?,?)";
+		// TODO Auto-generated method stub
+		String sql = "SELECT * FROM student where account=?";
 		try
 		{
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);
-			
+
+			smt.setString(1, student.getAccount());
+
+			rs = smt.executeQuery();
+			if (rs.next())
+			{
+				return true;
+			}
+			rs.close();
+			smt.close();
+
+		}
+		catch (SQLException e)
+		{
+			throw new RuntimeException(e);
+
+		}
+		finally
+		{
+			if (conn != null)
+			{
+				try
+				{
+					conn.close();
+				}
+				catch (SQLException e)
+				{
+				}
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public boolean idCheck(Student student)
+	{
+		String sql = "SELECT * FROM student where id=?";
+		try
+		{
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+
+			smt.setString(1, student.getId());
+
+			rs = smt.executeQuery();
+			if (rs.next())
+			{
+				return true;
+			}
+			rs.close();
+			smt.close();
+
+		}
+		catch (SQLException e)
+		{
+			throw new RuntimeException(e);
+
+		}
+		finally
+		{
+			if (conn != null)
+			{
+				try
+				{
+					conn.close();
+				}
+				catch (SQLException e)
+				{
+				}
+			}
+		}
+		return false;
+	}
+
+	// 以下為測試用=============================================================================
+
+	public void insert(Student aStudent)
+	{
+
+		String sql = "INSERT student(name,account,sex,id,code,birth,tel,address,email) " + "VALUES(?,?,?,?,?,?,?,?,?)";
+		try
+		{
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+
 			smt.setString(1, aStudent.getName());
 			smt.setString(2, aStudent.getAccount());
 			smt.setString(3, aStudent.getSex());
@@ -200,21 +290,31 @@ public class StudentDAOImpl implements StudentDAO
 	public void delete(Student student)
 	{
 		String sql = "DELETE FROM student WHERE account = ?";
-		try {
+		try
+		{
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);
 			smt.setString(1, student.getAccount());
-			smt.executeUpdate();			
+			smt.executeUpdate();
 			smt.close();
- 
-		} catch (SQLException e) {
+
+		}
+		catch (SQLException e)
+		{
 			throw new RuntimeException(e);
- 
-		} finally {
-			if (conn != null) {
-				try {
+
+		}
+		finally
+		{
+			if (conn != null)
+			{
+				try
+				{
 					conn.close();
-				} catch (SQLException e) {}
+				}
+				catch (SQLException e)
+				{
+				}
 			}
 		}
 
@@ -224,7 +324,8 @@ public class StudentDAOImpl implements StudentDAO
 	{
 		String sql = "UPDATE student SET code=?, id=?, name=?, sex=?, birth=?, tel=?, address=?, email=? "
 				+ "WHERE account = ?";
-		try {
+		try
+		{
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);
 			smt.setString(1, student.getCode());
@@ -236,30 +337,37 @@ public class StudentDAOImpl implements StudentDAO
 			smt.setString(7, student.getAddress());
 			smt.setString(8, student.getEmail());
 			smt.setString(9, student.getAccount());
-			smt.executeUpdate();			
+			smt.executeUpdate();
 			smt.close();
- 
-		} catch (SQLException e) {
+
+		}
+		catch (SQLException e)
+		{
 			throw new RuntimeException(e);
- 
-		} finally {
-			if (conn != null) {
-				try {
+
+		}
+		finally
+		{
+			if (conn != null)
+			{
+				try
+				{
 					conn.close();
-				} catch (SQLException e) {}
+				}
+				catch (SQLException e)
+				{
+				}
 			}
 		}
 
 	}
-
-	
 
 	public List<Student> getList()
 	{
 
 		List<Student> studentList = new ArrayList<Student>();
 		String sql = "SELECT * FROM student";
-	
+
 		try
 		{
 			conn = dataSource.getConnection();
@@ -277,7 +385,7 @@ public class StudentDAOImpl implements StudentDAO
 				aStudent.setTel(rs.getString("tel"));
 				aStudent.setAddress(rs.getString("address"));
 				aStudent.setEmail(rs.getString("email"));
-				
+
 				studentList.add(aStudent);
 			}
 			rs.close();
@@ -351,7 +459,5 @@ public class StudentDAOImpl implements StudentDAO
 		}
 		return aStudent;
 	}
-	
-	
 
 }

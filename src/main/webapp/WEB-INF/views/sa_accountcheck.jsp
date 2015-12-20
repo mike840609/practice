@@ -143,23 +143,21 @@ body {
 </head>
 
 <body>
-	<%@include file="sa_navbar.jspf" %>
+	<%@include file="sa_navbar.jspf"%>
 
 	<div class="form-style-10 ">
 		<h1>
 			Sign in <span></span>
 		</h1>
-		<form action="sa_accountcheck" method="post" >
+		<form action="sa_accountcheck" method="post">
 			<div class="section">
 				<span>1</span>帳號資料
 			</div>
 			<div class="inner-wrap">
 				<label>帳號 <input type="text" name="account"
-					placeholder="Enter account"
-					value="${student.account}" readonly />
+					placeholder="Enter account" value="${student.account}" readonly />
 				</label> <label>密碼 <input type="text" name="pwd"
-					placeholder="Enter password"
-					value="${student.pwd}" readonly/>
+					placeholder="Enter password" value="${student.pwd}" readonly />
 				</label>
 			</div>
 			<div class="section">
@@ -171,10 +169,8 @@ body {
 				</label> <label>身分證 <input type="text" name="id"
 					placeholder="Enter ID" value="${student.id}" readonly />
 				</label> <label>性別</label> <input class="form-control"
-					value="${student.sex}" name ="sex" readonly >
-					
-				<br> <label>生日 <input type="date" name="birth"
-					value="${student.birth}" readonly />
+					value="${student.sex}" name="sex" readonly> <br> <label>生日
+					<input type="date" name="birth" value="${student.birth}" readonly />
 				</label>
 				<div class="section">
 					<span>3</span>聯絡資訊
@@ -184,23 +180,25 @@ body {
 					<label>電話 <input type="text" name="tel"
 						placeholder="Enter tel" value="${student.tel}" readonly />
 					</label> <label>Email <input type="email" name="email"
-						placeholder="Enter email"
-						value="${student.email}" readonly/>
+						placeholder="Enter email" value="${student.email}" readonly />
 					</label> <label>地址 <input type="text" name="address"
-						placeholder="Enter address"
-						value="${student.address}" readonly/>
-					</label> <input type="checkbox"  value="checked">我同意以上條約並確實遵守
-					<section class="container"> 
+						placeholder="Enter address" value="${student.address}" readonly />
+					</label> <input type="checkbox" value="checked">我同意以上條約並確實遵守
+					<section class="container">
 					<div class="wrapper">
 						<!-- <a href="sa_accountcheck" class="button blue"> -->
-						<button type="submit" class="button blue">
-							<!-- <div class="light"></div> -->資料正確,送出</button>
-						</a> <a href="#" class="button black">
-							<div class="light"></div>資料錯誤,須修正
+						<button type="submit" class="button blue"  >
+							<!-- <div class="light"></div> -->
+							資料正確,送出
+						</button>
+						</a> <a href="sa_accountregister" class="button orange">
+							<div class></div>資料錯誤,須修正
 						</a>
 					</div>
 					</section>
 		</form>
+
+		
 </body>
 
 </html>

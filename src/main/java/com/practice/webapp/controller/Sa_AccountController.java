@@ -151,13 +151,34 @@ public class Sa_AccountController
 	}
 
 	// 確認無誤,此段寫入資料庫 12.15 綠蓋新增 問題500 按鈕form注意 submit 修改 href=================
+	// 12/21新增註冊判斷
 	@RequestMapping(value = "/sa_accountcheck", method = RequestMethod.POST)
 	public ModelAndView sa_accountcheck(@ModelAttribute Student student)
 	{
 		ModelAndView model = new ModelAndView("sa_homepage");
+		ModelAndView model1 = new ModelAndView("sa_accountregister");
+
 		StudentDAO studentDAO = (StudentDAO) context.getBean("studentDAO");
-		studentDAO.insertStu(student);
-		return model;
+
+		if (studentDAO.accountCheck(student))
+		{
+			model1.addObject("message", "帳號重複註冊");
+			System.out.println("帳號重複");
+			return model1;
+		}
+		else if (studentDAO.idCheck(student))
+		{
+			model1.addObject("message1", "身分證已重複使用");
+			System.out.println("身份證重複");
+			return model1;
+		}
+		else
+		{
+			System.out.println("註冊成功");
+			studentDAO.insertStu(student);
+			return model;
+		}
+		
 	}
 
 	// 登入帳號註冊部分==========================
