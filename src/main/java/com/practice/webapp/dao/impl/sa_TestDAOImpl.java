@@ -360,10 +360,129 @@ public class sa_TestDAOImpl implements sa_TestDAO
 		return englishListening;
 	}
 
-	// @Override
-	// public sa_AssignTest AssignTestGrade(Student student)
-	// {
-	// // TODO Auto-generated method stub
-	// return null;
-	// }
+	@Override
+	public boolean asTestCheck(Student student)
+	{
+		// TODO Auto-generated method stub
+		String sql = "SELECT * FROM sa_AssignTest where id=?";
+		try
+		{
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+
+			smt.setString(1, student.getId());
+
+			rs = smt.executeQuery();
+			if (rs.next())
+			{
+				return true;
+			}
+			rs.close();
+			smt.close();
+
+		}
+		catch (SQLException e)
+		{
+			throw new RuntimeException(e);
+
+		}
+		finally
+		{
+			if (conn != null)
+			{
+				try
+				{
+					conn.close();
+				}
+				catch (SQLException e)
+				{
+				}
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public boolean bsTestCheck(Student student)
+	{
+		String sql = "SELECT * FROM sa_BasicTest where id=?";
+		try
+		{
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+
+			smt.setString(1, student.getId());
+
+			rs = smt.executeQuery();
+			if (rs.next())
+			{
+				return true;
+			}
+			rs.close();
+			smt.close();
+
+		}
+		catch (SQLException e)
+		{
+			throw new RuntimeException(e);
+
+		}
+		finally
+		{
+			if (conn != null)
+			{
+				try
+				{
+					conn.close();
+				}
+				catch (SQLException e)
+				{
+				}
+			}
+		}
+		return false;
+	}
+
+
+	@Override
+	public boolean engTestCheck(Student student)
+	{
+		String sql = "SELECT * FROM sa_EnglishListening where id=?";
+		try
+		{
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+
+			smt.setString(1, student.getId());
+
+			rs = smt.executeQuery();
+			if (rs.next())
+			{
+				return true;
+			}
+			rs.close();
+			smt.close();
+
+		}
+		catch (SQLException e)
+		{
+			throw new RuntimeException(e);
+
+		}
+		finally
+		{
+			if (conn != null)
+			{
+				try
+				{
+					conn.close();
+				}
+				catch (SQLException e)
+				{
+				}
+			}
+		}
+		return false;
+	}
+
 }

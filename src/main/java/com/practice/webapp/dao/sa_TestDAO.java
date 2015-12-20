@@ -20,4 +20,9 @@ public interface sa_TestDAO
 	public sa_BasicTest BasicTestGrade(Student student);
 	public sa_EnglishListening EnglishTestGrade(Student student);
 	
+	public boolean asTestCheck( Student student);
+	public boolean bsTestCheck( Student student);
+	public boolean engTestCheck( Student student);
+	
+	
 }
