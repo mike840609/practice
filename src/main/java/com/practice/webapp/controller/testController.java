@@ -36,12 +36,20 @@ public class testController
 	public ModelAndView sa_astest()
 	{
 		Student account_session = (Student) context.getBean("studentinfo");
-
+		sa_TestDAO testRegisterDAO = (sa_TestDAO) context.getBean("testDAO");
 		if (account_session.getAccount() != null)
 		{
-			ModelAndView model = new ModelAndView("sa_astest");
-			model.addObject("account_session", account_session);
-			return model;
+			if (testRegisterDAO.asTestCheck(account_session)==true)
+			{
+				ModelAndView model = new ModelAndView("redirect:/sa_homepage");
+				return model;
+			}
+			else
+			{
+				ModelAndView model = new ModelAndView("sa_astest");
+				model.addObject("account_session", account_session);
+				return model;
+			}
 		}
 		else
 		{
@@ -62,9 +70,9 @@ public class testController
 		{
 			System.out.print(i + ",");
 		}
-		
+
 		testRegisterDAO.testRegister(sa_AssignTest);
-		
+
 		System.out.println("報名成功");
 		ModelAndView model = new ModelAndView("redirect:/sa_perAsGrade");
 		return model;
@@ -82,12 +90,21 @@ public class testController
 	@RequestMapping(value = "/sa_bstest", method = RequestMethod.GET)
 	public ModelAndView sa_bstestPage()
 	{
+		sa_TestDAO testRegisterDAO = (sa_TestDAO) context.getBean("testDAO");
 		Student account_session = (Student) context.getBean("studentinfo");
 		if (account_session.getAccount() != null)
 		{
-			ModelAndView model = new ModelAndView("sa_bstest");
-			model.addObject("account_session", account_session);
-			return model;
+			if (testRegisterDAO.bsTestCheck(account_session)==true)
+			{
+				ModelAndView model = new ModelAndView("redirect:/sa_homepage");
+				return model;
+			}
+			else
+			{
+				ModelAndView model = new ModelAndView("sa_bstest");
+				model.addObject("account_session", account_session);
+				return model;
+			}
 		}
 		else
 		{
@@ -112,13 +129,22 @@ public class testController
 	public ModelAndView sa_engtestPage()
 	{
 
+		sa_TestDAO testRegisterDAO = (sa_TestDAO) context.getBean("testDAO");
 		Student account_session = (Student) context.getBean("studentinfo");
 
 		if (account_session.getAccount() != null)
 		{
-			ModelAndView model = new ModelAndView("sa_engtest");
-			model.addObject("account_session", account_session);
-			return model;
+			if (testRegisterDAO.engTestCheck(account_session)==true)
+			{
+				ModelAndView model = new ModelAndView("redirect:/sa_homepage");
+				return model;
+			}
+			else
+			{
+				ModelAndView model = new ModelAndView("sa_engtest");
+				model.addObject("account_session", account_session);
+				return model;
+			}
 		}
 		else
 		{

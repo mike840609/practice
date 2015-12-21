@@ -364,13 +364,13 @@ public class sa_TestDAOImpl implements sa_TestDAO
 	public boolean asTestCheck(Student student)
 	{
 		// TODO Auto-generated method stub
-		String sql = "SELECT * FROM sa_AssignTest where id=?";
+		String sql = "SELECT * FROM sa_AssignTest where account=?";
 		try
 		{
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);
 
-			smt.setString(1, student.getId());
+			smt.setString(1, student.getAccount());
 
 			rs = smt.executeQuery();
 			if (rs.next())
@@ -405,13 +405,13 @@ public class sa_TestDAOImpl implements sa_TestDAO
 	@Override
 	public boolean bsTestCheck(Student student)
 	{
-		String sql = "SELECT * FROM sa_BasicTest where id=?";
+		String sql = "SELECT * FROM sa_BasicTest where account=?";
 		try
 		{
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);
 
-			smt.setString(1, student.getId());
+			smt.setString(1, student.getAccount());
 
 			rs = smt.executeQuery();
 			if (rs.next())
@@ -447,13 +447,13 @@ public class sa_TestDAOImpl implements sa_TestDAO
 	@Override
 	public boolean engTestCheck(Student student)
 	{
-		String sql = "SELECT * FROM sa_EnglishListening where id=?";
+		String sql = "SELECT * FROM sa_EnglishListening where account=?";
 		try
 		{
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);
 
-			smt.setString(1, student.getId());
+			smt.setString(1, student.getAccount());
 
 			rs = smt.executeQuery();
 			if (rs.next())
