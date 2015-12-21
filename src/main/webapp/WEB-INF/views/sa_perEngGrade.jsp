@@ -55,7 +55,7 @@ body {
 			</div>
 			<div class="form-group">
 				<label for="exampleInputEmail1">考場代號</label> <input type="text"
-					class="form-control" id="code" value="${sa_BasicTest.testplace }" readonly>
+					class="form-control" id="code" value="${sa_EnglishListening.testplace }" readonly>
 			</div>
 		</form>
 		<!-- form --> </section>

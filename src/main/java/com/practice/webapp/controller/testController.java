@@ -65,12 +65,12 @@ public class testController
 		Student account_session = (Student) context.getBean("studentinfo");
 		sa_AssignTest.setAccount(account_session.getAccount());
 		sa_TestDAO testRegisterDAO = (sa_TestDAO) context.getBean("testDAO");
-
-		for (String i : sa_AssignTest.getSubject())
-		{
-			System.out.print(i + ",");
-		}
-
+		
+//		for (String i : sa_AssignTest.getSubject())
+//		{
+//			System.out.print(i + ",");
+//		}
+		
 		testRegisterDAO.testRegister(sa_AssignTest);
 
 		System.out.println("報名成功");

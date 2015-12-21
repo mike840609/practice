@@ -83,30 +83,34 @@
             <div class="zone">
                 <label>考區:
                 </label>
-               <!--  <select>
+                <select>
                     <option value="0">北區
                     </option>
                     <option value="1">中區
                     </option>
-                </select> -->
-                <input type="text" maxlength="10"
-					value=""name="testplace"  /> 
+                     <option value="2">南區
+                    </option>
+                     <option value="3">東區
+                    </option>
+                </select> 
+             <!--    <input type="text" maxlength="10"
+					value=""name="testplace"  />  -->
             </div>
             <p>
                 <div class="zone">
                     <label>補助身分:
                     </label>
-                   <!--  <select>
-                        <option value="0">一般生
+                     <select name="identity" class="form-control">
+                        <option>一般生
                         </option>
-                        <option value="1">低收入戶
+                        <option>低收入戶
                         </option>
-                        <option value="1">中低收入戶
+                        <option>中低收入戶
                         </option>
-                    </select> -->
+                    </select> 
                      
-                     <input type="text" maxlength="10"
-					value=""name="identity"  /> 
+               <!--       <input type="text" maxlength="10"
+					value=""name="identity"  />  -->
 					
                 </div>
             </p>

@@ -38,63 +38,92 @@ public class sa_TestDAOImpl implements sa_TestDAO
 	{
 
 		// 不存在 = -1 如果!= -1 存在 有報考
-//		int chinese = Arrays.binarySearch(sa_AssignTest.getSubject(), "國文");
-//		int eng = Arrays.binarySearch(sa_AssignTest.getSubject(), "英文");
-//		int matha = Arrays.binarySearch(sa_AssignTest.getSubject(), "數甲");
-//		int mathb = Arrays.binarySearch(sa_AssignTest.getSubject(), "數乙");
-//		int physical = Arrays.binarySearch(sa_AssignTest.getSubject(), "物理");
-//		int chemical = Arrays.binarySearch(sa_AssignTest.getSubject(), "化學");
-//		int biologyg = Arrays.binarySearch(sa_AssignTest.getSubject(), "生物");
-//		int geography = Arrays.binarySearch(sa_AssignTest.getSubject(), "地理");
-//		int history = Arrays.binarySearch(sa_AssignTest.getSubject(), "歷史");
-//		int civics = Arrays.binarySearch(sa_AssignTest.getSubject(), "公民");
+		// int chinese = Arrays.binarySearch(sa_AssignTest.getSubject(), "國文");
+		// int eng = Arrays.binarySearch(sa_AssignTest.getSubject(), "英文");
+		// int matha = Arrays.binarySearch(sa_AssignTest.getSubject(), "數甲");
+		// int mathb = Arrays.binarySearch(sa_AssignTest.getSubject(), "數乙");
+		// int physical = Arrays.binarySearch(sa_AssignTest.getSubject(), "物理");
+		// int chemical = Arrays.binarySearch(sa_AssignTest.getSubject(), "化學");
+		// int biologyg = Arrays.binarySearch(sa_AssignTest.getSubject(), "生物");
+		// int geography = Arrays.binarySearch(sa_AssignTest.getSubject(),
+		// "地理");
+		// int history = Arrays.binarySearch(sa_AssignTest.getSubject(), "歷史");
+		// int civics = Arrays.binarySearch(sa_AssignTest.getSubject(), "公民");
 
 		// 將科目判後結果串入陣列中
-//		int[] subject = new int[]
-//		{ chinese, eng, matha, mathb, history, geography, civics, physical, chemical, biologyg };
-//		
-//		for (int i : subject)
-//		{
-//			System.out.println(i+" ");
-//		}
-		
-		String sql = "INSERT sa_AssignTest(account,identity,testPlace,note,Chinese,English,MathA,MathB,History,Geography,Civics,Physical,Chemical,Biology) "
-				+ "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		// int[] subject = new int[]
+		// { chinese, eng, matha, mathb, history, geography, civics, physical,
+		// chemical, biologyg };
+		//
+		// for (int i : subject)
+		// {
+		// System.out.println(i+" ");
+		// }
+
+		int[] subject = new int[]
+		{ sa_AssignTest.getChemical(), sa_AssignTest.getBiology(), sa_AssignTest.getChinese(),
+				sa_AssignTest.getCivics(), sa_AssignTest.getEnglish(), sa_AssignTest.getGeography(),
+				sa_AssignTest.getHistory(), sa_AssignTest.getMathA(), sa_AssignTest.getMathB(),
+				sa_AssignTest.getPhysical() };
+
+		int subjectCount = 0;
+		int money = 0;
+
+		for (int i = 0; i < subject.length; i++)
+		{
+			if (subject[i] == -1)
+			{
+				subjectCount++;
+			}
+		}
+		if (sa_AssignTest.getIdentity().equals("一般生"))
+		{
+			money = 250 + 170 * subjectCount;
+		}
+		else if (sa_AssignTest.getIdentity().equals("中低收入戶"))
+		{
+			money = 175 + 119 * subjectCount;
+		}
+		else if (sa_AssignTest.getIdentity().equals("低收入戶"))
+		{
+			money = 0;
+		}
+
+		String sql = "INSERT sa_AssignTest(account,identity,testPlace,note,Chinese,English,MathA,MathB,History,Geography,Civics,Physical,Chemical,Biology,money) "
+				+ "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		try
 		{
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);
-			smt.setString(1,sa_AssignTest.getAccount());
-			smt.setString(2,sa_AssignTest.getIdentity());
-			smt.setString(3,sa_AssignTest.getTestplace());
-			smt.setString(4,sa_AssignTest.getNote());
-			smt.setInt(5,sa_AssignTest.getChinese());
-			smt.setInt(6,sa_AssignTest.getEnglish());
-			smt.setInt(7,sa_AssignTest.getMathA());
-			smt.setInt(8,sa_AssignTest.getMathB());
-			smt.setInt(9,sa_AssignTest.getHistory());
-			smt.setInt(10,sa_AssignTest.getGeography());
-			smt.setInt(11,sa_AssignTest.getCivics());
-			smt.setInt(12,sa_AssignTest.getPhysical());
-			smt.setInt(13,sa_AssignTest.getChemical());
-			smt.setInt(14,sa_AssignTest.getBiology());
-			
+			smt.setString(1, sa_AssignTest.getAccount());
+			smt.setString(2, sa_AssignTest.getIdentity());
+			smt.setString(3, sa_AssignTest.getTestplace());
+			smt.setString(4, sa_AssignTest.getNote());
+			smt.setInt(5, sa_AssignTest.getChinese());
+			smt.setInt(6, sa_AssignTest.getEnglish());
+			smt.setInt(7, sa_AssignTest.getMathA());
+			smt.setInt(8, sa_AssignTest.getMathB());
+			smt.setInt(9, sa_AssignTest.getHistory());
+			smt.setInt(10, sa_AssignTest.getGeography());
+			smt.setInt(11, sa_AssignTest.getCivics());
+			smt.setInt(12, sa_AssignTest.getPhysical());
+			smt.setInt(13, sa_AssignTest.getChemical());
+			smt.setInt(14, sa_AssignTest.getBiology());
+			smt.setInt(15, money);
 
 			// 存在則寫入-1 不存在則不操作維持原本的值-2
 
-//			for (int i = 0; i < subject.length; i++)
-//			{
-//				if (subject[i] != -1)
-//				{
-//					smt.setInt(i + 5, -1);
-//				}
-//				else
-//				{
-//					smt.setInt(i + 5, -2);
-//				}
-//			}
-
-			
+			// for (int i = 0; i < subject.length; i++)
+			// {
+			// if (subject[i] != -1)
+			// {
+			// smt.setInt(i + 5, -1);
+			// }
+			// else
+			// {
+			// smt.setInt(i + 5, -2);
+			// }
+			// }
 
 			smt.executeUpdate();
 			smt.close();
@@ -123,19 +152,28 @@ public class sa_TestDAOImpl implements sa_TestDAO
 
 	public void testRegister(sa_BasicTest sa_BasicTest)
 	{
-		String sql = "INSERT sa_BasicTest(account,identity,testPlace,note) " + "VALUES(?,?,?,?)";
+		int money = 0;
+		if (sa_BasicTest.getIdentity().equals("一般生"))
+		{
+			money = 1100;
+		}
+		else if (sa_BasicTest.getIdentity().equals("中低收入戶")){
+			money = 366;
+		}
+		else if (sa_BasicTest.getIdentity().equals("低收入戶")){
+			money = 0;
+		}
+		
+		String sql = "INSERT sa_BasicTest(account,identity,testPlace,note,money) " + "VALUES(?,?,?,?,?)";
 		try
 		{
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);
 			smt.setString(1, sa_BasicTest.getAccount());
-			// smt.setString(2, sa_BasicTest.getType());
-			// smt.setInt(3, sa_BasicTest.getMoney());
-			// smt.setString(3, sa_BasicTest.getState());
 			smt.setString(2, sa_BasicTest.getIdentity());
-			// smt.setString(5, sa_BasicTest.getCode());
 			smt.setString(3, sa_BasicTest.getTestplace());
 			smt.setString(4, sa_BasicTest.getNote());
+			smt.setInt(5, money);
 			smt.executeUpdate();
 			smt.close();
 
@@ -163,7 +201,15 @@ public class sa_TestDAOImpl implements sa_TestDAO
 
 	public void testRegister(sa_EnglishListening sa_EnglishListening)
 	{
-		String sql = "INSERT sa_EnglishListening(account,identity,testPlace,note) " + "VALUES(?,?,?,?)";
+		int money=0;
+		 
+		if(sa_EnglishListening.getIdentity().equals("一般生")){
+			 money = 350;
+		 }
+		 else{
+			 money = 245;
+		 }
+		String sql = "INSERT sa_EnglishListening(account,identity,testPlace,note,money) " + "VALUES(?,?,?,?,?)";
 		try
 		{
 			conn = dataSource.getConnection();
@@ -172,6 +218,7 @@ public class sa_TestDAOImpl implements sa_TestDAO
 			smt.setString(2, sa_EnglishListening.getIdentity());
 			smt.setString(3, sa_EnglishListening.getTestplace());
 			smt.setString(4, sa_EnglishListening.getNote());
+			smt.setInt(5,money);
 			smt.executeUpdate();
 			smt.close();
 
@@ -217,12 +264,11 @@ public class sa_TestDAOImpl implements sa_TestDAO
 				assignTest.setBiology(rs.getInt("Biology"));
 				assignTest.setChemical(rs.getInt("Chemical"));
 				assignTest.setCivics(rs.getInt("Civics"));
-	
+
 				assignTest.setGeography(rs.getInt("MathA"));
 				assignTest.setHistory(rs.getInt("History"));
-				
+
 				assignTest.setPhysical(rs.getInt("Physical"));
-				
 
 				assignTest.setTestid(rs.getString("testID"));
 				assignTest.setType(rs.getString("type"));
@@ -442,7 +488,6 @@ public class sa_TestDAOImpl implements sa_TestDAO
 		}
 		return false;
 	}
-
 
 	@Override
 	public boolean engTestCheck(Student student)
