@@ -40,26 +40,24 @@
 	<bean id="TestPlaceDAO" class="com.practice.webapp.dao.impl.sa_TestPlaceDAOImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
+
 	<!-- ===============================考科報名部分================================== -->
 	<!-- ============================================================================ -->
-	
+
 	<bean id="testDAO" class="com.practice.webapp.dao.impl.sa_TestDAOImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
-	<!-- <bean id="bsRegisterTemp" class="com.practice.webapp.entity.Student"
-		scope="session">
-		<aop:scoped-proxy />
-	</bean> -->
 
-<!-- 登入資料庫檢查部份 -->
+	<!-- <bean id="bsRegisterTemp" class="com.practice.webapp.entity.Student" 
+		scope="session"> <aop:scoped-proxy /> </bean> -->
+
+	<!-- 登入資料庫檢查部份 -->
 
 	<bean id="studentinfo" class="com.practice.webapp.entity.Student"
 		scope="session">
 		<aop:scoped-proxy />
 	</bean>
-	
+
 	<bean id="accountCheck" class="com.practice.webapp.dao.impl.sa_AccountDAOImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
@@ -74,4 +72,18 @@
 			</map>
 		</property>
 	</bean>
+
+<!-- 團體部分 -->
+	<bean id="schoolinfo" class="com.practice.webapp.entity.sa_School"
+		scope="session">
+		<aop:scoped-proxy />
+	</bean>
+	
+	<bean id="groupCheck" class="com.practice.webapp.dao.impl.sa_GroupDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="groupDAO" class="com.practice.webapp.dao.impl.sa_GroupDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
 </beans>

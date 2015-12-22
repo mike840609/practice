@@ -174,19 +174,19 @@ public class testController
 		return model;
 	}
 
-	@RequestMapping(value = "/sa_mangermodify", method = RequestMethod.GET)
-	public ModelAndView sa_mangermodify()
-	{
-		ModelAndView model = new ModelAndView("sa_mangermodify");
-		return model;
-	}
-
-	@RequestMapping(value = "/sa_mangersearch", method = RequestMethod.GET)
-	public ModelAndView sa_mangersearch()
-	{
-		ModelAndView model = new ModelAndView("sa_mangersearch");
-
-		return model;
-	}
+//	@RequestMapping(value = "/sa_mangermodify", method = RequestMethod.GET)
+//	public ModelAndView sa_mangermodify()
+//	{
+//		ModelAndView model = new ModelAndView("sa_mangermodify");
+//		return model;
+//	}
+//
+//	@RequestMapping(value = "/sa_mangersearch", method = RequestMethod.GET)
+//	public ModelAndView sa_mangersearch()
+//	{
+//		ModelAndView model = new ModelAndView("sa_mangersearch");
+//
+//		return model;
+//	}
 
 }

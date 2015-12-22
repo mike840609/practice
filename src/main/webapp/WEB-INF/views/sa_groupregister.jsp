@@ -99,7 +99,7 @@
     <body background="http://www.skjh.chc.edu.tw/ginnie/%E8%A1%9B%E7%94%9F%E7%B5%84/%E7%B6%B2%E9%A0%81%E5%9C%96%E7%89%87/%E8%83%8C%E6%99%AF%E5%9C%96/1-3%E8%83%8C%E6%99%AF%E5%9C%96.jpg">
        
     <ul>
-  <li class="liactive"><a href="#" class="round green">Step1<span class="round">Download the register file</span></a></li>
+  <li class="liactive"><a href="https://drive.google.com/file/d/0B3rEsDfGCM4rTlMteS1rSWxwVjA/view?usp=sharing" class="round green">Step1<span class="round">Download the register file</span></a></li>
   <li class="liactive"><a href="#" class="round red">Step2<span class="round">Upload the register file</span></a></li>
     <li class="liactive"><a href="#" class="round yellow">Step3<span class="round">Check & Search</span></a></li>
 </ul> 

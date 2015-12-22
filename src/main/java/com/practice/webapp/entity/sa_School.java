@@ -1,8 +1,16 @@
 package com.practice.webapp.entity;
 
-public class sa_School
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.stereotype.Component;
+
+@Component
+@Scope(value="session", proxyMode=ScopedProxyMode.TARGET_CLASS)
+public class sa_School implements java.io.Serializable
 {
-	private String school;
+	private static final long serialVersionUID = 3476619468809859762L;
+	
+	private String schoolcode;
 	private String pwd;
 	private String name;
 	private String address;
@@ -10,13 +18,14 @@ public class sa_School
 	private String person;
 	private String persontel;
 	private String paycode;
-	public String getSchool()
+	
+	public String getSchoolcode()
 	{
-		return school;
+		return schoolcode;
 	}
-	public void setSchool(String school)
+	public void setSchoolcode(String schoolcode)
 	{
-		this.school = school;
+		this.schoolcode = schoolcode;
 	}
 	public String getPwd()
 	{
