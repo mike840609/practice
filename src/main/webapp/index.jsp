@@ -50,8 +50,17 @@
 <hr>
 管理員  政耀
 <hr>
-<LI><a href="sa_mangermodify">sa_mangermodify</a>
-<LI><a href="sa_mangersearch">sa_mangersearch</a>
+<!-- <LI><a href="sa_mangermodify">sa_mangermodify</a>
+<LI><a href="sa_mangersearch">sa_mangersearch</a> -->
+<LI> ====================================== 
+<LI><a href="sa_managerlogin">managerlogin</a>
+<LI><a href="sa_managerBTsearch">managerBTsearch</a>
+<LI><a href="sa_managerATsearch">managerATsearch</a>
+<LI><a href="sa_managerELsearch">managerELsearch</a>
+<LI><a href="sa_managerSTUsearch">managerSTUsearch</a>
+<LI><a href="sa_managerBTscore">managerBTscore</a>
+<LI><a href="sa_managerATscore">managerATscore</a>
+<LI><a href="sa_managerELscore">managerELscore</a>
 <hr>
 
 </UL>

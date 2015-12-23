@@ -16,6 +16,8 @@ public class sa_BasicTest
 	private String code;
 	private String note;
 	private String testplace;
+	
+	
 	public String getNote()
 	{
 		return note;

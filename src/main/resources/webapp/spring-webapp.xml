@@ -73,17 +73,32 @@
 		</property>
 	</bean>
 
-<!-- 團體部分 -->
+	<!-- ===============================團體報名部分================================== -->
+	<!-- ============================================================================ -->
 	<bean id="schoolinfo" class="com.practice.webapp.entity.sa_School"
 		scope="session">
 		<aop:scoped-proxy />
 	</bean>
-	
+
 	<bean id="groupCheck" class="com.practice.webapp.dao.impl.sa_GroupDAOImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	<bean id="groupDAO" class="com.practice.webapp.dao.impl.sa_GroupDAOImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
+	<!-- ==============================管理員部分===================================== -->
+	<!-- ============================================================================ -->
+
+	<bean id="manageraccount" class="com.practice.webapp.entity.ManagerAccount"
+		scope="session">
+		<aop:scoped-proxy />
+	</bean>
+	<bean id="manageraccountcheck" class="com.practice.webapp.dao.impl.ManagerAccountDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="managerDAO" class="com.practice.webapp.dao.impl.ManagerDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+
 </beans>
