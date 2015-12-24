@@ -101,9 +101,26 @@ body {
 			href="https://drive.google.com/file/d/0B3rEsDfGCM4rTlMteS1rSWxwVjA/view?usp=sharing"
 			class="round green">Step1<span class="round">Download the
 					register file</span></a></li>
+
 		<li class="liactive"><a href="excelSQL" class="round red">Step2<span
 				class="round">Upload the register file</span></a></li>
-		<li class="liactive"><a href="#" class="round yellow">Step3<span
+		<li class="liactive"><a href="sa_groupinfo" class="round yellow">Step3<span
 				class="round">Check & Search</span></a></li>
 	</ul>
+	<div class="container">
+		<!-- Example row of columns -->
+		<div class="row">
+			<div class="col-md-6">
+				<form role="form">
+					<div class="form-group">
+						<label for="exampleInputEmail1">照片</label> <label
+							for="exampleInputFile">檔案上傳</label> <input type="file"
+							id="exampleInputFile">
+						<p class="help-block">在此示範區塊層級輔助說明文字。</p>
+
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </html>
