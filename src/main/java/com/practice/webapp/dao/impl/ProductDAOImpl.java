@@ -13,70 +13,96 @@ import javax.sql.DataSource;
 import com.practice.webapp.entity.Product;
 import com.practice.webapp.dao.ProductDAO;
 
-public class ProductDAOImpl implements ProductDAO{
+public class ProductDAOImpl implements ProductDAO
+{
 	private DataSource dataSource;
-	private Connection conn = null ;
-	private ResultSet rs = null ;
-	private PreparedStatement smt = null ;
-	
-	public void setDataSource(DataSource dataSource) {
+	private Connection conn = null;
+	private ResultSet rs = null;
+	private PreparedStatement smt = null;
+
+	public void setDataSource(DataSource dataSource)
+	{
 		this.dataSource = dataSource;
 	}
 
-	public void insert(Product aProduct) {
+	public void insert(Product aProduct)
+	{
 
 		// remove first parameter when Id is auto-increment
-	    String sql = "INSERT INTO product (Category, Description, Inventory, ReorderPoint) VALUES(?, ?, ?, ?)";	
-		try {
+		String sql = "INSERT INTO product (Category, Description, Inventory, ReorderPoint) VALUES(?, ?, ?, ?)";
+		try
+		{
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);
 			smt.setInt(1, aProduct.getCategory());
 			smt.setString(2, aProduct.getDesc());
 			smt.setInt(3, aProduct.getInventory());
 			smt.setInt(4, aProduct.getReorderPoint());
-			smt.executeUpdate();			
+			smt.executeUpdate();
 			smt.close();
- 
-		} catch (SQLException e) {
+
+		}
+		catch (SQLException e)
+		{
 			throw new RuntimeException(e);
- 
-		} finally {
-			if (conn != null) {
-				try {
+
+		}
+		finally
+		{
+			if (conn != null)
+			{
+				try
+				{
 					conn.close();
-				} catch (SQLException e) {}
+				}
+				catch (SQLException e)
+				{
+				}
 			}
 		}
-		
+
 	}
 
-	public void delete(Product aProduct) {
-		
+	public void delete(Product aProduct)
+	{
+
 		String sql = "DELETE FROM product WHERE productID = ?";
-		try {
+		try
+		{
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);
 			smt.setLong(1, aProduct.getId());
-			smt.executeUpdate();			
+			smt.executeUpdate();
 			smt.close();
- 
-		} catch (SQLException e) {
+
+		}
+		catch (SQLException e)
+		{
 			throw new RuntimeException(e);
- 
-		} finally {
-			if (conn != null) {
-				try {
+
+		}
+		finally
+		{
+			if (conn != null)
+			{
+				try
+				{
 					conn.close();
-				} catch (SQLException e) {}
+				}
+				catch (SQLException e)
+				{
+				}
 			}
 		}
 	}
 
-	public void update(Product aProduct) {
-		
+	public void update(Product aProduct)
+	{
+
 		String sql = "UPDATE product SET Category=?, Description=?, Inventory=?, ReorderPoint=? "
 				+ "WHERE productID = ?";
-		try {
+		try
+		{
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);
 			smt.setInt(1, aProduct.getCategory());
@@ -84,82 +110,108 @@ public class ProductDAOImpl implements ProductDAO{
 			smt.setInt(3, aProduct.getInventory());
 			smt.setInt(4, aProduct.getReorderPoint());
 			smt.setLong(5, aProduct.getId());
-			smt.executeUpdate();			
+			smt.executeUpdate();
 			smt.close();
- 
-		} catch (SQLException e) {
+
+		}
+		catch (SQLException e)
+		{
 			throw new RuntimeException(e);
- 
-		} finally {
-			if (conn != null) {
-				try {
+
+		}
+		finally
+		{
+			if (conn != null)
+			{
+				try
+				{
 					conn.close();
-				} catch (SQLException e) {}
+				}
+				catch (SQLException e)
+				{
+				}
 			}
 		}
-		
+
 	}
-	
-	public List<Product> getAvailableList() {
+
+	public List<Product> getAvailableList()
+	{
 		String sql = "SELECT * FROM product WHERE Inventory > 0";
 		return getList(sql);
 	}
-	
 
-	public List<Product> getReorderList() {
+	public List<Product> getReorderList()
+	{
 		String sql = "SELECT * FROM product WHERE Inventory < ReorderPoint";
 		return getList(sql);
 	}
 
-	public List<Product> getList() {
+	public List<Product> getList()
+	{
 		String sql = "SELECT * FROM product";
 		return getList(sql);
 	}
 
 	// make it a generic method for different conditions
-	public List<Product> getList(String sql) {
-		
+	public List<Product> getList(String sql)
+	{
+
 		List<Product> productList = new ArrayList<Product>();
-	
-		try {
+
+		try
+		{
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);
 			rs = smt.executeQuery();
-			while(rs.next()){
+			while (rs.next())
+			{
 				Product aProduct = new Product();
-				aProduct.setId(rs.getInt("productID"));			
+				aProduct.setId(rs.getInt("productID"));
 				aProduct.setCategory(rs.getInt("category"));
 				aProduct.setDesc(rs.getString("description"));
-				//System.out.println(rs.getString("description"));
+				// System.out.println(rs.getString("description"));
 				aProduct.setInventory(rs.getInt("inventory"));
 				aProduct.setReorderPoint(rs.getInt("reorderPoint"));
 				productList.add(aProduct);
 			}
 			rs.close();
 			smt.close();
- 
-		} catch (SQLException e) {
+
+		}
+		catch (SQLException e)
+		{
 			throw new RuntimeException(e);
- 
-		} finally {
-			if (conn != null) {
-				try {
+
+		}
+		finally
+		{
+			if (conn != null)
+			{
+				try
+				{
 					conn.close();
-				} catch (SQLException e) {}
+				}
+				catch (SQLException e)
+				{
+				}
 			}
 		}
 		return productList;
 	}
 
-	public Product get(Product aProduct) {
-		
+	public Product get(Product aProduct)
+	{
+
 		String sql = "SELECT * FROM product WHERE productID = ?";
-		try {
+		try
+		{
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);
 			smt.setLong(1, aProduct.getId());
 			rs = smt.executeQuery();
-			if(rs.next()){
+			if (rs.next())
+			{
 				aProduct.setId(rs.getInt("productID"));
 				aProduct.setCategory(rs.getInt("category"));
 				aProduct.setDesc(rs.getString("description"));
@@ -168,19 +220,27 @@ public class ProductDAOImpl implements ProductDAO{
 			}
 			rs.close();
 			smt.close();
- 
-		} catch (SQLException e) {
+
+		}
+		catch (SQLException e)
+		{
 			throw new RuntimeException(e);
- 
-		} finally {
-			if (conn != null) {
-				try {
+
+		}
+		finally
+		{
+			if (conn != null)
+			{
+				try
+				{
 					conn.close();
-				} catch (SQLException e) {}
+				}
+				catch (SQLException e)
+				{
+				}
 			}
 		}
 		return aProduct;
 	}
-
 
 }

@@ -19,12 +19,12 @@
 <hr>
 團體報名部分
 <hr>
-<LI><a href="sa_groupinfo">sa_groupinfo</a>
+<LI><a href="sa_groupinfo">sa_groupinfo 完成</a>
 <LI><a href="sa_grouplogin">sa_grouplogin 完成</a>
 <LI><a href="sa_groupregister">sa_groupregister 完成</a>
-<LI><a href="sa_groupsearchA">sa_groupsearchA</a>
-<LI><a href="sa_groupsearchB">sa_groupsearchB</a>
-<LI><a href="sa_groupsearchC">sa_groupsearchC</a>
+<LI><a href="sa_groupsearchA">sa_groupsearchA </a>
+<LI><a href="sa_groupsearchB">sa_groupsearchB </a>
+<LI><a href="sa_groupsearchC">sa_groupsearchC </a>
 <hr>
 個人修改 查詢 報名 蔡鈞
 <hr>

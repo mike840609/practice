@@ -1,5 +1,9 @@
 package com.practice.webapp.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.eclipse.jdt.internal.compiler.classfmt.MethodInfoWithAnnotations;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -9,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.practice.webapp.dao.sa_GroupDAO;
+import com.practice.webapp.entity.Student;
 import com.practice.webapp.entity.sa_School;
 
 @Controller
@@ -20,8 +25,22 @@ public class Sa_GroupController
 	@RequestMapping(value = "/sa_groupinfo", method = RequestMethod.GET)
 	public ModelAndView sa_groupinfo()
 	{
-		ModelAndView model = new ModelAndView("sa_groupinfo");
-		return model;
+		sa_School school_session = (sa_School) context.getBean("schoolinfo");
+
+		if (school_session.getSchoolcode() != null)
+		{
+			ModelAndView model = new ModelAndView("sa_groupinfo");
+			sa_GroupDAO groupDAO = (sa_GroupDAO) context.getBean("groupDAO");
+			List<Student> studentList = new ArrayList<Student>();
+			studentList = groupDAO.getList(school_session);
+			model.addObject("students", studentList);
+			return model;
+		}
+		else
+		{
+			ModelAndView model = new ModelAndView("sa_grouplogin");
+			return model;
+		}
 	}
 
 	@RequestMapping(value = "/sa_grouplogin", method = RequestMethod.GET)
@@ -76,8 +95,19 @@ public class Sa_GroupController
 	@RequestMapping(value = "/sa_groupregister", method = RequestMethod.GET)
 	public ModelAndView sa_groupregister()
 	{
-		ModelAndView model = new ModelAndView("sa_groupregister");
-		return model;
+
+		sa_School school_session = (sa_School) context.getBean("schoolinfo");
+		if (school_session.getSchoolcode() != null)
+		{
+			ModelAndView model = new ModelAndView("sa_groupregister");
+			return model;
+		}
+		else
+		{
+			ModelAndView model = new ModelAndView("sa_grouplogin");
+			return model;
+		}
+
 	}
 
 	@RequestMapping(value = "/sa_groupsearchA", method = RequestMethod.GET)
