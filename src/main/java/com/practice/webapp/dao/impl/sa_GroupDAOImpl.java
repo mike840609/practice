@@ -170,7 +170,7 @@ public class sa_GroupDAOImpl implements sa_GroupDAO
 			}
 
 			// SAVE data 2 DB
-			for (int i = 1; i < studentArray.length; i++)
+			for (int i = 1; i <studentArray.length; i++)
 			{
 				smt.setString(1, studentArray[i][0]);
 				smt.setString(2, studentArray[i][1]);

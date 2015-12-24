@@ -3,7 +3,6 @@ package com.practice.webapp.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.jdt.internal.compiler.classfmt.MethodInfoWithAnnotations;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -138,6 +137,27 @@ public class Sa_GroupController
 		sa_GroupDAO groupDAO = (sa_GroupDAO) context.getBean("groupDAO");
 		groupDAO.groupRegister(schoolsession);
 		ModelAndView model = new ModelAndView("excelSQL");
+		return model;
+	}
+
+	// logout & clean session===============================================
+	@RequestMapping(value = "/sa_grouplogout", method = RequestMethod.GET)
+	public ModelAndView sa_grouplogout()
+	{
+
+		sa_School schoolsession = (sa_School) context.getBean("schoolinfo");
+
+		schoolsession.setAddress(null);
+		schoolsession.setName(null);
+		schoolsession.setPaycode(null);
+		schoolsession.setPerson(null);
+		schoolsession.setPersontel(null);
+		schoolsession.setPwd(null);
+		schoolsession.setSchoolcode(null);
+		schoolsession.setTel(null);
+
+		System.out.println("清空session 成功登出 ");
+		ModelAndView model = new ModelAndView("redirect:/sa_homepage");
 		return model;
 	}
 
