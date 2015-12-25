@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.practice.webapp.dao.sa_GroupDAO;
 import com.practice.webapp.entity.Student;
+import com.practice.webapp.entity.sa_AssignTest;
 import com.practice.webapp.entity.sa_School;
 
 @Controller
@@ -108,31 +109,35 @@ public class Sa_GroupController
 		}
 
 	}
-
+//指考成績查詢
 	@RequestMapping(value = "/sa_groupsearchA", method = RequestMethod.GET)
 	public ModelAndView sa_groupsearchA()
 	{
 		sa_School school_session = (sa_School) context.getBean("schoolinfo");
-		if(school_session.getSchoolcode()!=null){
+		if (school_session.getSchoolcode() != null)
+		{
+		
+			List<sa_AssignTest> assignTests = new ArrayList<sa_AssignTest>();
 			sa_GroupDAO groupDAO = (sa_GroupDAO) context.getBean("groupDAO");
-			
+			assignTests = groupDAO.getAssign(school_session);
 			ModelAndView model = new ModelAndView("sa_groupsearchA");
+			model.addObject("ATscoreList",assignTests);
 			return model;
 		}
-		else{
+		else
+		{
 			ModelAndView model = new ModelAndView("sa_grouplogin");
 			return model;
-		}
-		
+			}
 	}
-
+	//學測成績查詢
 	@RequestMapping(value = "/sa_groupsearchB", method = RequestMethod.GET)
 	public ModelAndView sa_groupsearchB()
 	{
 		ModelAndView model = new ModelAndView("sa_groupsearchB");
 		return model;
 	}
-
+	//英聽成績查詢
 	@RequestMapping(value = "/sa_groupsearchC", method = RequestMethod.GET)
 	public ModelAndView sa_groupsearchC()
 	{

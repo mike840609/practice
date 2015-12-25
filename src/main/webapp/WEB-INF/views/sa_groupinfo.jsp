@@ -14,11 +14,13 @@
 <meta name="author" content="LayoutIt!">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
+
+
 </head>
 </head>
 
 <body>
-	<%@include file="sa_navbar.jspf"%>
+	<%@include file="sa_groupNavbar.jspf" %>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
@@ -65,9 +67,10 @@
 
 		</div>
 	</div>
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/scripts.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>
 
 </html>

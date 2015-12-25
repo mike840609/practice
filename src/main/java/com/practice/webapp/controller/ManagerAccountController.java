@@ -9,14 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-
-
 import com.practice.webapp.dao.ManagerAccountDAO;
 import com.practice.webapp.entity.ManagerAccount;
-
-
-
-
 
 @Controller
 public class ManagerAccountController
@@ -87,6 +81,21 @@ public class ManagerAccountController
 		return model;
 	}
 	
+	
+	@RequestMapping(value = "/sa_managerlogout", method = RequestMethod.GET)
+	public ModelAndView Logout()
+	{
+
+		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
+		// account_session.setAccount(""); "" != null
+		manageraccount_session.setManagerusername(null);
+		manageraccount_session.setManagerpassword(null);
+
+
+		System.out.println(manageraccount_session.getManagerusername());
+		ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
+		return model;
+	}
 	
 }
 

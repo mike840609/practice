@@ -11,6 +11,7 @@
     <link href="css/jquery.validate.css" rel="stylesheet">
 </head>
 <body>
+<%@include file="sa_managernavbar2.jspf" %>
 	<div class="container">
 		<div class="row">
 			<br>
@@ -18,6 +19,7 @@
 			<div class="col-md-6">
 				<form method="post" action="sa_managerBTupdate" id="updateForm">
 					<input type="hidden" name="account" value="${basictest.account}">
+					<br><br><br>
 					<div class="form-group">
 					    <label for="title">目前修改帳號：</label>
 						${basictest.account}
@@ -36,26 +38,6 @@
 				  	<div class="form-group">
 					    <label for="title">考場位置</label>
 						<input type="text" class="form-control" id="title" name="testplace" value="${basictest.testplace}">
-				  	</div>
-				  	<div class="form-group">
-					    <label for="title">國文分數</label>
-						<input type="text" class="form-control" id="title" name="chinese" value="${basictest.chinese}">
-				  	</div>
-				  	<div class="form-group">
-					    <label for="title">英文分數</label>
-						<input type="text" class="form-control" id="title" name="english" value="${basictest.english}">
-				  	</div>
-				  	<div class="form-group">
-					    <label for="title">數學分數</label>
-						<input type="text" class="form-control" id="title" name="math" value="${basictest.math}">
-				  	</div>
-				  	<div class="form-group">
-					    <label for="title">社會分數</label>
-						<input type="text" class="form-control" id="title" name="society" value="${basictest.society}">
-				  	</div>
-				  	<div class="form-group">
-					    <label for="title">自然分數</label>
-						<input type="text" class="form-control" id="title" name="science" value="${basictest.science}">
 				  	</div>
 					<button type="submit" class="btn btn-primary">確定修改</button>
 				</form>

@@ -46,6 +46,7 @@ body {
 					<ul class="nav navbar-nav ">
 						<li><a href="sa_login">個人報考</a></li>
 						<li><a href="sa_grouplogin">團體報考</a></li>
+						<li><a href="sa_managerlogin">管理員登入</a></li>
 						<li class="dropdown "><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown"> 個人中心 <b class="caret"></b>
 						</a>
@@ -54,8 +55,7 @@ body {
 								<li class="divider"></li>
 								<li><a href="sa_perSearch"> 帳號資訊</a></li>
 								<li class="divider"></li>
-								<li><a href="#">成績查詢</a></li>
-								<li class="divider"></li>
+			
 								<li><a href="sa_logout">登出</a></li>
 
 							</ul></li>

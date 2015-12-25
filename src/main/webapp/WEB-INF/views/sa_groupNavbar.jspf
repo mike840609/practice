@@ -36,38 +36,33 @@
 		<div id="navbar" class="navbar-collapse collapse ">
 			<div>
 				<ul class="nav navbar-nav ">
-					<li><a href="sa_perSearch">帳號資訊</a></li>
+					<li><a href="sa_groupinfo">校方考生</a></li>
 
 					<li class="dropdown "><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"> 帳號中心 <b class="caret"></b>
+						data-toggle="dropdown"> 團體報考 <b class="caret"></b>
 					</a>
 						<ul class="dropdown-menu">
-							<li><a href="sa_perSearch">基本資料</a></li>
+							<li><a href="https://drive.google.com/file/d/0B3rEsDfGCM4rTlMteS1rSWxwVjA/view?usp=sharing">xls基本格式下載</a></li>
 							<li class="divider"></li>
-							<li><a href="sa_perModify">帳號修改</a></li>
+							<li><a href="sa_groupregister">xls上傳</a></li>
+							<li class="divider"></li>
+							<li><a href="sa_groupregister">xls團體報考</a></li>
+							<li class="divider"></li>
+							<li><a href="sa_groupinfo">考生資訊</a></li>
 						</ul></li>
-					<li class="dropdown "><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"> 報考專區 <b class="caret"></b>
-					</a>
-						<ul class="dropdown-menu">
-							<li><a href="sa_astest">指考報名</a></li>
-							<li class="divider"></li>
-							<li><a href="sa_bstest">學測報名</a></li>
-							<li class="divider"></li>
-							<li><a href="sa_engtest">英聽報名</a></li>
-						</ul></li>
+					
 					<li class="dropdown "><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown"> 成績查詢 <b class="caret"></b>
 					</a>
 						<ul class="dropdown-menu">
-							<li><a href="sa_perAsGrade">指考成績</a></li>
+							<li><a href="sa_groupsearchA">指考成績</a></li>
 							<li class="divider"></li>
-							<li><a href="sa_perBsGrade">學測成績</a></li>
+							<li><a href="sa_groupsearchB">學測成績</a></li>
 								<li class="divider"></li>
-							<li><a href="sa_perEngGrade">英聽成績</a></li>
+							<li><a href="sa_groupsearchC">英聽成績</a></li>
 						</ul></li>
 
-					<li><a href="sa_logout">登出</a></li>
+					<li><a href="sa_grouplogout">登出</a></li>
 				</ul>
 			</div>
 			<!-- //因為登入也會顯示 -->

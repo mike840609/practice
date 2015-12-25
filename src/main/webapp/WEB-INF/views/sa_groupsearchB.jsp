@@ -14,6 +14,11 @@
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <!-- 雲端函式庫 -->
 <link href="blog.css" rel="stylesheet">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 <style>
 body {
 	padding-top: 90px;
@@ -26,7 +31,7 @@ body {
 <!-- 自定義CSS -->
 </head>
 <body>
-	<%@include file="sa_navbar.jspf"%>
+	<%@include file="sa_groupNavbar.jspf" %>
 	<div id="page-wrap">
 		<b><font size="4" color="3366FF ">輔仁高中 指定科目考試 成績</font></b>
 		<p></p>

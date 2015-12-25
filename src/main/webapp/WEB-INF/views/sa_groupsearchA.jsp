@@ -14,6 +14,11 @@
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <!-- 雲端函式庫 -->
 <link href="blog.css" rel="stylesheet">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 <style>
 body {
 	padding-top: 90px;
@@ -32,7 +37,7 @@ body {
 </head>
 
 <body>
-	<%@include file="sa_navbar.jspf"%>
+	<%@include file="sa_groupNavbar.jspf"%>
 	<div id="page-wrap">
 		<b><font size="4" color="3366FF ">輔仁高中 學科能力測驗 成績</font></b>
 		<p></p>
@@ -50,43 +55,42 @@ body {
 		<table>
 
 			<tr>
-				<th>序列</th>
 				<th>報名單位(代碼)</th>
-				<th>學生姓名</th>
 				<th>准考證號碼</th>
 				<th>國文</th>
 				<th>英文</th>
-				<th>數學</th>
-				<th>社會</th>
-				<th>自然</th>
+				<th>數學甲</th>
+				<th>數學乙</th>
+				<th>歷史</th>
+				<th>地理</th>
+				<th>公民</th>
+				<th>物理</th>
+				<th>化學</th>
+				<th>生物</th>
+				
 				<th>考場</th>
+				
 			</tr>
-			<c:forEach items="${students}" var="student">
+			<c:forEach items="${ATscoreList}" var="ATscoreList">
 				<tr>
-					<td>${student.account}</td>
-					<td>${student.pwd}</td>
-					<td>${student.code}</td>
-					<td>${student.id}</td>
-					<td>${student.name}</td>
-					<td>${student.sex}</td>
-					<td>${student.birth}</td>
-					<td>${student.tel}</td>
-					<td>${student.address}</td>
-					<td>${student.email}</td>
+					<td>${ATscoreList.code}</td>
+					<td>${ATscoreList.testid}</td>
+				
+					<td>${ATscoreList.chinese}</td>
+					<td>${ATscoreList.english}</td>
+					<td>${ATscoreList.mathA}</td>
+					<td>${ATscoreList.mathB}</td>
+					<td>${ATscoreList.history}</td>
+					<td>${ATscoreList.geography}</td>
+					<td>${ATscoreList.civics}</td>
+					<td>${ATscoreList.physical}</td>
+					<td>${ATscoreList.chemical}</td>
+					<td>${ATscoreList.biology}</td>
+					<td>${ATscoreList.testplace}</td>
+						
 				</tr>
 			</c:forEach>
-			<tr>
-				<td>1</td>
-				<td>輔仁高中(001)</td>
-				<td>林某</td>
-				<td>402401000</td>
-				<td>15</td>
-				<td>13</td>
-				<td>11</td>
-				<td>9</td>
-				<td>7</td>
-				<td>55</td>
-			</tr>
+			
 		</table>
 </body>
 

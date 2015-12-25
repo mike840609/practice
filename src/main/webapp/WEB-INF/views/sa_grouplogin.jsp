@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <%@include file="sa_navbar.jspf" %>
+    <%@include file="sa_groupNavbar.jspf" %>
     <div class="wrapper">
         <div class="container">
             <h1><font face="fantasy">Welcome</font></h1>

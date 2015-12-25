@@ -11,6 +11,7 @@
     <link href="css/jquery.validate.css" rel="stylesheet">
 </head>
 <body>
+<%@include file="sa_managernavbar2.jspf" %>
 	<div class="container">
 		<div class="row">
 			<br>
@@ -18,6 +19,7 @@
 			<div class="col-md-6">
 				<form method="post" action="sa_managerSTUupdate" id="updateForm">
 					<input type="hidden" name="account" value="${student.account}">
+					<br><br><br>
 					<div class="form-group">
 					    <label for="title">目前帳號：</label>
 						${student.account}

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-
 import com.practice.webapp.dao.ManagerDAO;
 import com.practice.webapp.entity.ManagerAccount;
 import com.practice.webapp.entity.Student;
@@ -20,574 +19,695 @@ import com.practice.webapp.entity.sa_managerAssignTest;
 import com.practice.webapp.entity.sa_managerBasicTest;
 import com.practice.webapp.entity.sa_managerEnglishListening;
 
-
-
-
 @Controller
-public class ManagerController {
-	ApplicationContext context =  new ClassPathXmlApplicationContext("spring-module.xml");
-	//ºÞ²z­û·j´M³¡¤À
-	//¦C¥X¾Ç´ú¦Ò¥Í¸ê®Æ²M³æ
+public class ManagerController
+{
+	ApplicationContext context = new ClassPathXmlApplicationContext("spring-module.xml");
+
 	@RequestMapping(value = "/sa_managerBTsearch", method = RequestMethod.GET)
-	public ModelAndView getbasictestList(){
+	public ModelAndView getbasictestList()
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		ModelAndView model = new ModelAndView("sa_managerBTsearch");
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		List<sa_managerBasicTest> basictestList = new ArrayList<sa_managerBasicTest>();
-		basictestList = managerDAO.getbasictestList();
-		model.addObject("basictestList", basictestList);
-		return model;
-	}	
+		else
+		{
+			ModelAndView model = new ModelAndView("sa_managerBTsearch");
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			List<sa_managerBasicTest> basictestList = new ArrayList<sa_managerBasicTest>();
+			basictestList = managerDAO.getbasictestList();
+			model.addObject("basictestList", basictestList);
+			return model;
+		}
 	}
-	//¦C¥X«ü¦Ò¦Ò¥Í¸ê®Æ²M³æ
+
+	// ï¿½Cï¿½Xï¿½ï¿½ï¿½Ò¦Ò¥Í¸ï¿½Æ²Mï¿½ï¿½
 	@RequestMapping(value = "/sa_managerATsearch", method = RequestMethod.GET)
-	public ModelAndView getassigntestList(){
+	public ModelAndView getassigntestList()
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		ModelAndView model = new ModelAndView("sa_managerATsearch");
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		List<sa_managerAssignTest> assigntestList = new ArrayList<sa_managerAssignTest>();
-		assigntestList = managerDAO.getassigntestList();
-		model.addObject("assigntestList", assigntestList);
-		return model;
+		else
+		{
+			ModelAndView model = new ModelAndView("sa_managerATsearch");
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			List<sa_managerAssignTest> assigntestList = new ArrayList<sa_managerAssignTest>();
+			assigntestList = managerDAO.getassigntestList();
+			model.addObject("assigntestList", assigntestList);
+			return model;
+		}
 	}
-	}
+
 	//
 	@RequestMapping(value = "/sa_managerELsearch", method = RequestMethod.GET)
-	public ModelAndView getenglishlisteningList(){
+	public ModelAndView getenglishlisteningList()
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		ModelAndView model = new ModelAndView("sa_managerELsearch");
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		List<sa_managerEnglishListening> englishlisteningList = new ArrayList<sa_managerEnglishListening>();
-		englishlisteningList = managerDAO.getenglishlisteningList();
-		model.addObject("englishlisteningList", englishlisteningList);
-		return model;
+		else
+		{
+			ModelAndView model = new ModelAndView("sa_managerELsearch");
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			List<sa_managerEnglishListening> englishlisteningList = new ArrayList<sa_managerEnglishListening>();
+			englishlisteningList = managerDAO.getenglishlisteningList();
+			model.addObject("englishlisteningList", englishlisteningList);
+			return model;
+		}
 	}
-	}
+
 	//
 	@RequestMapping(value = "/sa_managerSTUsearch", method = RequestMethod.GET)
-	public ModelAndView getStudentList(){
+	public ModelAndView getStudentList()
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		ModelAndView model = new ModelAndView("sa_managerSTUsearch");
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		List<Student> studentList = new ArrayList<Student>();
-		studentList = managerDAO.getstudentList();
-		model.addObject("studentList", studentList);
-		return model;
+		else
+		{
+			ModelAndView model = new ModelAndView("sa_managerSTUsearch");
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			List<Student> studentList = new ArrayList<Student>();
+			studentList = managerDAO.getstudentList();
+			model.addObject("studentList", studentList);
+			return model;
 		}
 	}
-	//ºÞ²z­û·s¼W©Î­×§ï¸ê®Æ³¡¤À
-	//¾Ç´ú¦Ò¥Í¸ê®Æ§ó·sGET
+
+	// ï¿½Þ²zï¿½ï¿½ï¿½sï¿½Wï¿½Î­×§ï¿½ï¿½Æ³ï¿½ï¿½ï¿½
+	// ï¿½Ç´ï¿½ï¿½Ò¥Í¸ï¿½Æ§ï¿½sGET
 	@RequestMapping(value = "/sa_managerBTupdate", method = RequestMethod.GET)
-	public ModelAndView updateBTpage(@ModelAttribute sa_managerBasicTest basictest){
+	public ModelAndView updateBTpage(@ModelAttribute sa_managerBasicTest basictest)
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		ModelAndView model = new ModelAndView("sa_managerBTupdate");
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		basictest = managerDAO.getBT(basictest);
-		model.addObject("basictest", basictest);
-		return model;
+		else
+		{
+			ModelAndView model = new ModelAndView("sa_managerBTupdate");
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			basictest = managerDAO.getBT(basictest);
+			model.addObject("basictest", basictest);
+			return model;
 		}
 	}
-	//¾Ç´ú¦Ò¥Í¸ê®ÆPOST
+
+	// ï¿½Ç´ï¿½ï¿½Ò¥Í¸ï¿½ï¿½POST
 	@RequestMapping(value = "/sa_managerBTupdate", method = RequestMethod.POST)
-	public ModelAndView updateBT(@ModelAttribute sa_managerBasicTest basictest){
+	public ModelAndView updateBT(@ModelAttribute sa_managerBasicTest basictest)
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		ModelAndView model = new ModelAndView("redirect:/sa_managerBTsearch");
-		//redirect¥²¶·¹ïÀ³¦^¥ý«e«Ø¹Lªºvalue¤~¯à±µ¨ì¸Ó­¶­±
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		managerDAO.updateBT(basictest);
-		
-		return model;
+		else
+		{
+			ModelAndView model = new ModelAndView("redirect:/sa_managerBTsearch");
+			// redirectï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½eï¿½Ø¹Lï¿½ï¿½valueï¿½~ï¿½à±µï¿½ï¿½Ó­ï¿½ï¿½ï¿½
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			managerDAO.updateBT(basictest);
+
+			return model;
 		}
 	}
-	//«ü¦Ò¦Ò¥Í¸ê®ÆGET
+
+	// ï¿½ï¿½ï¿½Ò¦Ò¥Í¸ï¿½ï¿½GET
 	@RequestMapping(value = "/sa_managerATupdate", method = RequestMethod.GET)
-	public ModelAndView updateATpage(@ModelAttribute sa_managerAssignTest assigntest){
+	public ModelAndView updateATpage(@ModelAttribute sa_managerAssignTest assigntest)
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		ModelAndView model = new ModelAndView("sa_managerATupdate");
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		assigntest = managerDAO.getAT(assigntest);
-		model.addObject("assigntest", assigntest);
-		return model;
+		else
+		{
+			ModelAndView model = new ModelAndView("sa_managerATupdate");
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			assigntest = managerDAO.getAT(assigntest);
+			model.addObject("assigntest", assigntest);
+			return model;
 		}
 	}
-	//«ü¦Ò¦Ò¥Í¸ê®Æ§ó·s¦Ü¸ê®Æ®w
+
+	// ï¿½ï¿½ï¿½Ò¦Ò¥Í¸ï¿½Æ§ï¿½sï¿½Ü¸ï¿½Æ®w
 	@RequestMapping(value = "/sa_managerATupdate", method = RequestMethod.POST)
-	public ModelAndView updateAT(@ModelAttribute sa_managerAssignTest assigntest){
+	public ModelAndView updateAT(@ModelAttribute sa_managerAssignTest assigntest)
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		ModelAndView model = new ModelAndView("redirect:/sa_managerATsearch");
-		//redirect¥²¶·¹ïÀ³¦^¥ý«e«Ø¹Lªºvalue¤~¯à±µ¨ì¸Ó­¶­±
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		managerDAO.updateAT(assigntest);
-		
-		return model;
+		else
+		{
+			ModelAndView model = new ModelAndView("redirect:/sa_managerATsearch");
+			// redirectï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½eï¿½Ø¹Lï¿½ï¿½valueï¿½~ï¿½à±µï¿½ï¿½Ó­ï¿½ï¿½ï¿½
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			managerDAO.updateAT(assigntest);
+
+			return model;
 		}
 	}
-	//­^Å¥¦Ò¥Í¸ê®Æ§ó·s(§ì¨ú¸ê®Æ)
+
+	// ï¿½^Å¥ï¿½Ò¥Í¸ï¿½Æ§ï¿½s(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 	@RequestMapping(value = "/sa_managerELupdate", method = RequestMethod.GET)
-	public ModelAndView updateELpage(@ModelAttribute sa_managerEnglishListening englishlistening){
+	public ModelAndView updateELpage(@ModelAttribute sa_managerEnglishListening englishlistening)
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		ModelAndView model = new ModelAndView("sa_managerELupdate");
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		englishlistening = managerDAO.getEL(englishlistening);
-		model.addObject("englishlistening", englishlistening);
-		return model;
+		else
+		{
+			ModelAndView model = new ModelAndView("sa_managerELupdate");
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			englishlistening = managerDAO.getEL(englishlistening);
+			model.addObject("englishlistening", englishlistening);
+			return model;
 		}
 	}
-	//­^Å¥¦Ò¥Í¸ê®Æ§ó·s¦Ü¸ê®Æ®w
+
+	// ï¿½^Å¥ï¿½Ò¥Í¸ï¿½Æ§ï¿½sï¿½Ü¸ï¿½Æ®w
 	@RequestMapping(value = "/sa_managerELupdate", method = RequestMethod.POST)
-	public ModelAndView updateEL(@ModelAttribute sa_managerEnglishListening englishlistening){
+	public ModelAndView updateEL(@ModelAttribute sa_managerEnglishListening englishlistening)
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		ModelAndView model = new ModelAndView("redirect:/sa_managerELsearch");
-		//redirect¥²¶·¹ïÀ³¦^¥ý«e«Ø¹Lªºvalue¤~¯à±µ¨ì¸Ó­¶­±
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		managerDAO.updateEL(englishlistening);
-		
-		return model;
+		else
+		{
+			ModelAndView model = new ModelAndView("redirect:/sa_managerELsearch");
+			// redirectï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½eï¿½Ø¹Lï¿½ï¿½valueï¿½~ï¿½à±µï¿½ï¿½Ó­ï¿½ï¿½ï¿½
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			managerDAO.updateEL(englishlistening);
+
+			return model;
 		}
 	}
+
 	@RequestMapping(value = "/sa_managerSTUupdate", method = RequestMethod.GET)
-	public ModelAndView updateStupage(@ModelAttribute Student student){
+	public ModelAndView updateStupage(@ModelAttribute Student student)
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		ModelAndView model = new ModelAndView("sa_managerSTUupdate");
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		student = managerDAO.getSTU(student);
-		model.addObject("student", student);
-		return model;
+		else
+		{
+			ModelAndView model = new ModelAndView("sa_managerSTUupdate");
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			student = managerDAO.getSTU(student);
+			model.addObject("student", student);
+			return model;
 		}
 	}
-	
+
 	@RequestMapping(value = "/sa_managerSTUupdate", method = RequestMethod.POST)
-	public ModelAndView updateStu(@ModelAttribute Student student){
+	public ModelAndView updateStu(@ModelAttribute Student student)
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		ModelAndView model = new ModelAndView("redirect:/sa_managerSTUsearch");
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		managerDAO.updateSTU(student);
-		
-		return model;
+		else
+		{
+			ModelAndView model = new ModelAndView("redirect:/sa_managerSTUsearch");
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			managerDAO.updateSTU(student);
+
+			return model;
 		}
 	}
-	//¾Ç´úÃº¶O§å¦¸½T»{
+
+	// ï¿½Ç´ï¿½Ãºï¿½Oï¿½å¦¸ï¿½Tï¿½{
 	@RequestMapping(value = "/sa_managerBTpayupdate", method = RequestMethod.GET)
-	public ModelAndView payupdateBT(@ModelAttribute sa_managerBasicTest basictest){
+	public ModelAndView payupdateBT(@ModelAttribute sa_managerBasicTest basictest)
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-			if (sa_managerBasicTest.getCheckbox()==null){
-		ModelAndView model = new ModelAndView("redirect:/sa_managerBTsearch");
-		return model;	
+		else
+		{
+			if (sa_managerBasicTest.getCheckbox() == null)
+			{
+				ModelAndView model = new ModelAndView("redirect:/sa_managerBTsearch");
+				return model;
 			}
-			else{
-		//redirect¥²¶·¹ïÀ³¦^¥ý«e«Ø¹Lªºvalue¤~¯à±µ¨ì¸Ó­¶­±
-		ModelAndView model = new ModelAndView("redirect:/sa_managerBTsearch");
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		managerDAO.payupdateBT(basictest);
-		sa_managerBasicTest.setCheckbox(null);
-		return model;
+			else
+			{
+				// redirectï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½eï¿½Ø¹Lï¿½ï¿½valueï¿½~ï¿½à±µï¿½ï¿½Ó­ï¿½ï¿½ï¿½
+				ModelAndView model = new ModelAndView("redirect:/sa_managerBTsearch");
+				ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+				managerDAO.payupdateBT(basictest);
+				sa_managerBasicTest.setCheckbox(null);
+				return model;
 			}
 		}
 	}
-	//«ü¦ÒÃº¶O§å¦¸½T»{
+
+	// ï¿½ï¿½ï¿½ï¿½Ãºï¿½Oï¿½å¦¸ï¿½Tï¿½{
 	@RequestMapping(value = "/sa_managerATpayupdate", method = RequestMethod.GET)
-	public ModelAndView payupdateAT(@ModelAttribute sa_managerAssignTest assigntest){
+	public ModelAndView payupdateAT(@ModelAttribute sa_managerAssignTest assigntest)
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-			if (sa_managerAssignTest.getCheckbox()==null){
+		else
+		{
+			if (sa_managerAssignTest.getCheckbox() == null)
+			{
 				ModelAndView model = new ModelAndView("redirect:/sa_managerATsearch");
-				return model;	
-					}
-			else{
-		ModelAndView model = new ModelAndView("redirect:/sa_managerATsearch");
-		//redirect¥²¶·¹ïÀ³¦^¥ý«e«Ø¹Lªºvalue¤~¯à±µ¨ì¸Ó­¶­±
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		managerDAO.payupdateAT(assigntest);	
-		sa_managerAssignTest.setCheckbox(null);
-		return model;
+				return model;
+			}
+			else
+			{
+				ModelAndView model = new ModelAndView("redirect:/sa_managerATsearch");
+				// redirectï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½eï¿½Ø¹Lï¿½ï¿½valueï¿½~ï¿½à±µï¿½ï¿½Ó­ï¿½ï¿½ï¿½
+				ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+				managerDAO.payupdateAT(assigntest);
+				sa_managerAssignTest.setCheckbox(null);
+				return model;
 			}
 		}
 	}
-	//­^Å¥Ãº¶O§å¦¸½T»{
+
+	// ï¿½^Å¥Ãºï¿½Oï¿½å¦¸ï¿½Tï¿½{
 	@RequestMapping(value = "/sa_managerELpayupdate", method = RequestMethod.GET)
-	public ModelAndView payupdateEL(@ModelAttribute sa_managerEnglishListening englishlistening){
+	public ModelAndView payupdateEL(@ModelAttribute sa_managerEnglishListening englishlistening)
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-			if (sa_managerEnglishListening.getCheckbox()==null){
+		else
+		{
+			if (sa_managerEnglishListening.getCheckbox() == null)
+			{
 				ModelAndView model = new ModelAndView("redirect:/sa_managerELsearch");
-				return model;	
-					}
-			else{
-		ModelAndView model = new ModelAndView("redirect:/sa_managerELsearch");
-		//redirect¥²¶·¹ïÀ³¦^¥ý«e«Ø¹Lªºvalue¤~¯à±µ¨ì¸Ó­¶­±
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		managerDAO.payupdateEL(englishlistening);
-		sa_managerEnglishListening.setCheckbox(null);
-		return model;
+				return model;
+			}
+			else
+			{
+				ModelAndView model = new ModelAndView("redirect:/sa_managerELsearch");
+				// redirectï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½eï¿½Ø¹Lï¿½ï¿½valueï¿½~ï¿½à±µï¿½ï¿½Ó­ï¿½ï¿½ï¿½
+				ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+				managerDAO.payupdateEL(englishlistening);
+				sa_managerEnglishListening.setCheckbox(null);
+				return model;
 			}
 		}
 	}
-	//³sµ²­Ó¤H¸ê®Æ­¶­±
+
+	// ï¿½sï¿½ï¿½ï¿½Ó¤Hï¿½ï¿½Æ­ï¿½ï¿½ï¿½
 	@RequestMapping(value = "/sa_managerSTUmodify", method = RequestMethod.GET)
-	public ModelAndView modifyStuPage(@ModelAttribute Student student){
+	public ModelAndView modifyStuPage(@ModelAttribute Student student)
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		ModelAndView model = new ModelAndView("sa_managerSTUmodify");
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		student = managerDAO.getSTU(student);
-		model.addObject("student", student);
-		return model;
+		else
+		{
+			ModelAndView model = new ModelAndView("sa_managerSTUmodify");
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			student = managerDAO.getSTU(student);
+			model.addObject("student", student);
+			return model;
 		}
 	}
+
 	@RequestMapping(value = "/sa_managerBTconsearch", method = RequestMethod.GET)
-	public ModelAndView getBTsearchList( sa_managerBasicTest basictest) throws UnsupportedEncodingException{
+	public ModelAndView getBTsearchList(sa_managerBasicTest basictest) throws UnsupportedEncodingException
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		String state= basictest.getState();
-		state = new String(state.getBytes("ISO-8859-1"),"utf-8");
-		basictest.setState(state);
-		String identity= basictest.getIdentity();
-		identity = new String(identity.getBytes("ISO-8859-1"),"utf-8");
-		basictest.setIdentity(identity);
-		ModelAndView model = new ModelAndView("sa_managerBTsearch");
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		List<sa_managerBasicTest> basictestList = new ArrayList<sa_managerBasicTest>();
-		basictestList = managerDAO.getBTsearchList(basictest);
-		model.addObject("basictestList", basictestList);
-		return model;
+		else
+		{
+			String state = basictest.getState();
+			state = new String(state.getBytes("ISO-8859-1"), "utf-8");
+			basictest.setState(state);
+			String identity = basictest.getIdentity();
+			identity = new String(identity.getBytes("ISO-8859-1"), "utf-8");
+			basictest.setIdentity(identity);
+			ModelAndView model = new ModelAndView("sa_managerBTsearch");
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			List<sa_managerBasicTest> basictestList = new ArrayList<sa_managerBasicTest>();
+			basictestList = managerDAO.getBTsearchList(basictest);
+			model.addObject("basictestList", basictestList);
+			return model;
 		}
 	}
-	
+
 	@RequestMapping(value = "/sa_managerATconsearch", method = RequestMethod.GET)
-	public ModelAndView getATsearchList( sa_managerAssignTest assigntest) throws UnsupportedEncodingException{
+	public ModelAndView getATsearchList(sa_managerAssignTest assigntest) throws UnsupportedEncodingException
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
-		}else{
-		String state= assigntest.getState();
-		state = new String(state.getBytes("ISO-8859-1"),"utf-8");
-		assigntest.setState(state);
-		String identity= assigntest.getIdentity();
-		identity = new String(identity.getBytes("ISO-8859-1"),"utf-8");
-		assigntest.setIdentity(identity);
-		ModelAndView model = new ModelAndView("sa_managerATsearch");
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		List<sa_managerAssignTest> assigntestList = new ArrayList<sa_managerAssignTest>();
-		assigntestList = managerDAO.getATsearchList(assigntest);
-		model.addObject("assigntestList", assigntestList);
-		return model;
+		}
+		else
+		{
+			String state = assigntest.getState();
+			state = new String(state.getBytes("ISO-8859-1"), "utf-8");
+			assigntest.setState(state);
+			String identity = assigntest.getIdentity();
+			identity = new String(identity.getBytes("ISO-8859-1"), "utf-8");
+			assigntest.setIdentity(identity);
+			ModelAndView model = new ModelAndView("sa_managerATsearch");
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			List<sa_managerAssignTest> assigntestList = new ArrayList<sa_managerAssignTest>();
+			assigntestList = managerDAO.getATsearchList(assigntest);
+			model.addObject("assigntestList", assigntestList);
+			return model;
 		}
 	}
-	
+
 	@RequestMapping(value = "/sa_managerELconsearch", method = RequestMethod.GET)
-	public ModelAndView getELsearchList(sa_managerEnglishListening englishlistening) throws UnsupportedEncodingException{
+	public ModelAndView getELsearchList(sa_managerEnglishListening englishlistening) throws UnsupportedEncodingException
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		String state= englishlistening.getState();
-		state = new String(state.getBytes("ISO-8859-1"),"utf-8");
-		englishlistening.setState(state);
-		String identity= englishlistening.getIdentity();
-		identity = new String(identity.getBytes("ISO-8859-1"),"utf-8");
-		englishlistening.setIdentity(identity);
-		ModelAndView model = new ModelAndView("sa_managerELsearch");
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		List<sa_managerEnglishListening> englishlisteningList = new ArrayList<sa_managerEnglishListening>();
-		englishlisteningList = managerDAO.getELsearchList(englishlistening);
-		model.addObject("englishlisteningList", englishlisteningList);
-		return model;
+		else
+		{
+			String state = englishlistening.getState();
+			state = new String(state.getBytes("ISO-8859-1"), "utf-8");
+			englishlistening.setState(state);
+			String identity = englishlistening.getIdentity();
+			identity = new String(identity.getBytes("ISO-8859-1"), "utf-8");
+			englishlistening.setIdentity(identity);
+			ModelAndView model = new ModelAndView("sa_managerELsearch");
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			List<sa_managerEnglishListening> englishlisteningList = new ArrayList<sa_managerEnglishListening>();
+			englishlisteningList = managerDAO.getELsearchList(englishlistening);
+			model.addObject("englishlisteningList", englishlisteningList);
+			return model;
 		}
 	}
-	
+
 	@RequestMapping(value = "/sa_managerSTUconsearch", method = RequestMethod.GET)
-	public ModelAndView getSTUsearchList(Student student) {
+	public ModelAndView getSTUsearchList(Student student)
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		ModelAndView model = new ModelAndView("sa_managerSTUsearch");
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		List<Student> studentList = new ArrayList<Student>();
-		studentList = managerDAO.getSTUsearchList(student);
-		model.addObject("studentList", studentList);
-		return model;
+		else
+		{
+			ModelAndView model = new ModelAndView("sa_managerSTUsearch");
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			List<Student> studentList = new ArrayList<Student>();
+			studentList = managerDAO.getSTUsearchList(student);
+			model.addObject("studentList", studentList);
+			return model;
 		}
 	}
-	
+
 	@RequestMapping(value = "sa_managerBTscore", method = RequestMethod.GET)
-	public ModelAndView getBTscoreList(){
+	public ModelAndView getBTscoreList()
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		ModelAndView model = new ModelAndView("sa_managerBTscore");
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		List<sa_managerBasicTest> BTscoreList = new ArrayList<sa_managerBasicTest>();
-		BTscoreList = managerDAO.getBTscoreList();
-		model.addObject("BTscoreList", BTscoreList);
-		return model;
+		else
+		{
+			ModelAndView model = new ModelAndView("sa_managerBTscore");
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			List<sa_managerBasicTest> BTscoreList = new ArrayList<sa_managerBasicTest>();
+			BTscoreList = managerDAO.getBTscoreList();
+			model.addObject("BTscoreList", BTscoreList);
+			return model;
 		}
 	}
-	
+
 	@RequestMapping(value = "sa_managerATscore", method = RequestMethod.GET)
-	public ModelAndView getATscoreList(){
+	public ModelAndView getATscoreList()
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		ModelAndView model = new ModelAndView("sa_managerATscore");
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		List<sa_managerAssignTest> ATscoreList = new ArrayList<sa_managerAssignTest>();
-		ATscoreList = managerDAO.getATscoreList();
-		model.addObject("ATscoreList", ATscoreList);
-		return model;
+		else
+		{
+			ModelAndView model = new ModelAndView("sa_managerATscore");
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			List<sa_managerAssignTest> ATscoreList = new ArrayList<sa_managerAssignTest>();
+			ATscoreList = managerDAO.getATscoreList();
+			model.addObject("ATscoreList", ATscoreList);
+			return model;
 		}
 	}
-	
+
 	@RequestMapping(value = "sa_managerELscore", method = RequestMethod.GET)
-	public ModelAndView getELscoreList(){
+	public ModelAndView getELscoreList()
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		ModelAndView model = new ModelAndView("sa_managerELscore");
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		List<sa_managerEnglishListening> ELscoreList = new ArrayList<sa_managerEnglishListening>();
-		ELscoreList = managerDAO.getELscoreList();
-		model.addObject("ELscoreList", ELscoreList);
-		return model;
+		else
+		{
+			ModelAndView model = new ModelAndView("sa_managerELscore");
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			List<sa_managerEnglishListening> ELscoreList = new ArrayList<sa_managerEnglishListening>();
+			ELscoreList = managerDAO.getELscoreList();
+			model.addObject("ELscoreList", ELscoreList);
+			return model;
 		}
 	}
-	
+
 	@RequestMapping(value = "/sa_managerBTscoreupdate", method = RequestMethod.GET)
-	public ModelAndView updateBTscorepage(@ModelAttribute sa_managerBasicTest basictest){
+	public ModelAndView updateBTscorepage(@ModelAttribute sa_managerBasicTest basictest)
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		ModelAndView model = new ModelAndView("sa_managerBTscoreupdate");
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		basictest = managerDAO.getBT(basictest);
-		model.addObject("basictest", basictest);
-		return model;
+		else
+		{
+			ModelAndView model = new ModelAndView("sa_managerBTscoreupdate");
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			basictest = managerDAO.getBT(basictest);
+			model.addObject("basictest", basictest);
+			return model;
 		}
 	}
+
 	@RequestMapping(value = "/sa_managerBTscoreupdate", method = RequestMethod.POST)
-	public ModelAndView updateBTscore(@ModelAttribute sa_managerBasicTest basictest){
+	public ModelAndView updateBTscore(@ModelAttribute sa_managerBasicTest basictest)
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		ModelAndView model = new ModelAndView("redirect:/sa_managerBTscore");
-		//redirect¥²¶·¹ïÀ³¦^¥ý«e«Ø¹Lªºvalue¤~¯à±µ¨ì¸Ó­¶­±
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		managerDAO.updateBTscore(basictest);
-		
-		return model;
+		else
+		{
+			ModelAndView model = new ModelAndView("redirect:/sa_managerBTscore");
+			// redirectï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½eï¿½Ø¹Lï¿½ï¿½valueï¿½~ï¿½à±µï¿½ï¿½Ó­ï¿½ï¿½ï¿½
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			managerDAO.updateBTscore(basictest);
+
+			return model;
 		}
 	}
-	
+
 	@RequestMapping(value = "/sa_managerATscoreupdate", method = RequestMethod.GET)
-	public ModelAndView updateATscorepage(@ModelAttribute sa_managerAssignTest assigntest){
+	public ModelAndView updateATscorepage(@ModelAttribute sa_managerAssignTest assigntest)
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		ModelAndView model = new ModelAndView("sa_managerATscoreupdate");
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		assigntest = managerDAO.getAT(assigntest);
-		model.addObject("assigntest", assigntest);
-		return model;
+		else
+		{
+			ModelAndView model = new ModelAndView("sa_managerATscoreupdate");
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			assigntest = managerDAO.getAT(assigntest);
+			model.addObject("assigntest", assigntest);
+			return model;
 		}
 	}
+
 	@RequestMapping(value = "/sa_managerATscoreupdate", method = RequestMethod.POST)
-	public ModelAndView updateATscore(@ModelAttribute sa_managerAssignTest assigntest){
+	public ModelAndView updateATscore(@ModelAttribute sa_managerAssignTest assigntest)
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		ModelAndView model = new ModelAndView("redirect:/sa_managerATscore");
-		//redirect¥²¶·¹ïÀ³¦^¥ý«e«Ø¹Lªºvalue¤~¯à±µ¨ì¸Ó­¶­±
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		managerDAO.updateATscore(assigntest);
-		
-		return model;
+		else
+		{
+			ModelAndView model = new ModelAndView("redirect:/sa_managerATscore");
+			// redirectï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½eï¿½Ø¹Lï¿½ï¿½valueï¿½~ï¿½à±µï¿½ï¿½Ó­ï¿½ï¿½ï¿½
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			managerDAO.updateATscore(assigntest);
+
+			return model;
 		}
 	}
-	
+
 	@RequestMapping(value = "/sa_managerELscoreupdate", method = RequestMethod.GET)
-	public ModelAndView updateELscorepage(@ModelAttribute sa_managerEnglishListening englishlistening){
+	public ModelAndView updateELscorepage(@ModelAttribute sa_managerEnglishListening englishlistening)
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		ModelAndView model = new ModelAndView("sa_managerELscoreupdate");
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		englishlistening = managerDAO.getEL(englishlistening);
-		model.addObject("englishlistening", englishlistening);
-		return model;
+		else
+		{
+			ModelAndView model = new ModelAndView("sa_managerELscoreupdate");
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			englishlistening = managerDAO.getEL(englishlistening);
+			model.addObject("englishlistening", englishlistening);
+			return model;
 		}
 	}
+
 	@RequestMapping(value = "/sa_managerELscoreupdate", method = RequestMethod.POST)
-	public ModelAndView updateELscore(@ModelAttribute sa_managerEnglishListening englishlistening){
+	public ModelAndView updateELscore(@ModelAttribute sa_managerEnglishListening englishlistening)
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		ModelAndView model = new ModelAndView("redirect:/sa_managerELscore");
-		//redirect¥²¶·¹ïÀ³¦^¥ý«e«Ø¹Lªºvalue¤~¯à±µ¨ì¸Ó­¶­±
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		managerDAO.updateELscore(englishlistening);
-		
-		return model;
+		else
+		{
+			ModelAndView model = new ModelAndView("redirect:/sa_managerELscore");
+			// redirectï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½eï¿½Ø¹Lï¿½ï¿½valueï¿½~ï¿½à±µï¿½ï¿½Ó­ï¿½ï¿½ï¿½
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			managerDAO.updateELscore(englishlistening);
+
+			return model;
 		}
 	}
+
 	@RequestMapping(value = "/sa_managerBTScoresearch", method = RequestMethod.GET)
-	public ModelAndView getBTScoresearchList( sa_managerBasicTest basictest){
+	public ModelAndView getBTScoresearchList(sa_managerBasicTest basictest)
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		ModelAndView model = new ModelAndView("sa_managerBTscore");
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		List<sa_managerBasicTest> BTscoreList = new ArrayList<sa_managerBasicTest>();
-		BTscoreList = managerDAO.getBTScoresearchList(basictest);
-		model.addObject("BTscoreList", BTscoreList);
-		return model;
+		else
+		{
+			ModelAndView model = new ModelAndView("sa_managerBTscore");
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			List<sa_managerBasicTest> BTscoreList = new ArrayList<sa_managerBasicTest>();
+			BTscoreList = managerDAO.getBTScoresearchList(basictest);
+			model.addObject("BTscoreList", BTscoreList);
+			return model;
 		}
 	}
+
 	@RequestMapping(value = "/sa_managerATScoresearch", method = RequestMethod.GET)
-	public ModelAndView getATScoresearchList( sa_managerAssignTest assigntest){
+	public ModelAndView getATScoresearchList(sa_managerAssignTest assigntest)
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		ModelAndView model = new ModelAndView("sa_managerATscore");
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		List<sa_managerAssignTest> ATscoreList = new ArrayList<sa_managerAssignTest>();
-		ATscoreList = managerDAO.getATScoresearchList(assigntest);
-		model.addObject("ATscoreList", ATscoreList);
-		return model;
+		else
+		{
+			ModelAndView model = new ModelAndView("sa_managerATscore");
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			List<sa_managerAssignTest> ATscoreList = new ArrayList<sa_managerAssignTest>();
+			ATscoreList = managerDAO.getATScoresearchList(assigntest);
+			model.addObject("ATscoreList", ATscoreList);
+			return model;
 		}
 	}
+
 	@RequestMapping(value = "/sa_managerELScoresearch", method = RequestMethod.GET)
-	public ModelAndView getELScoresearchList( sa_managerEnglishListening englishlistening){
+	public ModelAndView getELScoresearchList(sa_managerEnglishListening englishlistening)
+	{
 		ManagerAccount manageraccount_session = (ManagerAccount) context.getBean("manageraccount");
-		if(manageraccount_session.getManagerusername()==null){
+		if (manageraccount_session.getManagerusername() == null)
+		{
 			ModelAndView model = new ModelAndView("redirect:/sa_managerlogin");
 			return model;
 		}
-		else{
-		ModelAndView model = new ModelAndView("sa_managerELscore");
-		ManagerDAO managerDAO = (ManagerDAO)context.getBean("managerDAO");
-		List<sa_managerEnglishListening> ELscoreList = new ArrayList<sa_managerEnglishListening>();
-		ELscoreList = managerDAO.getELScoresearchList(englishlistening);
-		model.addObject("ELscoreList", ELscoreList);
-		return model;
+		else
+		{
+			ModelAndView model = new ModelAndView("sa_managerELscore");
+			ManagerDAO managerDAO = (ManagerDAO) context.getBean("managerDAO");
+			List<sa_managerEnglishListening> ELscoreList = new ArrayList<sa_managerEnglishListening>();
+			ELscoreList = managerDAO.getELScoresearchList(englishlistening);
+			model.addObject("ELscoreList", ELscoreList);
+			return model;
 		}
 	}
 }
