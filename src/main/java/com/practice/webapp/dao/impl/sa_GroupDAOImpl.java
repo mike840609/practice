@@ -408,7 +408,7 @@ public class sa_GroupDAOImpl implements sa_GroupDAO
 				sa_EnglishListening englishListening = new sa_EnglishListening();
 				
 				englishListening.setAccount(rs.getString("account"));
-				englishListening.setScore(rs.getInt("account"));
+				englishListening.setScore(rs.getInt("score"));
 				
 				englishListening.setIdentity(rs.getString("identity"));
 				englishListening.setCode(rs.getString("code"));

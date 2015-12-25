@@ -14,6 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.practice.webapp.dao.sa_GroupDAO;
 import com.practice.webapp.entity.Student;
 import com.practice.webapp.entity.sa_AssignTest;
+import com.practice.webapp.entity.sa_BasicTest;
+import com.practice.webapp.entity.sa_EnglishListening;
 import com.practice.webapp.entity.sa_School;
 
 @Controller
@@ -109,40 +111,73 @@ public class Sa_GroupController
 		}
 
 	}
-//指考成績查詢
+
+	// 指考成績查詢
 	@RequestMapping(value = "/sa_groupsearchA", method = RequestMethod.GET)
 	public ModelAndView sa_groupsearchA()
 	{
 		sa_School school_session = (sa_School) context.getBean("schoolinfo");
 		if (school_session.getSchoolcode() != null)
 		{
-		
+
 			List<sa_AssignTest> assignTests = new ArrayList<sa_AssignTest>();
 			sa_GroupDAO groupDAO = (sa_GroupDAO) context.getBean("groupDAO");
 			assignTests = groupDAO.getAssign(school_session);
 			ModelAndView model = new ModelAndView("sa_groupsearchA");
-			model.addObject("ATscoreList",assignTests);
+			model.addObject("ATscoreList", assignTests);
 			return model;
 		}
 		else
 		{
 			ModelAndView model = new ModelAndView("sa_grouplogin");
 			return model;
-			}
+		}
 	}
-	//學測成績查詢
+
+	// 學測成績查詢
 	@RequestMapping(value = "/sa_groupsearchB", method = RequestMethod.GET)
 	public ModelAndView sa_groupsearchB()
 	{
-		ModelAndView model = new ModelAndView("sa_groupsearchB");
-		return model;
+
+		sa_School school_session = (sa_School) context.getBean("schoolinfo");
+		if (school_session.getSchoolcode() != null)
+		{
+
+			List<sa_BasicTest> basicTests = new ArrayList<sa_BasicTest>();
+			sa_GroupDAO groupDAO = (sa_GroupDAO) context.getBean("groupDAO");
+			basicTests = groupDAO.getBasic(school_session);
+			ModelAndView model = new ModelAndView("sa_groupsearchB");
+			model.addObject("basicTests", basicTests);
+			return model;
+		}
+		else
+		{
+			ModelAndView model = new ModelAndView("sa_grouplogin");
+			return model;
+		}
+
 	}
-	//英聽成績查詢
+
+	// 英聽成績查詢
 	@RequestMapping(value = "/sa_groupsearchC", method = RequestMethod.GET)
 	public ModelAndView sa_groupsearchC()
 	{
-		ModelAndView model = new ModelAndView("sa_groupsearchC");
-		return model;
+		sa_School school_session = (sa_School) context.getBean("schoolinfo");
+		if (school_session.getSchoolcode() != null)
+		{
+			List<sa_EnglishListening> englishListenings = new ArrayList<sa_EnglishListening>();
+			sa_GroupDAO groupDAO = (sa_GroupDAO) context.getBean("groupDAO");
+			englishListenings = groupDAO.getEng(school_session);
+			ModelAndView model = new ModelAndView("sa_groupsearchC");
+			model.addObject("englishListenings", englishListenings);
+			return model;
+		}
+		else
+		{
+			ModelAndView model = new ModelAndView("sa_grouplogin");
+			return model;
+		}
+
 	}
 
 	@RequestMapping(value = "/excelSQL", method = RequestMethod.GET)
