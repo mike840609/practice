@@ -112,8 +112,18 @@ public class Sa_GroupController
 	@RequestMapping(value = "/sa_groupsearchA", method = RequestMethod.GET)
 	public ModelAndView sa_groupsearchA()
 	{
-		ModelAndView model = new ModelAndView("sa_groupsearchA");
-		return model;
+		sa_School school_session = (sa_School) context.getBean("schoolinfo");
+		if(school_session.getSchoolcode()!=null){
+			sa_GroupDAO groupDAO = (sa_GroupDAO) context.getBean("groupDAO");
+			
+			ModelAndView model = new ModelAndView("sa_groupsearchA");
+			return model;
+		}
+		else{
+			ModelAndView model = new ModelAndView("sa_grouplogin");
+			return model;
+		}
+		
 	}
 
 	@RequestMapping(value = "/sa_groupsearchB", method = RequestMethod.GET)
