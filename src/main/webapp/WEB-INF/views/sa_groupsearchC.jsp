@@ -38,9 +38,9 @@ body {
 		<li><a href="sa_groupsearchB.html">指考成績查詢</a></li>
 		<center>
 			<section class="webdesigntuts-workshop">
-			<form action="" method="">
-				<input type="search" placeholder="輸入欲查詢之關鍵字...">
-				<button>搜尋</button>
+			<form action="sa_groupsearchC" method="post">
+				<input type="search" placeholder="輸入欲查詢之關鍵字..." name="account">
+				<button type="submit">搜尋</button>
 			</form>
 			</section>
 		</center>

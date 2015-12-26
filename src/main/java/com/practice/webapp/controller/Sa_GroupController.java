@@ -133,6 +133,18 @@ public class Sa_GroupController
 			return model;
 		}
 	}
+	
+	//指考搜尋列表
+	@RequestMapping(value = "/sa_groupsearchA", method = RequestMethod.POST)
+	public ModelAndView assignPost(@ModelAttribute sa_AssignTest assignTest)
+	{
+		List<sa_AssignTest> assignTests = new ArrayList<sa_AssignTest>();
+		ModelAndView modelAndView = new ModelAndView("sa_groupsearchA");
+		sa_GroupDAO groupDAO = (sa_GroupDAO) context.getBean("groupDAO");
+		assignTests = groupDAO.getAssign(assignTest);
+		modelAndView.addObject("ATscoreList", assignTests);
+		return modelAndView;
+	}
 
 	// 學測成績查詢
 	@RequestMapping(value = "/sa_groupsearchB", method = RequestMethod.GET)
@@ -142,11 +154,11 @@ public class Sa_GroupController
 		sa_School school_session = (sa_School) context.getBean("schoolinfo");
 		if (school_session.getSchoolcode() != null)
 		{
-
 			List<sa_BasicTest> basicTests = new ArrayList<sa_BasicTest>();
 			sa_GroupDAO groupDAO = (sa_GroupDAO) context.getBean("groupDAO");
 			basicTests = groupDAO.getBasic(school_session);
 			ModelAndView model = new ModelAndView("sa_groupsearchB");
+			System.out.println(basicTests);
 			model.addObject("basicTests", basicTests);
 			return model;
 		}
@@ -156,6 +168,17 @@ public class Sa_GroupController
 			return model;
 		}
 
+	}
+	//學測搜尋列表
+	@RequestMapping(value = "/sa_groupsearchB", method = RequestMethod.POST)
+	public ModelAndView assignPost(@ModelAttribute sa_BasicTest basicTest)
+	{
+		List<sa_BasicTest> basicTests = new ArrayList<sa_BasicTest>();
+		ModelAndView modelAndView = new ModelAndView("sa_groupsearchB");
+		sa_GroupDAO groupDAO = (sa_GroupDAO) context.getBean("groupDAO");
+		basicTests = groupDAO.getBasic(basicTest);
+		modelAndView.addObject("basicTests", basicTests);
+		return modelAndView;
 	}
 
 	// 英聽成績查詢
@@ -178,6 +201,17 @@ public class Sa_GroupController
 			return model;
 		}
 
+	}
+	//英聽搜尋列表
+	@RequestMapping(value = "/sa_groupsearchC", method = RequestMethod.POST)
+	public ModelAndView assignPost(@ModelAttribute sa_EnglishListening englishListening)
+	{
+		List<sa_EnglishListening> englishListenings = new ArrayList<sa_EnglishListening>();
+		ModelAndView modelAndView = new ModelAndView("sa_groupsearchC");
+		sa_GroupDAO groupDAO = (sa_GroupDAO) context.getBean("groupDAO");
+		englishListenings = groupDAO.getEng(englishListening);
+		modelAndView.addObject("englishListenings", englishListenings);
+		return modelAndView;
 	}
 
 	@RequestMapping(value = "/excelSQL", method = RequestMethod.GET)

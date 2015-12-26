@@ -15,8 +15,14 @@ public interface sa_GroupDAO
 	public void groupRegister(sa_School sa_School);
 	public List<Student>getList(sa_School sa_School);
 	
+	//GET METHOD 
 	public List<sa_AssignTest>getAssign(sa_School sa_School);
 	public List<sa_BasicTest>getBasic(sa_School sa_School);
 	public List<sa_EnglishListening>getEng(sa_School sa_School);
+	
+	//POST OVERLOADING
+	public List<sa_AssignTest>getAssign(sa_AssignTest assignTest);
+	public List<sa_BasicTest>getBasic(sa_BasicTest basicTest);
+	public List<sa_EnglishListening>getEng(sa_EnglishListening englishListening);
 	
 }

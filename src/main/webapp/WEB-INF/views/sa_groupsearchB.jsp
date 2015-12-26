@@ -38,9 +38,9 @@ body {
 		<li><a href="sa_groupsearchC.html">英聽成績查詢</a></li>
 		<center>
 			<section class="webdesigntuts-workshop">
-			<form action="" method="">
-				<input type="search" placeholder="輸入欲查詢之關鍵字...">
-				<button>搜尋</button>
+			<form action="sa_groupsearchB" method="post">
+				<input type="search" placeholder="輸入欲查詢之關鍵字..." name="account">
+				<button type="submit">搜尋</button>
 			</form>
 			</section>
 		</center>
@@ -72,7 +72,7 @@ body {
 					<td>${basicTests.testplace}</td>
 					
 				</tr>
-			</c:forEach>
+			</c:forEach> 
 
 		</table>
 </body>

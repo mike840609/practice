@@ -346,19 +346,22 @@ public class sa_GroupDAOImpl implements sa_GroupDAO
 		List<sa_BasicTest> basicTests = new ArrayList<sa_BasicTest>();
 		try
 		{
+
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);
 			smt.setString(1, sa_School.getSchoolcode());
 			rs = smt.executeQuery();
+
 			while (rs.next())
 			{
 				sa_BasicTest basicTest = new sa_BasicTest();
+
 				basicTest.setAccount(rs.getString("account"));
 
 				basicTest.setChinese(rs.getInt("Chinese"));
-				basicTest.setEnglish(rs.getInt("Chemical"));
-				basicTest.setMath(rs.getInt("Chinese"));
-				basicTest.setSociety(rs.getInt("Civics"));
+				basicTest.setEnglish(rs.getInt("English"));
+				basicTest.setMath(rs.getInt("Math"));
+				basicTest.setSociety(rs.getInt("Society"));
 				basicTest.setScience(rs.getInt("Science"));
 
 				basicTest.setIdentity(rs.getString("identity"));
@@ -374,7 +377,6 @@ public class sa_GroupDAOImpl implements sa_GroupDAO
 		}
 		catch (Exception e)
 		{
-			// TODO: handle exception
 		}
 		finally
 		{
@@ -406,10 +408,10 @@ public class sa_GroupDAOImpl implements sa_GroupDAO
 			while (rs.next())
 			{
 				sa_EnglishListening englishListening = new sa_EnglishListening();
-				
+
 				englishListening.setAccount(rs.getString("account"));
 				englishListening.setScore(rs.getInt("score"));
-				
+
 				englishListening.setIdentity(rs.getString("identity"));
 				englishListening.setCode(rs.getString("code"));
 				englishListening.setMoney(rs.getInt("money"));
@@ -417,7 +419,167 @@ public class sa_GroupDAOImpl implements sa_GroupDAO
 				englishListening.setTestplace(rs.getString("testPlace"));
 
 				englishListenings.add(englishListening);
-			
+
+			}
+			rs.close();
+			smt.close();
+		}
+		catch (Exception e)
+		{
+			// TODO: handle exception
+		}
+		finally
+		{
+			if (conn != null)
+			{
+				try
+				{
+					conn.close();
+				}
+				catch (SQLException e)
+				{
+				}
+			}
+		}
+		return englishListenings;
+	}
+
+	@Override
+	public List<sa_AssignTest> getAssign(sa_AssignTest assignTest)
+	{
+		String sql = "SELECT * FROM sa_AssignTest WHERE account = ?";
+		List<sa_AssignTest> assignTests = new ArrayList<sa_AssignTest>();
+		try
+		{
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setString(1, assignTest.getAccount());
+			rs = smt.executeQuery();
+			while (rs.next())
+			{
+				sa_AssignTest assignTest1 = new sa_AssignTest();
+				assignTest1.setAccount(rs.getString("account"));
+				assignTest1.setBiology(rs.getInt("Biology"));
+				assignTest1.setChemical(rs.getInt("Chemical"));
+				assignTest1.setChinese(rs.getInt("Chinese"));
+				assignTest1.setCivics(rs.getInt("Civics"));
+				assignTest1.setEnglish(rs.getInt("English"));
+				assignTest1.setGeography(rs.getInt("Geography"));
+				assignTest1.setHistory(rs.getInt("History"));
+				assignTest1.setMathA(rs.getInt("MathA"));
+				assignTest1.setMathB(rs.getInt("MathB"));
+				assignTest1.setPhysical(rs.getInt("Physical"));
+
+				assignTest1.setIdentity(rs.getString("identity"));
+				assignTest1.setCode(rs.getString("code"));
+				assignTest1.setMoney(rs.getInt("money"));
+				assignTest1.setTestid(rs.getString("testID"));
+				assignTest1.setTestplace(rs.getString("testPlace"));
+				assignTests.add(assignTest1);
+			}
+			rs.close();
+			smt.close();
+		}
+		catch (Exception e)
+		{
+			// TODO: handle exception
+		}
+		finally
+		{
+			if (conn != null)
+			{
+				try
+				{
+					conn.close();
+				}
+				catch (SQLException e)
+				{
+				}
+			}
+		}
+		return assignTests;
+	}
+
+	@Override
+	public List<sa_BasicTest> getBasic(sa_BasicTest basicTest)
+	{
+		String sql = "SELECT * FROM sa_BasicTest WHERE account = ?";
+		List<sa_BasicTest> basicTests = new ArrayList<sa_BasicTest>();
+		try
+		{
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setString(1, basicTest.getAccount());
+			rs = smt.executeQuery();
+			while (rs.next())
+			{
+				sa_BasicTest basicTest1 = new sa_BasicTest();
+
+				basicTest1.setAccount(rs.getString("account"));
+
+				basicTest1.setChinese(rs.getInt("Chinese"));
+				basicTest1.setEnglish(rs.getInt("English"));
+				basicTest1.setMath(rs.getInt("Math"));
+				basicTest1.setSociety(rs.getInt("Society"));
+				basicTest1.setScience(rs.getInt("Science"));
+
+				basicTest1.setIdentity(rs.getString("identity"));
+				basicTest1.setCode(rs.getString("code"));
+				basicTest1.setMoney(rs.getInt("money"));
+				basicTest1.setTestid(rs.getString("testID"));
+				basicTest1.setTestplace(rs.getString("testPlace"));
+
+				basicTests.add(basicTest1);
+			}
+			rs.close();
+			smt.close();
+		}
+		catch (Exception e)
+		{
+			// TODO: handle exception
+		}
+		finally
+		{
+			if (conn != null)
+			{
+				try
+				{
+					conn.close();
+				}
+				catch (SQLException e)
+				{
+				}
+			}
+		}
+		return basicTests;
+	}
+
+	@Override
+	public List<sa_EnglishListening> getEng(sa_EnglishListening englishListening)
+	{
+		String sql = "SELECT * FROM sa_EnglishListening WHERE account =?";
+		List<sa_EnglishListening> englishListenings = new ArrayList<sa_EnglishListening>();
+		try
+		{
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setString(1, englishListening.getAccount());
+			rs = smt.executeQuery();
+			while (rs.next())
+			{
+				sa_EnglishListening englishListening1 = new sa_EnglishListening();
+
+				englishListening1.setAccount(rs.getString("account"));
+				englishListening1.setScore(rs.getInt("score"));
+
+				englishListening1.setIdentity(rs.getString("identity"));
+				englishListening1.setCode(rs.getString("code"));
+				englishListening1.setMoney(rs.getInt("money"));
+				englishListening1.setTestid(rs.getString("testID"));
+				englishListening1.setTestplace(rs.getString("testPlace"));
+
+				englishListenings.add(englishListening1);
+
 			}
 			rs.close();
 			smt.close();
