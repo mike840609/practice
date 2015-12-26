@@ -63,7 +63,7 @@
 <LI><a href="sa_managerATscore">managerATscore</a>
 <LI><a href="sa_managerELscore">managerELscore</a>
 <hr>
-
+<LI><a href="sa_javamail">sa_javamail 驗證信</a>
 </UL>
 </body>
 </html>

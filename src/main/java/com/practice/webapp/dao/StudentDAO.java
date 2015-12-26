@@ -23,6 +23,8 @@ public interface StudentDAO {
 	public boolean accountCheck(Student student);
 	public boolean idCheck(Student student);
 	
+	public Student javamail(Student student);
+	
 //在此介面中聲明方法 但不去實作
 //等到實作時在實現方法
 }

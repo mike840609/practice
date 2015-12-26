@@ -460,4 +460,56 @@ public class StudentDAOImpl implements StudentDAO
 		return aStudent;
 	}
 
+	@Override
+	public Student javamail(Student student)
+	{
+		String sql = "SELECT * FROM student WHERE id = ?";
+		try
+		{
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setString(1, student.getId());
+			rs = smt.executeQuery();
+			if (rs.next())
+			{
+				student.setAccount(rs.getString("account"));
+				student.setPwd(rs.getString("pwd"));
+				student.setCode(rs.getString("code"));
+				student.setId(rs.getString("id"));
+				student.setName(rs.getString("name"));
+				student.setSex(rs.getString("sex"));
+				student.setBirth(rs.getString("birth"));
+				student.setTel(rs.getString("tel"));
+				student.setAddress(rs.getString("address"));
+				student.setEmail(rs.getString("email"));
+				// aStudent.setPhoto(rs.getString("picture"));
+			}
+			rs.close();
+			smt.close();
+
+		}
+		catch (SQLException e)
+		{
+			throw new RuntimeException(e);
+
+		}
+		finally
+		{
+			if (conn != null)
+			{
+				try
+				{
+					conn.close();
+				}
+				catch (SQLException e)
+				{
+				}
+			}
+		}
+		return student;
+	}
+	
+	
+	
+
 }

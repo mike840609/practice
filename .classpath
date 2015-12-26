@@ -32,5 +32,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/Users/mike840609/Documents/workspace/practice/src/main/webapp/WEB-INF/lib/javax.mail.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
