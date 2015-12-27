@@ -55,7 +55,8 @@ body {
 								<li class="divider"></li>
 								<li><a href="sa_perSearch"> 帳號資訊</a></li>
 								<li class="divider"></li>
-			
+								<li><a href="sa_javamail">mail寄送</a></li>
+								<li class="divider"></li>
 								<li><a href="sa_logout">登出</a></li>
 
 							</ul></li>

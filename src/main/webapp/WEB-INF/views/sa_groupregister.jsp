@@ -13,11 +13,11 @@
 <link rel="stylesheet" href="css/groupcss/buttonR.css">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<script
+<script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	
+
 <!-- 雲端函式庫 -->
 <!-- <link href="blog.css" rel="stylesheet">  -->
 <style>
@@ -36,11 +36,9 @@ body {
 </head>
 
 <body>
-
-
 <body
 	background="http://www.skjh.chc.edu.tw/ginnie/%E8%A1%9B%E7%94%9F%E7%B5%84/%E7%B6%B2%E9%A0%81%E5%9C%96%E7%89%87/%E8%83%8C%E6%99%AF%E5%9C%96/1-3%E8%83%8C%E6%99%AF%E5%9C%96.jpg">
-<%@include file="sa_groupNavbar.jspf" %>
+	<%@include file="sa_groupNavbar.jspf"%>
 	<ul>
 		<li class="liactive"><a
 			href="https://drive.google.com/file/d/0B3rEsDfGCM4rTlMteS1rSWxwVjA/view?usp=sharing"
@@ -68,5 +66,5 @@ body {
 			</div>
 		</div>
 	</div>
-	</body>
+</body>
 </html>

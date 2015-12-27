@@ -66,7 +66,7 @@ public class Sa_GroupController
 	@RequestMapping(value = "/sa_grouplogin", method = RequestMethod.POST)
 	public ModelAndView checkgrouplogin(@ModelAttribute sa_School school)
 	{
-		ModelAndView model = new ModelAndView("sa_groupregister");
+		ModelAndView model = new ModelAndView("redirect:/sa_groupregister");
 		sa_GroupDAO group = (sa_GroupDAO) context.getBean("groupCheck");
 
 		int State = group.loginCheck(school);
@@ -220,7 +220,7 @@ public class Sa_GroupController
 		sa_School schoolsession = (sa_School) context.getBean("schoolinfo");
 		sa_GroupDAO groupDAO = (sa_GroupDAO) context.getBean("groupDAO");
 		groupDAO.groupRegister(schoolsession);
-		ModelAndView model = new ModelAndView("excelSQL");
+		ModelAndView model = new ModelAndView("redirect:/sa_groupinfo");
 		return model;
 	}
 

@@ -67,7 +67,7 @@ public class javamailController
 			message.setFrom(new InternetAddress("mike840609@gmail.com.tw"));
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("mike840609@gmail.com.tw"));
 			message.setSubject(" 基本資料寄送 ");
-			message.setText("Dear"+ studentInfo.getName() +"\n 以下為您的帳號基本資料：\n\n\n  "
+			message.setText("Dear"+ studentInfo.getName() +"\n 以下為您的帳號基本資料：\n\n\n"
 					+"帳號："+studentInfo.getAccount()+"\n\n密碼:"+studentInfo.getPwd()+"\n\n身分證:"+
 					studentInfo.getId()+"\n\n姓名:"+studentInfo.getName()
 					+"\n\n生日:"+studentInfo.getBirth()+"\n\n電話:"+studentInfo.getTel()
@@ -82,7 +82,7 @@ public class javamailController
 			throw new RuntimeException(e);
 		}
 
-		ModelAndView model = new ModelAndView("sa_homepage");
+		ModelAndView model = new ModelAndView("redirect:/sa_homepage");
 
 		return model;
 	}
