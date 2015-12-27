@@ -14,10 +14,7 @@ import com.practice.webapp.entity.Student;
 import com.practice.webapp.entity.sa_managerAssignTest;
 import com.practice.webapp.entity.sa_managerBasicTest;
 import com.practice.webapp.entity.sa_managerEnglishListening;
-//import com.mysql.jdbc.Statement;
-//import com.practice.webapp.dao.ArticleDAO;
-//import com.practice.webapp.entity.Article;
-//import com.practice.webapp.entity.Article;
+
 
 
 public class ManagerDAOImpl implements ManagerDAO{

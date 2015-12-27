@@ -51,6 +51,8 @@ body {
 							data-toggle="dropdown"> 個人中心 <b class="caret"></b>
 						</a>
 							<ul class="dropdown-menu">
+								<li><a href="sa_login">登入</a></li>
+								<li class="divider"></li>
 								<li><a href="sa_accountregister">帳號註冊</a></li>
 								<li class="divider"></li>
 								<li><a href="sa_perSearch"> 帳號資訊</a></li>
@@ -63,7 +65,7 @@ body {
 					</ul>
 				</div>
 				<form class="navbar-form navbar-right" role="form">
-					<a href="" class="btn btn-info">${name},您好啊</a>
+					<a href="sa_login" class="btn btn-info">${name},您好啊</a>
 				</form>
 				<%-- <div class="navbar-form navbar-right">
 					<ul class="nav navbar-nav ">

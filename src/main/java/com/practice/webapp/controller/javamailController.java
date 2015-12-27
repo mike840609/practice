@@ -35,7 +35,7 @@ public class javamailController
 
 	
 	
-	//TLS 協定 帳號基本資料寄回 Transport Layer Security
+	//SSL 協定 帳號基本資料寄回 Secure Sockets Layer
 	@RequestMapping(value = "/sa_javamail", method = RequestMethod.POST)
 	public ModelAndView mailsend(@ModelAttribute Student student)
 	{

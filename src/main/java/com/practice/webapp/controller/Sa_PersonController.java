@@ -39,7 +39,11 @@ public class Sa_PersonController
 			StudentDAO studentDAO = (StudentDAO) context.getBean("studentDAO");
 			studentDAO.updateStu(student);
 			System.out.println("修改成功");
-			ModelAndView model = new ModelAndView("sa_homepage");
+			
+			//修改後重新寫入到session
+			account_session = studentDAO.setSession(account_session);
+			
+			ModelAndView model = new ModelAndView("redirect:/sa_homepage");
 			return model;
 		}
 
