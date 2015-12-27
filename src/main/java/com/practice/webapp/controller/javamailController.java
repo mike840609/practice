@@ -65,7 +65,8 @@ public class javamailController
 
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress("mike840609@gmail.com.tw"));
-			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("mike840609@gmail.com.tw"));
+//			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("mike840609@gmail.com.tw"));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(studentInfo.getEmail()));
 			message.setSubject(" 基本資料寄送 ");
 			message.setText("Dear"+ studentInfo.getName() +"\n 以下為您的帳號基本資料：\n\n\n"
 					+"帳號："+studentInfo.getAccount()+"\n\n密碼:"+studentInfo.getPwd()+"\n\n身分證:"+
