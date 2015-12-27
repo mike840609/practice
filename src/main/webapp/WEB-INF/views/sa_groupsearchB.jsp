@@ -34,8 +34,8 @@ body {
 	<div id="page-wrap">
 		<b><font size="4" color="3366FF ">團報 學測 成績</font></b>
 		<p></p>
-		<li><a href="sa_groupsearch.html">指考成績查詢</a></li>
-		<li><a href="sa_groupsearchC.html">英聽成績查詢</a></li>
+		<li><a href="sa_groupsearchA">指考成績查詢</a></li>
+		<li><a href="sa_groupsearchC">英聽成績查詢</a></li>
 		<center>
 			<section class="webdesigntuts-workshop">
 			<form action="sa_groupsearchB" method="post">

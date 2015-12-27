@@ -34,8 +34,8 @@ body {
 	<div id="page-wrap">
 		<b><font size="4" color="3366FF ">輔仁高中 英文聽力測驗 成績</font></b>
 		<p></p>
-		<li><a href="sa_groupsearch.html">學測成績查詢</a></li>
-		<li><a href="sa_groupsearchB.html">指考成績查詢</a></li>
+		<li><a href="sa_groupsearchB">學測成績查詢</a></li>
+		<li><a href="sa_groupsearchA">指考成績查詢</a></li>
 		<center>
 			<section class="webdesigntuts-workshop">
 			<form action="sa_groupsearchC" method="post">
